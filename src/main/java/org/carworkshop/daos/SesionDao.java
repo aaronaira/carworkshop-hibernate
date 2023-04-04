@@ -1,13 +1,10 @@
 package org.carworkshop.daos;
 
+import org.carworkshop.entities.Login;
 import org.carworkshop.entities.Sesion;
 import org.carworkshop.interfaces.Dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import java.time.Instant;
+import jakarta.persistence.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,10 +21,14 @@ public class SesionDao implements Dao<Sesion>{
 
     @Override
     public Optional<Sesion> get(int id) {
-
         return Optional.ofNullable(entityManager.find(Sesion.class, id));
-
     }
+
+    @Override
+    public Optional<Sesion> get(String email) {
+        return Optional.empty();
+    }
+
 
     @Override
     public List<Sesion> getAll() {
@@ -38,19 +39,16 @@ public class SesionDao implements Dao<Sesion>{
 
     @Override
     public void save(Sesion sesion) {
-        execute(entityManager -> entityManager.merge(sesion));
+        execute(entityManager -> entityManager.persist(sesion));
 
     }
 
     @Override
-    public void update(Sesion sesion, String[] params) {
-
-        sesion.setDtIniciosesion(Instant.parse(Objects.requireNonNull(params[1])));
-        sesion.setDtFinsesion(Instant.parse(Objects.requireNonNull(params[2])));
-        sesion.setIdCliente(Integer.valueOf(Objects.requireNonNull(params[3])));
+    public void update(Sesion sesion) {
         execute(entityManager -> entityManager.merge(sesion));
-
     }
+
+
 
     @Override
     public void delete(Sesion sesion) {
