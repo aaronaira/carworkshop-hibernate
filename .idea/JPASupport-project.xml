@@ -2,14 +2,38 @@
 <project version="4">
   <component name="AutoGeneratorSettingsState">
     <option name="addEntitySuffix" value="Entity" />
+    <option name="generateClassComment" value="false" />
+    <option name="generateFieldComment" value="false" />
+    <option name="generateJpaAnnotation" value="false" />
+    <option name="generateMethodComment" value="false" />
     <option name="ignoredFields">
       <set>
         <option value="" />
       </set>
     </option>
-    <option name="moduleName" value="carworkshop-hibernate-----" />
+    <option name="moduleName" value="carworkshop-hibernate" />
     <option name="moduleNameToSettings">
       <map>
+        <entry key="carworkshop-hibernate">
+          <value>
+            <ModuleSettings>
+              <option name="controllerPackageName" value="org.carworkshop.controllers" />
+              <option name="controllerParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="dtoPackageName" value="org.carworkshop.dtos" />
+              <option name="dtoParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="entityPackageName" value="org.carworkshop.entities" />
+              <option name="entityParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="generateController" value="true" />
+              <option name="generateDTO" value="true" />
+              <option name="generateEntity" value="false" />
+              <option name="generateRepository" value="false" />
+              <option name="mapperXmlParentDirectory" value="C:\Users\Lenovo\IdeaProjects\carworkshop-hibernate\src\main\resources" />
+              <option name="repositoryParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="serviceParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+              <option name="voParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+            </ModuleSettings>
+          </value>
+        </entry>
         <entry key="carworkshop-hibernate-----">
           <value>
             <ModuleSettings>
@@ -28,13 +52,13 @@
         </entry>
       </map>
     </option>
+    <option name="serializable" value="false" />
     <option name="useLombok" value="false" />
   </component>
   <component name="DatabaseSettingsState">
     <option name="database" value="carworkshop" />
     <option name="driverClass" value="com.mysql.jdbc.Driver" />
-    <option name="driverPath" value="C:\Users\darkonte\Downloads\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31.jar" />
-    <option name="language" value="es-ES" />
+    <option name="driverPath" value="C:\Users\Lenovo\Downloads\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31.jar" />
     <option name="url" value="jdbc:mysql://{host}:{port}/{database}?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
   </component>
 </project>
