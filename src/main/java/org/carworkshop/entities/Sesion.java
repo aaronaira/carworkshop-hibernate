@@ -8,7 +8,7 @@ import java.time.Instant;
 @ToString
 @Entity
 @Table(name = "sesion", indexes = {
-        @Index(name = "id_usuario_UNIQUE", columnList = "id_usuario", unique = true)
+        @Index(name = "id_cliente_UNIQUE", columnList = "id_cliente", unique = true)
 })
 public class Sesion {
     @Id
@@ -27,8 +27,8 @@ public class Sesion {
     @Column(name = "dt_finsesion", nullable = false)
     private Instant dtFinsesion;
 
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @Column(name = "id_cliente")
+    private Integer idCliente;
 
     public Integer getId() {
         return id;
@@ -62,12 +62,12 @@ public class Sesion {
         this.dtFinsesion = dtFinsesion;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdCliente() {
+        this.idCliente = idCliente;
     }
 
 }

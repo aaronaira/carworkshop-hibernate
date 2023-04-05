@@ -20,7 +20,7 @@ public class SesionDao implements Dao<Sesion>{
     }
 
     @Override
-    public Optional<Sesion> get(int id) {
+    public static Optional<Sesion> get(int id) {
         return Optional.ofNullable(entityManager.find(Sesion.class, id));
     }
 
