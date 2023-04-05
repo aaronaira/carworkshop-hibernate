@@ -4,29 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/ClienteDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Logout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JPASupport-project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
+    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/classes/Persona.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jpb/jpb-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/ClienteDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/ClienteDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +24,15 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+  </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -55,13 +46,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="2N4O1LXju3vrY88G3OjwPCPdt7x" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -70,18 +54,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aaron/Desktop/Aaron/carworkshop-hibernate-----&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "C:/Users/Aaron/Desktop/Aaron/carworkshop-hibernate-----",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\java\org\carworkshop\daos" />
@@ -121,11 +108,34 @@
       <option name="presentableId" value="Default" />
       <updated>1678919672515</updated>
     </task>
+    <task id="LOCAL-00001" summary="Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand.">
+      <created>1680709067632</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680709067632</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
     <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

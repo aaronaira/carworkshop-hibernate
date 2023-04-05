@@ -1,32 +1,25 @@
-package org.carworkshop.dtos;
+package org.carworkshop.classes;
 
-import org.carworkshop.classes.Persona;
 import org.carworkshop.entities.Login;
 
-public class ClienteDto extends Persona {
+public abstract class Persona {
 
-    private int id;
+    private Integer id;
     private String nombre;
     private String apellidos;
     private String dni;
     private String direccion;
-    private Login login;
+    private String email;
 
+    protected Persona() {
 
-    public ClienteDto(int id, String nombre, String apellidos, String dni, String direccion, Login login) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
-        this.direccion = direccion;
-        this.login = login;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -62,13 +55,28 @@ public class ClienteDto extends Persona {
         this.direccion = direccion;
     }
 
-
     public String getEmail() {
-        return this.login.getEmail();
+        return email;
     }
 
-    public void setLogin(Login login) {this.login = login;}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public Login getLogin() {return login;}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Persona persona)) return false;
 
+        if (!getDni().equals(persona.getDni())) return false;
+        return getEmail().equals(persona.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getDni().hashCode();
+        result = 31 * result + getEmail().hashCode();
+        return result;
+    }
 }
+
