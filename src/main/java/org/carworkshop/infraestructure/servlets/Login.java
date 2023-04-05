@@ -38,8 +38,20 @@ public class Login extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if(request.getCookies() != null) {
-             out.println("<h1>Estás Logueado como: " + request.getCookies()[0].getValue()+"</h1>");
-             out.println("<a href=\"/logout\">Logout</a>");
+            String email = request.getCookies()[0].getValue();
+            Optional<ClienteDto> cliente = LoginController.getUser(email);
+
+            out.println("<h1>ID USUARIO: " + cliente.get().getId() + "</h1>");
+
+            out.println("<h1>" + cliente.get().getEmail() + "</h1>");
+            out.println("<h1>" + cliente.get().getNombre() + "</h1>");
+            out.println("<h1>" + cliente.get().getDni() + "</h1>");
+            out.println("<h1>" + cliente.get().getApellidos() + "</h1>");
+            out.println("<h1>" + cliente.get().getDireccion() + "</h1>");
+
+
+
+            out.println("<a href=\"/logout\">Logout</a>");
         } else {
             out.println("<h1> Login </h1>");
             out.println("<!DOCTYPE html>\n" +
@@ -60,24 +72,42 @@ public class Login extends HttpServlet {
 
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String email = request.getParameter("fname");
         String password = request.getParameter("lname");
 
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
 
-        Optional<ClienteDto> userInfo = LoginController.checkIfUserExists(email, password);
 
-        userInfo.ifPresentOrElse((user)
-                        -> {
-                            Cookie cookie = new Cookie("user_id", user.getNombre());
-                            cookie.setMaxAge(60*60);
-                            response.addCookie(cookie);
-                            out.println("<h1>Estás logueado como: "+ user.getNombre() +" "+ user.getEmail()+"</h1>");
-                            }
-                        ,() -> out.println("<h1>Datos incorrectos!</h1><br>" +
-                        "<a href=\"/login\">Vuelve al login</a>"));
+        boolean checkFeilds = LoginController.checkUserFields(email, password);
+
+        if(checkFeilds) {
+
+            Optional<ClienteDto> userInfo = LoginController.checkIfUserExists(email, password);
+
+            userInfo.ifPresentOrElse((user)
+                            -> {
+
+                        Cookie cookie = new Cookie("user_id", user.getEmail());
+                        cookie.setMaxAge(60*60);
+                        response.addCookie(cookie);
+
+                        try {
+                            response.sendRedirect("/login");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                    }
+                    ,() -> out.println("<h1>Datos incorrectos!</h1><br>" +
+                            "<a href=\"/login\">Vuelve al login</a>"));
+
+        } else {
+            out.println("<h1> El correo o la contraseña no cumplen los requisistos</h1>");
+        }
+
+
 
     }
 

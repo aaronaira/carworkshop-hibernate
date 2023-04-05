@@ -1,10 +1,10 @@
 package org.carworkshop;
 
-import jakarta.persistence.Query;
 import org.carworkshop.daos.ClienteDao;
 import org.carworkshop.daos.LoginDao;
-import org.carworkshop.entities.Cliente;
-import org.carworkshop.entities.Login;
+import org.carworkshop.daos.SesionDao;
+import org.carworkshop.entities.Sesion;
+
 
 import java.util.Optional;
 
@@ -42,9 +42,10 @@ public class Main {
 
         //System.out.println(login.getId());
 
-        Optional<Login> login = loginDao.get("email55@email.com");
+        SesionDao sesionDao = new SesionDao();
+        Optional<Sesion> sesion = sesionDao.get(1);
 
-        login.ifPresent(k -> System.out.println(k.getEmail()));
+        System.out.println(sesion);
 
 
 

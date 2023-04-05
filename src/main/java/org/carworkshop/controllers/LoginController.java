@@ -5,9 +5,25 @@ import org.carworkshop.dtos.ClienteDto;
 import org.carworkshop.entities.Login;
 
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class LoginController {
+
+    public static boolean checkUserFields(String email, String password) {
+        Pattern patternEmail = Pattern.compile("\\w.*@.*(com|es|org|info|net|io|dev)", Pattern.CASE_INSENSITIVE);
+        Pattern patternPassword = Pattern.compile("\\w{0,15}", Pattern.CASE_INSENSITIVE);
+
+        Matcher matcherEmail = patternEmail.matcher(email);
+        Matcher matcherPassword = patternPassword.matcher(password);
+
+        boolean matcherEmailFound = matcherEmail.find();
+        boolean matcherPasswordFound = matcherPassword.find();
+
+        return matcherEmailFound && matcherPasswordFound;
+
+    }
 
     public static Optional<ClienteDto> checkIfUserExists(String email, String password) {
         LoginDao loginDao = new LoginDao();

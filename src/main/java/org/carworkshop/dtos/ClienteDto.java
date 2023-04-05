@@ -62,7 +62,8 @@ public class ClienteDto {
     }
 
     public String getEmail() {
-        return this.login.getEmail();
+        return login.getEmail();
+
     }
 
     public void setLogin(Login login) {this.login = login;}

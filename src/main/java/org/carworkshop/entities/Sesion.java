@@ -1,73 +1,70 @@
 package org.carworkshop.entities;
 
 import jakarta.persistence.*;
-import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-import java.time.Instant;
+import java.util.Date;
 
-@ToString
 @Entity
-@Table(name = "sesion", indexes = {
-        @Index(name = "id_usuario_UNIQUE", columnList = "id_usuario", unique = true)
-})
+@Table(name = "sesion")
 public class Sesion {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
-    private Cliente cliente;
-
     @Column(name = "dt_iniciosesion", nullable = false)
-    private Instant dtIniciosesion;
+    private Date dtIniciosesion;
 
     @Column(name = "dt_finsesion", nullable = false)
-    private Instant dtFinsesion;
+    private Date dtFinsesion;
 
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
-
-    public Integer getId() {
-        return id;
-    }
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "id", nullable = false, referencedColumnName = "id")
+    private Cliente idCliente;
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Instant getDtIniciosesion() {
-        return dtIniciosesion;
-    }
-
-    public void setDtIniciosesion(Instant dtIniciosesion) {
+    public void setDtIniciosesion(Date dtIniciosesion) {
         this.dtIniciosesion = dtIniciosesion;
     }
 
-    public Instant getDtFinsesion() {
-        return dtFinsesion;
+    public Date getDtIniciosesion() {
+        return dtIniciosesion;
     }
 
-    public void setDtFinsesion(Instant dtFinsesion) {
+    public void setDtFinsesion(Date dtFinsesion) {
         this.dtFinsesion = dtFinsesion;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Date getDtFinsesion() {
+        return dtFinsesion;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
     }
 
+    public Cliente getIdCliente() {
+        return idCliente;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Sesion{" +
+//                "id=" + id + '\'' +
+//                "dtIniciosesion=" + dtIniciosesion + '\'' +
+//                "dtFinsesion=" + dtFinsesion + '\'' +
+//                "idCliente=" + idCliente + '\'' +
+//                '}';
+//    }
 }

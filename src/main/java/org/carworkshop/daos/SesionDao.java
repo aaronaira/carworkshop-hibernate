@@ -1,14 +1,13 @@
 package org.carworkshop.daos;
 
-import org.carworkshop.entities.Login;
 import org.carworkshop.entities.Sesion;
 import org.carworkshop.interfaces.Dao;
 
 import jakarta.persistence.*;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
+
 
 public class SesionDao implements Dao<Sesion>{
 
@@ -21,7 +20,13 @@ public class SesionDao implements Dao<Sesion>{
 
     @Override
     public Optional<Sesion> get(int id) {
-        return Optional.ofNullable(entityManager.find(Sesion.class, id));
+
+        //return Optional.ofNullable(entityManager.find(Sesion.class, id));
+
+        return Optional.ofNullable(
+                entityManager.createQuery("FROM Sesion s WHERE s.id_cliente = :id", Sesion.class)
+                .setParameter("id", id)
+                        .getSingleResult());
     }
 
     @Override

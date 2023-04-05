@@ -41,7 +41,7 @@
         <class>org.carworkshop.entities.TotalesDiagnostico</class>
         <class>org.carworkshop.entities.TotalesFactura</class>
         <class>org.carworkshop.entities.Vehiculo</class>
-
+        <class>org.carworkshop.entities.Sesion</class>
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>

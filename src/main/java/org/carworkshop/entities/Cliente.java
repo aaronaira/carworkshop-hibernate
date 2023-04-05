@@ -1,8 +1,6 @@
 package org.carworkshop.entities;
 
 import jakarta.persistence.*;
-import lombok.ToString;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -32,7 +30,7 @@ public class Cliente {
     @JoinColumn(name = "email", nullable = false, referencedColumnName = "email")
     private Login email;
 
-    @OneToOne(mappedBy = "cliente")
+    @OneToOne(mappedBy = "idCliente",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     private Sesion sesion;
 
     public Integer getId() {
