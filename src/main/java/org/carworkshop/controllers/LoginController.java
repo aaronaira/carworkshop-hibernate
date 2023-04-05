@@ -13,13 +13,25 @@ public class LoginController {
         LoginDao loginDao = new LoginDao();
         Optional<Login> login = loginDao.get(email).filter(k -> k.getPassword().equals(password));
 
+        LoginController loginController = new LoginController();
+        return loginController.parseToClienteDto(login);
+    }
+
+    public static Optional<ClienteDto> getUser(String email) {
+        LoginDao loginDao = new LoginDao();
+        Optional<Login> login = loginDao.get(email);
+
+        LoginController loginController = new LoginController();
+        return loginController.parseToClienteDto(login);
+    }
+
+    private Optional<ClienteDto> parseToClienteDto(Optional<Login> login) {
         return login.map(k -> new ClienteDto(k.getCliente().getId(),
                 k.getCliente().getNombre(),
                 k.getCliente().getApellidos(),
                 k.getCliente().getDni(),
                 k.getCliente().getDireccion(),
                 k));
-
     }
 
 
