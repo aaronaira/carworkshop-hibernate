@@ -30,8 +30,8 @@ public class ClienteDao implements Dao<Cliente> {
     @Override
     public Optional<Cliente> get(String email){
 
-        return Optional.ofNullable(entityManager.createQuery("from Cliente c where email = :email", Cliente.class)
-                .setParameter("email", email)
+        return Optional.ofNullable(entityManager.createQuery("select c from Cliente c where c.email = :em", Cliente.class)
+                        .setParameter("em", email)
                 .getResultStream().findFirst().orElse(null));
 
     }
@@ -42,6 +42,11 @@ public class ClienteDao implements Dao<Cliente> {
         allUsers = entityManager.createQuery("from Cliente", Cliente.class).getResultList();
         return allUsers;
 
+    }
+
+    @Override
+    public List<Cliente> getAll(int id) {
+        return null;
     }
 
     @Override
