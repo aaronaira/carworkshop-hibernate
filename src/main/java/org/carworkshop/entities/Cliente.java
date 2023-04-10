@@ -1,8 +1,14 @@
 package org.carworkshop.entities;
 
 import jakarta.persistence.*;
+import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 
 @Entity
@@ -30,8 +36,6 @@ public class Cliente {
     @JoinColumn(name = "email", nullable = false, referencedColumnName = "email")
     private Login email;
 
-    @OneToOne(mappedBy = "idCliente",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    private Sesion sesion;
 
     public Integer getId() {
         return id;
@@ -81,13 +85,6 @@ public class Cliente {
         this.email = email;
     }
 
-    public Sesion getSesion() {
-        return sesion;
-    }
-
-    public void setSesion(Sesion sesion) {
-        this.sesion = sesion;
-    }
 
 //    @Override
 //    public String toString() {

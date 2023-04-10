@@ -1,13 +1,19 @@
 package org.carworkshop.daos;
 
+import org.carworkshop.entities.Login;
 import org.carworkshop.entities.Sesion;
 import org.carworkshop.interfaces.Dao;
 
 import jakarta.persistence.*;
+import org.hibernate.Hibernate;
+import org.hibernate.Internal;
+import org.hibernate.type.StandardBasicTypes;
+import org.hibernate.type.descriptor.jdbc.IntegerJdbcType;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
-
 
 public class SesionDao implements Dao<Sesion>{
 
@@ -18,15 +24,10 @@ public class SesionDao implements Dao<Sesion>{
 
     }
 
-    @Override
-    public Optional<Sesion> get(int id) {
 
-        //return Optional.ofNullable(entityManager.find(Sesion.class, id));
-
-        return Optional.ofNullable(
-                entityManager.createQuery("FROM Sesion s WHERE s.id_cliente = :id", Sesion.class)
-                .setParameter("id", id)
-                        .getSingleResult());
+    public Optional <Sesion> get(int id) {
+        return entityManager.createQuery("FROM Sesion s where s.id_cliente = " + id + " order by s.id desc limit 1", Sesion.class)
+                .getResultStream().findFirst();                                                                   //dt_iniciosesion
     }
 
     @Override
@@ -34,11 +35,16 @@ public class SesionDao implements Dao<Sesion>{
         return Optional.empty();
     }
 
-
     @Override
     public List<Sesion> getAll() {
+        return null;
+    }
+
+
+    @Override
+    public List<Sesion> getAll(int id) {
         List<Sesion> allClients;
-        allClients = entityManager.createQuery("from Sesion", Sesion.class).getResultList();
+        allClients = entityManager.createQuery("from Sesion s where id_cliente = " + id, Sesion.class).getResultList();
         return allClients;
     }
 

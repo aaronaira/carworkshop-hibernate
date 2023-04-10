@@ -28,6 +28,7 @@ public class LoginDao implements Dao<Login>  {
         return Optional.ofNullable(entityManager.find(Login.class, id));
     }
 
+
     @Override
     public Optional<Login> get(String email) {
 
@@ -44,6 +45,11 @@ public class LoginDao implements Dao<Login>  {
         allUsers = entityManager.createQuery("from Login", Login.class).getResultList();
         return allUsers;
 
+    }
+
+    @Override
+    public List<Login> getAll(int id) {
+        return null;
     }
 
     @Override

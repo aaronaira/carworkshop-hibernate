@@ -11,20 +11,26 @@ import java.util.Date;
 public class Sesion {
 
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "dt_iniciosesion", nullable = false)
+    @Column(name = "dt_iniciosesion")
     private Date dtIniciosesion;
 
-    @Column(name = "dt_finsesion", nullable = false)
+    @Column(name = "dt_finsesion")
     private Date dtFinsesion;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "id", nullable = false, referencedColumnName = "id")
-    private Cliente idCliente;
+    @ManyToOne(targetEntity = Cliente.class)
+    @JoinColumn(name = "id_cliente")
+    private Cliente id_cliente;
+
+    public Cliente getCliente() {
+        return id_cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.id_cliente = cliente;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -50,21 +56,14 @@ public class Sesion {
         return dtFinsesion;
     }
 
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
-    }
 
-    public Cliente getIdCliente() {
-        return idCliente;
+    @Override
+    public String toString() {
+        return "Sesion{" +
+                "id=" + id + '\'' +
+                "dtIniciosesion=" + dtIniciosesion + '\'' +
+                "dtFinsesion=" + dtFinsesion + '\'' +
+                "idCliente=" + id_cliente + '\'' +
+                '}';
     }
-
-//    @Override
-//    public String toString() {
-//        return "Sesion{" +
-//                "id=" + id + '\'' +
-//                "dtIniciosesion=" + dtIniciosesion + '\'' +
-//                "dtFinsesion=" + dtFinsesion + '\'' +
-//                "idCliente=" + idCliente + '\'' +
-//                '}';
-//    }
 }

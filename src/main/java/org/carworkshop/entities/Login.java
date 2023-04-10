@@ -54,10 +54,7 @@ public class Login  {
     }
 
     public void setCliente(Cliente cliente) {
-        if(cliente.getId() != null) {
-            this.cliente = cliente;
-        }
-        this.cliente = null;
+        this.cliente = cliente;
     }
 
 }

@@ -1,5 +1,7 @@
 package org.carworkshop.infraestructure.servlets;
 
+import org.carworkshop.controllers.SesionController;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +21,7 @@ public class Logout extends HttpServlet {
             for (Cookie cookie: cookies) {
                 cookie.setMaxAge(0);
                 response.addCookie(cookie);
+                SesionController.saveClientEndSession(cookie.getValue());
                 response.sendRedirect("/login");
             }
         }

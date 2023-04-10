@@ -1,6 +1,7 @@
 package org.carworkshop.infraestructure.servlets;
 
 import org.carworkshop.controllers.LoginController;
+import org.carworkshop.controllers.SesionController;
 import org.carworkshop.dtos.ClienteDto;
 
 import javax.servlet.ServletException;
@@ -41,31 +42,32 @@ public class Login extends HttpServlet {
             String email = request.getCookies()[0].getValue();
             Optional<ClienteDto> cliente = LoginController.getUser(email);
 
-            out.println("<h1>ID USUARIO: " + cliente.get().getId() + "</h1>");
-
-            out.println("<h1>" + cliente.get().getEmail() + "</h1>");
-            out.println("<h1>" + cliente.get().getNombre() + "</h1>");
-            out.println("<h1>" + cliente.get().getDni() + "</h1>");
-            out.println("<h1>" + cliente.get().getApellidos() + "</h1>");
-            out.println("<h1>" + cliente.get().getDireccion() + "</h1>");
-
+            cliente.ifPresent(k -> {
+                out.println("<h1>Estas logueado como: " + k.getEmail() + "</h1>");
+                out.println("<h1>Nombre: " + k.getNombre() + "</h1>");
+                out.println("<h1>Apellidos: " + k.getApellidos() + "</h1>");
+                out.println("<h1>DNI: " + k.getDni() + "</h1>");
+                out.println("<h1>Direccion: " + k.getDireccion() + "</h1>");
+                out.println("<h1>ID: " + k.getId() + "</h1>");
+            });
 
 
             out.println("<a href=\"/logout\">Logout</a>");
         } else {
             out.println("<h1> Login </h1>");
-            out.println("<!DOCTYPE html>\n" +
-                    "<html>\n" +
-                    "<body>\n" +
-                    "<form method=\"post\" action=\"/login\">\n" +
-                    "  <label for=\"fname\">Email:</label><br>\n" +
-                    "  <input type=\"text\" id=\"fname\" name=\"fname\"><br>\n" +
-                    "  <label for=\"lname\">Password:</label><br>\n" +
-                    "  <input type=\"text\" id=\"lname\" name=\"lname\"><br><br>\n" +
-                    "  <input type=\"submit\" value=\"Submit\">\n" +
-                    "</form> \n" +
-                    "</body>\n" +
-                    "</html>");
+            out.println("""
+                    <!DOCTYPE html>
+                    <html>
+                    <body>
+                    <form method="post" action="/login">
+                      <label for="fname">Email:</label><br>
+                      <input type="text" id="fname" name="fname"><br>
+                      <label for="lname">Password:</label><br>
+                      <input type="text" id="lname" name="lname"><br><br>
+                      <input type="submit" value="Submit">
+                    </form>
+                    </body>
+                    </html>""");
         }
 
 
@@ -92,6 +94,7 @@ public class Login extends HttpServlet {
                         Cookie cookie = new Cookie("user_id", user.getEmail());
                         cookie.setMaxAge(60*60);
                         response.addCookie(cookie);
+                        SesionController.saveClientStartSession(user);
 
                         try {
                             response.sendRedirect("/login");

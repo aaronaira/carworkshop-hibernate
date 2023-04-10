@@ -4,6 +4,11 @@ import org.carworkshop.daos.LoginDao;
 import org.carworkshop.dtos.ClienteDto;
 import org.carworkshop.entities.Login;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,9 +30,10 @@ public class LoginController {
 
     }
 
-    public static Optional<ClienteDto> checkIfUserExists(String email, String password) {
+    public static Optional<ClienteDto> checkIfUserExists(String email, String password) throws NoSuchAlgorithmException {
         LoginDao loginDao = new LoginDao();
-        Optional<Login> login = loginDao.get(email).filter(k -> k.getPassword().equals(password));
+        String userPasswordInput = hashpassword(password);
+        Optional<Login> login = loginDao.get(email).filter(k -> k.getPassword().equals(userPasswordInput));
 
         LoginController loginController = new LoginController();
         return loginController.parseToClienteDto(login);
@@ -48,6 +54,15 @@ public class LoginController {
                 k.getCliente().getDni(),
                 k.getCliente().getDireccion(),
                 k));
+    }
+
+    private static String hashpassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hashpass = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+
+        byte[] encoded = Base64.getEncoder().encode(Arrays.toString(hashpass).getBytes());
+
+        return new String(encoded);
     }
 
 
