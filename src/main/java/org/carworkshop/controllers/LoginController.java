@@ -3,6 +3,7 @@ package org.carworkshop.controllers;
 import org.carworkshop.daos.LoginDao;
 import org.carworkshop.dtos.ClienteDto;
 import org.carworkshop.entities.Login;
+import org.carworkshop.helpers.Hash;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -32,7 +33,7 @@ public class LoginController {
 
     public static Optional<ClienteDto> checkIfUserExists(String email, String password) throws NoSuchAlgorithmException {
         LoginDao loginDao = new LoginDao();
-        String userPasswordInput = hashpassword(password);
+        String userPasswordInput = Hash.createHash(password);
         Optional<Login> login = loginDao.get(email).filter(k -> k.getPassword().equals(userPasswordInput));
 
         LoginController loginController = new LoginController();
@@ -55,15 +56,5 @@ public class LoginController {
                 k.getCliente().getDireccion(),
                 k));
     }
-
-    private static String hashpassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hashpass = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-
-        byte[] encoded = Base64.getEncoder().encode(Arrays.toString(hashpass).getBytes());
-
-        return new String(encoded);
-    }
-
 
 }
