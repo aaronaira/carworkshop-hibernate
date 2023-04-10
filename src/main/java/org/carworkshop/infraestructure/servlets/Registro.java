@@ -9,8 +9,10 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.HttpCookie;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Map;
 import java.util.Objects;
 
 public class Registro extends HttpServlet {
@@ -73,11 +75,21 @@ public class Registro extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-            out.println("<h1>DATOS</h1>");
-//        out.println("<h2>" + fname + "</h2>");
-//        out.println("<h2>" + lname + "</h2>");
-//        out.println("<h2>" + dni + "</h2>");
-        RegistroController.getClientFields(request);
+
+        Map<String, String> errorList = null;
+        try {
+            errorList = RegistroController.getClientFields(request);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        if(errorList == null) {
+            out.println("<h1>Proceder con el registro</h1>");
+        } else {
+            errorList.forEach((k, v) -> {
+                out.println("<p>ErrorCode: "+k +" ErrorMessage: "+v);
+            });
+        }
+
 
     }
 
