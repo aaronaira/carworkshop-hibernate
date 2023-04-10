@@ -22,7 +22,7 @@ public class Login  {
     @Column(name = "password", nullable = false, length = 50)
     private String password;
 
-    @OneToOne(mappedBy = "email", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToOne(mappedBy = "email", cascade = CascadeType.ALL)
     private Cliente cliente;
 
     public Integer getId() {
@@ -54,7 +54,9 @@ public class Login  {
     }
 
     public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+
+        if(this.cliente != null) this.cliente = cliente;
+        this.cliente = null;
     }
 
 }
