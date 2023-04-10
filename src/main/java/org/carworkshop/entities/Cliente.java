@@ -31,8 +31,7 @@ public class Cliente {
     @Column(name = "direccion", nullable = false, length = 50)
     private String direccion;
 
-    @OneToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.ALL)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "email", nullable = false, referencedColumnName = "email")
     private Login email;
 
