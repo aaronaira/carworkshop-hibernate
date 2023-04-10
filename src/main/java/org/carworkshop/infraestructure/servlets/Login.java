@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 import java.util.Optional;
+
 
 public class Login extends HttpServlet {
 
@@ -86,7 +88,12 @@ public class Login extends HttpServlet {
 
         if(checkFeilds) {
 
-            Optional<ClienteDto> userInfo = LoginController.checkIfUserExists(email, password);
+            Optional<ClienteDto> userInfo = null;
+            try {
+                userInfo = LoginController.checkIfUserExists(email, password);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
 
             userInfo.ifPresentOrElse((user)
                             -> {
