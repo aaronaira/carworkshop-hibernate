@@ -72,13 +72,13 @@ public class RegistroController {
     private static void filterPassword(String password, String passwordConfirm) {
         if(!Objects.equals(password, passwordConfirm)) errorList.put(ErroresRegistro.PASSWORD1.getErrorCode(), ErroresRegistro.PASSWORD1.getErrorMessage());
 
-        Pattern pattern = Pattern.compile("(([a-z]+)|([A-Z]+)|([0-9]+)|([#$_.!@^+\\-])){8,15}");
+        Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}");
         Matcher matcher = pattern.matcher(password);
         if(!matcher.matches()) errorList.put(ErroresRegistro.PASSWORD.getErrorCode(), ErroresRegistro.PASSWORD.getErrorMessage());
     }
 
     private static void filterDni(String dni) {
-        boolean dniPattern = Pattern.matches("\\d{8}[A-Z]{1}", dni);
+        boolean dniPattern = Pattern.matches("\\d{8}[A-Z|a-z]{1}", dni);
         if(!dniPattern) errorList.put(ErroresRegistro.DNI.getErrorCode(), ErroresRegistro.DNI.getErrorMessage());
     }
 
