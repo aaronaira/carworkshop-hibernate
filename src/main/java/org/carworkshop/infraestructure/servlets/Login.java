@@ -104,14 +104,14 @@ public class Login extends HttpServlet {
                         SesionController.saveClientStartSession(user);
 
                         try {
-                            response.sendRedirect("/login");
+                            response.sendRedirect("/panel");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
 
                     }
                     ,() -> out.println("<h1>Datos incorrectos!</h1><br>" +
-                            "<a href=\"/login\">Vuelve al login</a>"));
+                            "<a href=\"/registro\">Regístrate!</a>"));
 
         } else {
             out.println("<h1> El correo o la contraseña no cumplen los requisistos</h1>");
