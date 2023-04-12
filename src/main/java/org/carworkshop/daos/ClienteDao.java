@@ -66,15 +66,10 @@ public class ClienteDao implements Dao<Cliente> {
         execute(entityManager -> entityManager.remove(cliente));
     }
 
-    private void execute(Consumer<EntityManager> action) {
+    private void execute(Consumer<EntityManager> action) throws RuntimeException {
         EntityTransaction tx = entityManager.getTransaction();
-        try {
-            tx.begin();
-            action.accept(entityManager);
-            tx.commit();
-        } catch (RuntimeException e) {
-            tx.rollback();
-            throw  e;
-        }
+        tx.begin();
+        action.accept(entityManager);
+        tx.commit();
     }
 }
