@@ -1,19 +1,14 @@
 package org.carworkshop.infraestructure.servlets;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.carworkshop.controllers.RegistroController;
-import org.carworkshop.entities.Cliente;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.HttpCookie;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.Base64;
 import java.util.Map;
-import java.util.Objects;
 
 public class Registro extends HttpServlet {
 
