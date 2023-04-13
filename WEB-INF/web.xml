@@ -20,6 +20,14 @@
         <servlet-name>logout</servlet-name>
         <servlet-class>org.carworkshop.infraestructure.servlets.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>panel</servlet-name>
+        <servlet-class>org.carworkshop.infraestructure.servlets.Panel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>panel</servlet-name>
+        <url-pattern>/panel</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>registro</servlet-name>
         <url-pattern>/registro</url-pattern>
