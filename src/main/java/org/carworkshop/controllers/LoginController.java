@@ -1,10 +1,16 @@
 package org.carworkshop.controllers;
 
+import javax.servlet.http.*;
+
+import org.carworkshop.Enums.ErroresLogin;
 import org.carworkshop.daos.LoginDao;
 import org.carworkshop.dtos.ClienteDto;
 import org.carworkshop.entities.Login;
+import org.carworkshop.entities.Sesion;
 import org.carworkshop.helpers.Hash;
 
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +25,7 @@ public class LoginController {
 
     public static boolean checkUserFields(String email, String password) {
         Pattern patternEmail = Pattern.compile("\\w.*@.*(com|es|org|info|net|io|dev)", Pattern.CASE_INSENSITIVE);
-        Pattern patternPassword = Pattern.compile("\\w{0,15}", Pattern.CASE_INSENSITIVE);
+        Pattern patternPassword = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}");
 
         Matcher matcherEmail = patternEmail.matcher(email);
         Matcher matcherPassword = patternPassword.matcher(password);
@@ -28,33 +34,44 @@ public class LoginController {
         boolean matcherPasswordFound = matcherPassword.find();
 
         return matcherEmailFound && matcherPasswordFound;
-
     }
 
-    public static Optional<ClienteDto> checkIfUserExists(String email, String password) throws NoSuchAlgorithmException {
+    public static boolean checkIfUserExists(String email, String password, HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException {
         LoginDao loginDao = new LoginDao();
         String userPasswordInput = Hash.createHash(password);
+        HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(60*60);
+
+        if(!checkUserFields(email, password)) {
+            session.setAttribute("cliente", ErroresLogin.PASSWORD_WRONG.getErrorMessage());
+            return false;
+        }
+
         Optional<Login> login = loginDao.get(email).filter(k -> k.getPassword().equals(userPasswordInput));
 
-        LoginController loginController = new LoginController();
-        return loginController.parseToClienteDto(login);
+
+        if (login.isPresent()) {
+            session.setAttribute("cliente", parseToClienteDto(login.get()));
+            return true;
+        } else {
+            session.setAttribute("cliente", ErroresLogin.EMAIL_NOT_FOUND.getErrorMessage());
+            return false;
+        }
     }
 
-    public static Optional<ClienteDto> getUser(String email) {
-        LoginDao loginDao = new LoginDao();
-        Optional<Login> login = loginDao.get(email);
+    public static boolean checkIfUserIsLogged(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        return session.getAttribute("cliente") instanceof ClienteDto;
 
-        LoginController loginController = new LoginController();
-        return loginController.parseToClienteDto(login);
     }
 
-    private Optional<ClienteDto> parseToClienteDto(Optional<Login> login) {
-        return login.map(k -> new ClienteDto(k.getCliente().getId(),
-                k.getCliente().getNombre(),
-                k.getCliente().getApellidos(),
-                k.getCliente().getDni(),
-                k.getCliente().getDireccion(),
-                k));
+    private static ClienteDto parseToClienteDto(Login login) {
+        return new ClienteDto(login.getCliente().getId(),
+                login.getCliente().getNombre(),
+                login.getCliente().getApellidos(),
+                login.getCliente().getDni(),
+                login.getCliente().getDireccion(),
+                login);
     }
 
 }

@@ -1,14 +1,14 @@
 package org.carworkshop.infraestructure.servlets;
 
+import lombok.SneakyThrows;
+import org.carworkshop.Enums.ErroresLogin;
 import org.carworkshop.controllers.LoginController;
 import org.carworkshop.controllers.SesionController;
 import org.carworkshop.dtos.ClienteDto;
 
+import javax.script.ScriptContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
@@ -18,6 +18,24 @@ import java.util.Optional;
 
 public class Login extends HttpServlet {
 
+    private static final String logingForm = """
+                    <!DOCTYPE html>
+                    <html>
+                    <body>
+                    <h1>LOGIN</h1>
+                    <form method="post" action="/login">
+                      <label for="email">Email:</label><br>
+                      <input type="text" id="email" name="email"><br>
+                      <label for="password">Password:</label><br>
+                      <input type="password" id="password" name="password"><br><br>
+                      <input type="submit" value="Envia">
+                    </form>
+                    <br>
+                    </body>
+                    </html>""";
+
+    public Login() throws IOException {
+    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -37,87 +55,48 @@ public class Login extends HttpServlet {
 //
 //        Cliente clienteDTO = objectMapper.readValue(cliente0, Cliente.class);
 
+//        out.println("<h1> Login </h1>");
+//        out.println("""
+//                    <!DOCTYPE html>
+//                    <html>
+//                    <body>
+//                    <form method="post" action="/login">
+//                      <label for="fname">Email:</label><br>
+//                      <input type="text" id="fname" name="fname"><br>
+//                      <label for="lname">Password:</label><br>
+//                      <input type="text" id="lname" name="lname"><br><br>
+//                      <input type="submit" value="Submit">
+//                    </form>
+//                    </body>
+//                    </html>""");
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
 
-        if(request.getCookies() != null) {
-            String email = request.getCookies()[0].getValue();
-            Optional<ClienteDto> cliente = LoginController.getUser(email);
+        System.out.println(session.getAttribute("cliente") + " ---> session");
 
-            cliente.ifPresent(k -> {
-                out.println("<h1>Estas logueado como: " + k.getEmail() + "</h1>");
-                out.println("<h1>Nombre: " + k.getNombre() + "</h1>");
-                out.println("<h1>Apellidos: " + k.getApellidos() + "</h1>");
-                out.println("<h1>DNI: " + k.getDni() + "</h1>");
-                out.println("<h1>Direccion: " + k.getDireccion() + "</h1>");
-                out.println("<h1>ID: " + k.getId() + "</h1>");
-            });
-
-
-            out.println("<a href=\"/logout\">Logout</a>");
+        if(session.getAttribute("cliente") != null) {
+            response.sendRedirect("/panel");
         } else {
-            out.println("<h1> Login </h1>");
-            out.println("""
-                    <!DOCTYPE html>
-                    <html>
-                    <body>
-                    <form method="post" action="/login">
-                      <label for="fname">Email:</label><br>
-                      <input type="text" id="fname" name="fname"><br>
-                      <label for="lname">Password:</label><br>
-                      <input type="text" id="lname" name="lname"><br><br>
-                      <input type="submit" value="Submit">
-                    </form>
-                    </body>
-                    </html>""");
+            out.println(logingForm);
         }
-
-
 
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String email = request.getParameter("fname");
-        String password = request.getParameter("lname");
-
-        PrintWriter out = response.getWriter();
+    @SneakyThrows
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-        boolean checkFeilds = LoginController.checkUserFields(email, password);
-
-        if(checkFeilds) {
-
-            Optional<ClienteDto> userInfo = null;
-            try {
-                userInfo = LoginController.checkIfUserExists(email, password);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
-
-            userInfo.ifPresentOrElse((user)
-                            -> {
-
-                        Cookie cookie = new Cookie("user_id", user.getEmail());
-                        cookie.setMaxAge(60*60);
-                        response.addCookie(cookie);
-                        SesionController.saveClientStartSession(user);
-
-                        try {
-                            response.sendRedirect("/panel");
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-
-                    }
-                    ,() -> out.println("<h1>Datos incorrectos!</h1><br>" +
-                            "<a href=\"/registro\">Regístrate!</a>"));
-
+        if(request.getSession().getAttribute("cliente") != null) {
+            response.sendRedirect("/panel");
         } else {
-            out.println("<h1> El correo o la contraseña no cumplen los requisistos</h1>");
+            out.println(logingForm + request.getSession().getAttribute("cliente"));
         }
-
-
 
     }
 

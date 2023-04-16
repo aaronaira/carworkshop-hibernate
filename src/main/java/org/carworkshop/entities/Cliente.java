@@ -35,6 +35,13 @@ public class Cliente {
     @JoinColumn(name = "email", nullable = false, referencedColumnName = "email")
     private Login email;
 
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Vehiculo> vehiculos = new ArrayList<>();
+
+
+    public List<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
 
     public Integer getId() {
         return id;

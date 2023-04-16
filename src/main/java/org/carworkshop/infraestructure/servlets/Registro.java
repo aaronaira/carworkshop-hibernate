@@ -1,10 +1,12 @@
 package org.carworkshop.infraestructure.servlets;
 
 import org.carworkshop.controllers.RegistroController;
+import org.carworkshop.dtos.ClienteDto;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
@@ -12,30 +14,9 @@ import java.util.Map;
 
 public class Registro extends HttpServlet {
 
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-//        Cliente cliente = new Cliente();
-//        cliente.setNombre("Aaron");
-//        cliente.setDni("12345678A");
-//        cliente.setApellidos("aira");
-//        cliente.setId(1);
-//        String encodeObject = Base64.getEncoder().encodeToString(cliente.toString().getBytes());
-//
-//        Cookie cookie = new Cookie("user_id", encodeObject);
-//        cookie.setMaxAge(60*60);
-//        response.addCookie(cookie);
-//        byte[] decodedBytes = Base64.getDecoder().decode(encodeObject);
-//        String cliente0 = new String(decodedBytes);
-//        ObjectMapper objectMapper = new ObjectMapper();
-//
-//        Cliente clienteDTO = objectMapper.readValue(cliente0, Cliente.class);
-
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1> Registro </h1>");
-        out.println("""
+    private static final String registerForm = """
                 <!DOCTYPE html><html><body>
+                <h1>REGISTRO</h1>
                 <form method="post" action="/registro">
                   <label for="fname">Nombre:</label><br>
                   <input type="text" id="fname" name="fname" required><br>
@@ -54,19 +35,25 @@ public class Registro extends HttpServlet {
                   <input type="submit" name="submit" value="Submit">
                 </form>
                 </body>
-                </html>""");
+                </html>
+                """;
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession(false);
+
+
+        if(session.getAttribute("cliente") instanceof ClienteDto) {
+            response.sendRedirect("/panel");
+        } else {
+            out.println(registerForm);
+        }
+
 
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        String fname = request.getParameter("fname");
-//        String lname = request.getParameter("lname");
-//        String dni = request.getParameter("dni");
-//        String address = request.getParameter("address");
-//        String password = request.getParameter("password");
-//        String passwordConfirm = request.getParameter("passwordConfirm");
-//        String email = request.getParameter("email");
-
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -77,6 +64,7 @@ public class Registro extends HttpServlet {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+
         if(errorList == null) {
             out.println("<h1>Proceder con el registro</h1>");
         } else {
