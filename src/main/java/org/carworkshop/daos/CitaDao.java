@@ -5,8 +5,6 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.carworkshop.entities.Cita;
-import org.carworkshop.entities.Cliente;
-import org.carworkshop.entities.Vehiculo;
 import org.carworkshop.interfaces.Dao;
 
 import java.util.List;
@@ -77,4 +75,3 @@ public class CitaDao implements Dao<Cita> {
         }
     }
 }
-

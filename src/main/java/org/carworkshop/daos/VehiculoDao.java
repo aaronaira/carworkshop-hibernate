@@ -1,23 +1,24 @@
 package org.carworkshop.daos;
 
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+import org.carworkshop.entities.Vehiculo;
+import org.carworkshop.interfaces.Dao;
 
-
-import jakarta.persistence.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.carworkshop.entities.Vehiculo;
-import org.carworkshop.interfaces.Dao;
-
-public class VehiculoDao implements Dao<Vehiculo>  {
+public class VehiculoDao implements Dao<Vehiculo> {
 
 
     private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.carworkshop");
     private final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-    public VehiculoDao () {
+    public VehiculoDao() {
 
     }
 
@@ -27,16 +28,10 @@ public class VehiculoDao implements Dao<Vehiculo>  {
         return Optional.ofNullable(entityManager.find(Vehiculo.class, id));
     }
 
-
     @Override
-    public Optional<Vehiculo> get(String email) {
-
-        return Optional.ofNullable(entityManager
-                .createQuery("from Vehiculo v where v.id_cliente = :email", Vehiculo.class)
-                .setParameter("email", email)
-                .getResultStream().findFirst().orElse(null));
+    public Optional<Vehiculo> get(String email){
+        return Optional.empty();
     }
-
 
     @Override
     public List<Vehiculo> getAll() {
@@ -68,15 +63,10 @@ public class VehiculoDao implements Dao<Vehiculo>  {
         execute(entityManager -> entityManager.remove(vehiculo));
     }
 
-    private void execute(Consumer<EntityManager> action) {
+    private void execute(Consumer<EntityManager> action) throws RuntimeException {
         EntityTransaction tx = entityManager.getTransaction();
-        try {
-            tx.begin();
-            action.accept(entityManager);
-            tx.commit();
-        } catch (RuntimeException e) {
-            tx.rollback();
-            throw  e;
-        }
+        tx.begin();
+        action.accept(entityManager);
+        tx.commit();
     }
 }
