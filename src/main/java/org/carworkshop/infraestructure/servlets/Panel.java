@@ -25,7 +25,8 @@ public class Panel extends HttpServlet {
             out.println("<h2>DNI: " + cliente.getDni());
             out.println("<h2>Direccion: " + cliente.getDireccion());
             out.println("<h1>MENU</h1>");
-            out.println("<a href='/panel/nuevovehiculo'>Agregar un nuevo vehículo");
+            out.println("<a href='/panel/nuevovehiculo'>Agregar un nuevo vehículo</a>");
+            out.println("<a href='/panel/nuevacita'>Pedir cita</a>");
         } else {
             response.sendRedirect("/login");
         }
