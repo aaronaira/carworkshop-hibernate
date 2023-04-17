@@ -3,9 +3,6 @@ package org.carworkshop.entities;
 import jakarta.persistence.*;
 import lombok.ToString;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @ToString
 @Table(name = "vehiculo")

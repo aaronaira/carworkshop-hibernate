@@ -12,7 +12,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -86,6 +85,4 @@ public class RegistroController {
         boolean emailPattern = Pattern.matches(".*@*", email);
         if(!emailPattern) errorList.put(ErroresRegistro.EMAIL.getErrorCode(), ErroresRegistro.EMAIL.getErrorMessage());
     }
-
-
 }

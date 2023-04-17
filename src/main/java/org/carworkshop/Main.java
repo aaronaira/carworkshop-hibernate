@@ -1,23 +1,19 @@
 package org.carworkshop;
 
-import org.carworkshop.daos.ClienteDao;
-import org.carworkshop.daos.LoginDao;
-import org.carworkshop.daos.SesionDao;
-import org.carworkshop.daos.VehiculoDao;
+import org.carworkshop.daos.*;
+import org.carworkshop.entities.CabeceraDiagnostico;
+import org.carworkshop.entities.Cita;
 import org.carworkshop.entities.Cliente;
-import org.carworkshop.entities.Sesion;
 import org.carworkshop.entities.Vehiculo;
 
-
-import java.util.Collections;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Optional;
-import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
         ClienteDao clienteDao = new ClienteDao();
         LoginDao loginDao = new LoginDao();
-        VehiculoDao vehiculoDao = new VehiculoDao();
 
 //        Cliente cliente = new Cliente();
 //        Login login = new Login();
@@ -44,32 +40,31 @@ public class Main {
 //
 //        loginDao.update(login);
 
-        //Cliente cliente = clienteDao.get("email56@email.com");
+        Optional<Cliente> cliente = clienteDao.get(37);
 
         //System.out.println(login.getId());
+        CabeceraDiagnosticoDao cabeceraDiagnosticoDao = new CabeceraDiagnosticoDao();
+        Optional<CabeceraDiagnostico> cabeceraDiagnostico = cabeceraDiagnosticoDao.get(1);
+        VehiculoDao vehiculoDao = new VehiculoDao();
 
-//        SesionDao sesionDao = new SesionDao();
-//        Optional<Sesion> sesion = sesionDao.get(1);
-//
-//        System.out.println(sesion);
+        Optional<Vehiculo> vehiculo = vehiculoDao.get(1);
+        CitaDao citaDao = new CitaDao();
 
-        Optional<Cliente> cliente = clienteDao.get(25);
-        Optional<Vehiculo> vehiculo = vehiculoDao.get(2);
+        Cita cita = new Cita();
+        Date dateJava = new Date();
+        Timestamp sqlFecha = new Timestamp(dateJava.getTime());
+        cita.setFechaHora(sqlFecha);
+        cita.setIdCliente(cliente.get());
+        cita.setIdVehiculo(vehiculo.get());
+        cita.setIdDiagnostico(cabeceraDiagnostico.get());
+        citaDao.save(cita);
 
-//        Vehiculo vehiculo1 = new Vehiculo();
-//        vehiculo1.setBastidor("123123AB");
-//        vehiculo1.setTipoVehiculo(1);
-//        vehiculo1.setCliente(cliente.get());
-//        vehiculo1.setMatricula("5566GZK");
-//        vehiculo1.setMarca("Seat");
-//        vehiculo1.setModelo("Ibiza");
-//        vehiculo1.setVYear(2010);
-//
-//
-//        vehiculoDao.save(vehiculo1);
+        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
 
-        //System.out.println(vehiculo.get().getCliente().getNombre());
-        System.out.println(cliente.get().getVehiculos());
+
+
+
+
 
 
 

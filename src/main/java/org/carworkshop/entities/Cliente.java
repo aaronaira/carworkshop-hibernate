@@ -1,13 +1,8 @@
 package org.carworkshop.entities;
 
 import jakarta.persistence.*;
-import lombok.ToString;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 

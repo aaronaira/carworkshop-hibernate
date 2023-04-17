@@ -1,19 +1,14 @@
 package org.carworkshop.infraestructure.servlets;
 
 import lombok.SneakyThrows;
-import org.carworkshop.Enums.ErroresLogin;
 import org.carworkshop.controllers.LoginController;
-import org.carworkshop.controllers.SesionController;
 import org.carworkshop.dtos.ClienteDto;
 
-import javax.script.ScriptContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.NoSuchAlgorithmException;
-import java.util.Objects;
-import java.util.Optional;
 
 
 public class Login extends HttpServlet {
@@ -72,14 +67,13 @@ public class Login extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
 
-        System.out.println(session.getAttribute("cliente") + " ---> session");
+        System.out.println(request.getServletContext().getAttribute("cliente") + " ---> session");
 
-        if(session.getAttribute("cliente") != null) {
+        if(request.getServletContext().getAttribute("cliente") instanceof ClienteDto) {
             response.sendRedirect("/panel");
         } else {
-            out.println(logingForm);
+            out.println(logingForm + request.getServletContext().getAttribute("cliente"));
         }
 
     }
@@ -92,10 +86,12 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if(request.getSession().getAttribute("cliente") != null) {
+        LoginController.checkIfUserExists(email, password, request);
+
+        if(request.getServletContext().getAttribute("cliente") != null) {
             response.sendRedirect("/panel");
         } else {
-            out.println(logingForm + request.getSession().getAttribute("cliente"));
+            out.println(logingForm + request.getServletContext().getAttribute("cliente"));
         }
 
     }
