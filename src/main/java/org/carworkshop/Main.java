@@ -89,7 +89,7 @@ public class Main {
 
             System.out.println(formatDate(cita.getFechaHora()));
 
-            if (formatDate(cita.getFechaHora()).equals(fecha)) {
+            if (formatDate(cita.getFechaHora()).equals(gcal.getTime())) {
 
                 System.out.println("Hay citas concedidas en la fecha " + fecha);
 
