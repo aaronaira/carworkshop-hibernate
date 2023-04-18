@@ -1,9 +1,10 @@
 package org.carworkshop;
 
-import org.carworkshop.daos.*;
+import org.carworkshop.daos.CitaDao;
 import org.carworkshop.entities.Cita;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static org.carworkshop.classes.Calendario.formatDate;
 import static org.carworkshop.classes.Calendario.showCalendar;
@@ -74,27 +75,34 @@ public class Main {
 
         /* Displaying Current Date using
              Calendar Class */
-        System.out.println("Calendar date: "
-                + (gcal.getTime()));
+        showCalendar(2023,4,1);
 
-        /* Displaying Current Date using
-             GregorianCalendar Class */
-        System.out.print("Gregorian date: "
-                + gcal.getTime());
         System.out.println();
-        System.out.println(formatDate(citaDao.get(1).get().getFechaHora()));
-        System.out.println(formatDate(gcal.getTime()));
+
         System.out.println(formatDate(gcal.getTime()) + " Fecha actual");
+
+        System.out.println();
+
+        String fecha = "2009-11-11 13";;
+
         for (Cita cita:citaDao.getAll()) {
+
             System.out.println(formatDate(cita.getFechaHora()));
-            if (formatDate(cita.getFechaHora()).equals(formatDate(gcal.getTime()))) {
+
+            if (formatDate(cita.getFechaHora()).equals(fecha)) {
+
+                System.out.println("Hay citas concedidas en la fecha " + fecha);
+
+            } else {
 
 
-                System.out.println("Hay citas concedidas en la fecha " + formatDate(gcal.getTime()));
 
             }
 
         }
+
+        System.out.println();
+        System.out.println("No hay citas concedidas en la fecha ");
 
 
     }
