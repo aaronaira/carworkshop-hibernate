@@ -5,7 +5,7 @@ import org.carworkshop.entities.Login;
 
 public class ClienteDto extends Persona {
 
-    private int id;
+    private Integer id;
     private String nombre;
     private String apellidos;
     private String dni;

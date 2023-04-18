@@ -1,21 +1,12 @@
 package org.carworkshop;
 
 import org.carworkshop.daos.*;
-import org.carworkshop.entities.CabeceraDiagnostico;
 import org.carworkshop.entities.Cita;
-import org.carworkshop.entities.Cliente;
-import org.carworkshop.entities.Vehiculo;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjuster;
-import java.time.temporal.TemporalAdjusters;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import static org.carworkshop.classes.Calendario.formatDate;
+import static org.carworkshop.classes.Calendario.showCalendar;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,9 +36,8 @@ public class Main {
 //
         //login.setEmail("email56@email.com");
 //
-//
 //        loginDao.update(login);
-//
+
 //        Optional<Cliente> cliente = clienteDao.get(37);
 //
 //        //System.out.println(login.getId());
@@ -56,9 +46,9 @@ public class Main {
 //        VehiculoDao vehiculoDao = new VehiculoDao();
 //
 //        Optional<Vehiculo> vehiculo = vehiculoDao.get(1);
-//        CitaDao citaDao = new CitaDao();
+        CitaDao citaDao = new CitaDao();
 //
-//        Cita cita = new Cita();
+        //Cita cita = new Cita();
 //        Date dateJava = new Date();
 //        Timestamp sqlFecha = new Timestamp(dateJava.getTime());
 //        cita.setFechaHora(sqlFecha);
@@ -67,44 +57,52 @@ public class Main {
 //        cita.setIdDiagnostico(cabeceraDiagnostico.get());
 //        citaDao.save(cita);
 //
-//        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
 
 
-        LocalDate start = LocalDate.now();
-        LocalDate end = LocalDate.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth());
 
-        List<LocalDate> dates = Stream.iterate(start, date -> date.plusDays(1))
-                .limit(ChronoUnit.DAYS.between(start, end))
-                .toList();
 
-        String daysOfWeek = "Lun Mar Mie Jue Vie Sab Dom\n";
-        System.out.print(daysOfWeek);
-        int day = 3;
-        int today = 7;
+/* Displaying Current Date using
+             Calendar Class */
 
-        for (LocalDate date : dates) {
-            System.out.println(date.getDayOfWeek().name());
-            for (int i = 0; i < date.getDayOfMonth(); i++) {
-                int dayOfMonth = date.getDayOfMonth();
-                for (int j = 1; j <= date.getDayOfWeek().getValue(); j++) {
-                    System.out.printf("%-4s", "");
 
-                    for (int k = dayOfMonth; k <= date.lengthOfMonth(); k++) {
-                        System.out.printf("%-4d", k);
+        // Creating an object of Calendar Class
+        Calendar cal = Calendar.getInstance();
 
-                }
+        /* Creating an object of
+             GregorianCalendar Class */
+        GregorianCalendar gcal = new GregorianCalendar();
+
+        /* Displaying Current Date using
+             Calendar Class */
+        System.out.println("Calendar date: "
+                + (gcal.getTime()));
+
+        /* Displaying Current Date using
+             GregorianCalendar Class */
+        System.out.print("Gregorian date: "
+                + gcal.getTime());
+        System.out.println();
+        System.out.println(formatDate(citaDao.get(1).get().getFechaHora()));
+        System.out.println(formatDate(gcal.getTime()));
+        System.out.println(formatDate(gcal.getTime()) + " Fecha actual");
+        for (Cita cita:citaDao.getAll()) {
+            System.out.println(formatDate(cita.getFechaHora()));
+            if (formatDate(cita.getFechaHora()).equals(formatDate(gcal.getTime()))) {
+
+
+                System.out.println("Hay citas concedidas en la fecha " + formatDate(gcal.getTime()));
+
             }
+
         }
-    }
-
-//        for (int i = 1; i < day; i++) {
-//            System.out.printf("%-4s", "");
-//        }
-//
-//        for(int i = day; i <= today; i++) {
-//            System.out.printf("%-4d", i);
-//        }
 
 
     }
+
+
+
+
 }
+
+
+
