@@ -1,11 +1,19 @@
 package org.carworkshop;
 
-import java.time.YearMonth;
+import org.carworkshop.daos.*;
+import org.carworkshop.entities.CabeceraDiagnostico;
+import org.carworkshop.entities.Cita;
+import org.carworkshop.entities.Cliente;
+import org.carworkshop.entities.Vehiculo;
+
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-//        ClienteDao clienteDao = new ClienteDao();
-//        LoginDao loginDao = new LoginDao();
+        ClienteDao clienteDao = new ClienteDao();
+        LoginDao loginDao = new LoginDao();
 
 //        Cliente cliente = new Cliente();
 //        Login login = new Login();
@@ -32,36 +40,26 @@ public class Main {
 //
 //        loginDao.update(login);
 
-//        Optional<Cliente> cliente = clienteDao.get(37);
-//
-//        //System.out.println(login.getId());
-//        CabeceraDiagnosticoDao cabeceraDiagnosticoDao = new CabeceraDiagnosticoDao();
-//        Optional<CabeceraDiagnostico> cabeceraDiagnostico = cabeceraDiagnosticoDao.get(1);
-//        VehiculoDao vehiculoDao = new VehiculoDao();
-//
-//        Optional<Vehiculo> vehiculo = vehiculoDao.get(1);
-//        CitaDao citaDao = new CitaDao();
-//
-//        Cita cita = new Cita();
-//        Date dateJava = new Date();
-//        Timestamp sqlFecha = new Timestamp(dateJava.getTime());
-//        cita.setFechaHora(sqlFecha);
-//        cita.setIdCliente(cliente.get());
-//        cita.setIdVehiculo(vehiculo.get());
-//        cita.setIdDiagnostico(cabeceraDiagnostico.get());
-//        citaDao.save(cita);
+        Optional<Cliente> cliente = clienteDao.get(37);
 
-//        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
-//
-//        Calendar calendar = Calendar.getInstance();
-//        TimeZone tz = calendar.getTimeZone();
-//        ZoneId zid = tz == null ? ZoneId.systemDefault() : tz.toZoneId();
-//        LocalDate localDate = LocalDate.ofInstant(calendar.toInstant(), zid);
-//
-//        System.out.println(localDate);
-        YearMonth ym = YearMonth.of(2013, 10);
+        //System.out.println(login.getId());
+        CabeceraDiagnosticoDao cabeceraDiagnosticoDao = new CabeceraDiagnosticoDao();
+        Optional<CabeceraDiagnostico> cabeceraDiagnostico = cabeceraDiagnosticoDao.get(1);
+        VehiculoDao vehiculoDao = new VehiculoDao();
 
-        System.out.println(ym.getMonth());
+        Optional<Vehiculo> vehiculo = vehiculoDao.get(1);
+        CitaDao citaDao = new CitaDao();
+
+        Cita cita = new Cita();
+        Date dateJava = new Date();
+        Timestamp sqlFecha = new Timestamp(dateJava.getTime());
+        cita.setFechaHora(sqlFecha);
+        cita.setIdCliente(cliente.get());
+        cita.setIdVehiculo(vehiculo.get());
+        cita.setIdDiagnostico(cabeceraDiagnostico.get());
+        citaDao.save(cita);
+
+        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
 
 
 
