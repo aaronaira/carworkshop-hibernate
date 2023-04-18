@@ -6,7 +6,6 @@ import org.carworkshop.dtos.ClienteDto;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
@@ -41,10 +40,9 @@ public class Registro extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession(false);
 
 
-        if(session.getAttribute("cliente") instanceof ClienteDto) {
+        if(request.getServletContext().getAttribute("cliente") instanceof ClienteDto) {
             response.sendRedirect("/panel");
         } else {
             out.println(registerForm);

@@ -30,7 +30,11 @@ public class VehiculoDao implements Dao<Vehiculo> {
 
     @Override
     public Optional<Vehiculo> get(String email){
-        return Optional.empty();
+        return Optional.ofNullable(entityManager.createQuery("Select c from Vehiculo c where c.matricula = :email", Vehiculo.class)
+                .setParameter("email", email)
+                .getResultStream()
+                .findFirst().orElse(null));
+
     }
 
     @Override
