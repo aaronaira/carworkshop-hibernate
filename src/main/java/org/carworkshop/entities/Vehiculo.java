@@ -1,10 +1,8 @@
 package org.carworkshop.entities;
 
 import jakarta.persistence.*;
-import lombok.ToString;
 
 @Entity
-@ToString
 @Table(name = "vehiculo")
 public class Vehiculo {
 
@@ -42,6 +40,7 @@ public class Vehiculo {
     public Cliente getCliente() {
         return cliente;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }

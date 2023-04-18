@@ -1,6 +1,7 @@
 package org.carworkshop.infraestructure.servlets;
 
 import org.carworkshop.controllers.LoginController;
+import org.carworkshop.controllers.VehiculoController;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -61,17 +62,9 @@ public class NuevoVehiculo extends HttpServlet {
         public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
+                //String matricula = request.getParameter("matricula");
 
-                String matricula = request.getParameter("matricula");
-                String marca = request.getParameter("marca");
-                String modelo = request.getParameter("modelo");
-                int vyear = Integer.parseInt(request.getParameter("vyear"));
-                int tipoVehiculo = Integer.parseInt(request.getParameter("tipo_vehiculo"));
-                String bastidor = request.getParameter("bastidor");
-
-                System.out.println(matricula+marca+modelo+vyear+tipoVehiculo);
-
-
+                VehiculoController.checkVehiculoFields(request);
 
         }
 }
