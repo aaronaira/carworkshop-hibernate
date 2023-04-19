@@ -1,10 +1,12 @@
 package org.carworkshop.entities;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 import java.util.Date;
 
 @Entity
+@ToString
 @Table(name = "cita")
 public class Cita {
 
