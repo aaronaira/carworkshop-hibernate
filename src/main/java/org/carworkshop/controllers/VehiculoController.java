@@ -1,6 +1,9 @@
 package org.carworkshop.controllers;
 
+import org.carworkshop.daos.ClienteDao;
 import org.carworkshop.daos.VehiculoDao;
+import org.carworkshop.dtos.ClienteDto;
+import org.carworkshop.entities.Cliente;
 import org.carworkshop.entities.Vehiculo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,13 +41,16 @@ public class VehiculoController {
 
     private static void registerVehiculo(Map<String, String> carFields, HttpServletRequest request) {
         VehiculoDao vehiculoDao = new VehiculoDao();
-        Vehiculo vehiculo = new Vehiculo();
+        ClienteDao clienteDao = new ClienteDao();
 
-        Optional<Vehiculo> vehiculo1 = vehiculoDao.get(carFields.get("matricula"));
+        Vehiculo vehiculo = new Vehiculo();
+        ClienteDto clienteDto = (ClienteDto) request.getServletContext().getAttribute("cliente");
+
+        Optional<Cliente> cliente = clienteDao.get(clienteDto.getId());
 
         vehiculo.setTipoVehiculo(Integer.valueOf(carFields.get("tipo_vehiculo")));
         vehiculo.setBastidor(carFields.get("bastidor"));
-        vehiculo.setCliente(vehiculo1.get().getCliente());
+        vehiculo.setCliente(cliente.get());
         vehiculo.setMarca(carFields.get("marca"));
         vehiculo.setMatricula(carFields.get("matricula"));
         vehiculo.setModelo(carFields.get("modelo"));

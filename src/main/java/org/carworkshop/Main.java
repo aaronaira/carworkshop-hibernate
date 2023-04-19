@@ -1,10 +1,9 @@
 package org.carworkshop;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjusters;
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.Calendar;
+
+import static org.carworkshop.classes.Calendario.formatDate;
+import static org.carworkshop.classes.Calendario.showCalendar;
 
 public class Main {
     public static void main(String[] args) {
@@ -56,28 +55,28 @@ public class Main {
 //        citaDao.save(cita);
 //
 //        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
-        LocalDate start = LocalDate.now();
-        LocalDate end = LocalDate.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth());
-
-        List<LocalDate> dates = Stream.iterate(start, date -> date.plusDays(1))
-                .limit(ChronoUnit.DAYS.between(start, end))
-                .toList();
-
-        String daysOfWeek = "Lun Mar Mie Jue Vie Sab Dom\n";
-        System.out.print(daysOfWeek);
-
-        for (LocalDate date : dates) {
-            for (int i = 0; i < date.getDayOfMonth(); i++) {
-                int dayOfMonth = date.getDayOfMonth();
-                for (int j = 1; j <= date.getDayOfWeek().getValue(); j++) {
-                    System.out.printf("%-4s", "");
-
-                    for (int k = dayOfMonth; k <= date.lengthOfMonth(); k++) {
-                        System.out.printf("%-4d", k);
-
-                    }
-                }
-            }
+//        LocalDate start = LocalDate.now();
+//        LocalDate end = LocalDate.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth());
+//
+//        List<LocalDate> dates = Stream.iterate(start, date -> date.plusDays(1))
+//                .limit(ChronoUnit.DAYS.between(start, end))
+//                .toList();
+//
+//        String daysOfWeek = "Lun Mar Mie Jue Vie Sab Dom\n";
+//        System.out.print(daysOfWeek);
+//
+//        for (LocalDate date : dates) {
+//            for (int i = 0; i < date.getDayOfMonth(); i++) {
+//                int dayOfMonth = date.getDayOfMonth();
+//                for (int j = 1; j <= date.getDayOfWeek().getValue(); j++) {
+//                    System.out.printf("%-4s", "");
+//
+//                    for (int k = dayOfMonth; k <= date.lengthOfMonth(); k++) {
+//                        System.out.printf("%-4d", k);
+//
+//                    }
+//                }
+//            }
 
 
 //        for (int i = 1; i < day; i++) {
@@ -88,8 +87,9 @@ public class Main {
 //            System.out.printf("%-4d", i);
 //        }
 
-
+        System.out.println(showCalendar(2023, 4, 14));
+        System.out.println(formatDate(Calendar.getInstance().getTime()));
         }
     }
-}
+
 

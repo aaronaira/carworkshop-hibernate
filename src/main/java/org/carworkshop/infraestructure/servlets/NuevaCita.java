@@ -18,24 +18,13 @@ public class NuevaCita extends HttpServlet {
                     <a href="/panel/nuevovehiculo">Añadir nuevo vehiculo ✔</a>
                     <h2>Añadir un nuevo vehiculo</h2>
                     <form method="post" action="/panel/nuevovehiculo">
-                      <label for="matricula">Matricula:</label><br>
-                      <input type="text" id="matricula" name="matricula"><br>
-                      <label for="marca">Marca:</label><br>
-                      <input type="text" id="marca" name="marca"><br>
-                      <label for="modelo">Modelo:</label><br>
-                      <input type="text" id="modelo" name="modelo"><br>
-                      <label for="vyear">Año:</label><br>
-                      <input type="number" id="vyear" name="vyear"><br>
-                      <label for="tipo_vehiculo">Tipo vehiculo:</label><br>
-                      <select name="tipo_vehiculo" id="tipo_vehiculo">
-                        <option selected value="1">Coche</option>
-                        <option value="2">Moto</option>
-                        <option value="3">Furgoneta</option>
-                        <option value="4">Camion</option>
-                      </select><br>
-                      <label for="bastidor">Bastidor:</label><br>
-                      <input type="text" id="bastidor" name="bastidor"><br>
-                      <br>
+                       <label for="selectVehiculo>
+                       <select>
+                        <option value="coche1">coche1</option>
+                        <option value="coche2">coche2</option>
+                       </select>
+                       </label>
+                       
                       <input type="submit" value="Submit">
                     </form>
                     </body>
