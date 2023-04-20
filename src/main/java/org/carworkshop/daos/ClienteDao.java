@@ -1,15 +1,16 @@
 package org.carworkshop.daos;
 
 
-import org.carworkshop.entities.Login;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+import org.carworkshop.entities.Cliente;
 import org.carworkshop.interfaces.Dao;
 
-import jakarta.persistence.*;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
-import org.carworkshop.entities.Cliente;
 
 public class ClienteDao implements Dao<Cliente> {
 
