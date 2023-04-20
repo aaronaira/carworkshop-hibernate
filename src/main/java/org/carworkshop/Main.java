@@ -70,23 +70,29 @@ public class Main {
         LocalDateTime start = LocalDateTime.now();
         LocalDateTime end = LocalDateTime.now().plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
 
-        List<LocalDateTime> dates = Stream.iterate(start, date -> date.plusDays(1))
+        List<LocalDateTime> dates = Stream.iterate(start, date -> date.plusMinutes(45))
                 .limit(ChronoUnit.DAYS.between(start, end))
                 .toList();
 
         CitaDao citaDao = new CitaDao();
-        List<String> citas = citaDao.getAll().stream().map(cita -> new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cita.getFechaHora())).toList();
+        List<String> citas = citaDao.getAll().stream()
+                .map(cita -> new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cita.getFechaHora())).toList();
 
 
         List<String> horasLibres = new ArrayList<>();
 
         for(LocalDateTime date: dates) {
             String nextDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Timestamp.valueOf(date));
+            String getHour = new SimpleDateFormat("H").format(Timestamp.valueOf(date));
 
-            if(!citas.contains(nextDate)) horasLibres.add(nextDate);
+            System.out.println(getHour);
 
+            if( Integer.parseInt(getHour) > 20 || Integer.parseInt(getHour) < 8) {
+                if(!citas.contains(nextDate)) horasLibres.add(nextDate);
+            }
         }
 
+        System.out.println(horasLibres);
 
 //        System.out.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(timestamp));
 
