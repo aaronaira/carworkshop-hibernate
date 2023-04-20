@@ -51,20 +51,20 @@ public class CabeceraDiagnosticoDao implements Dao<CabeceraDiagnostico> {
     }
 
     @Override
-    public void save(CabeceraDiagnostico CabeceraDiagnostico) {
-        execute(entityManager -> entityManager.persist(CabeceraDiagnostico));
+    public void save(CabeceraDiagnostico cabeceraDiagnostico) {
+        execute(entityManager -> entityManager.persist(cabeceraDiagnostico));
 
     }
 
     @Override
-    public void update(CabeceraDiagnostico CabeceraDiagnostico) {
-        execute(entityManager -> entityManager.merge(CabeceraDiagnostico));
+    public void update(CabeceraDiagnostico cabeceraDiagnostico) {
+        execute(entityManager -> entityManager.merge(cabeceraDiagnostico));
 
     }
 
     @Override
-    public void delete(CabeceraDiagnostico CabeceraDiagnostico) {
-        execute(entityManager -> entityManager.remove(CabeceraDiagnostico));
+    public void delete(CabeceraDiagnostico cabeceraDiagnostico) {
+        execute(entityManager -> entityManager.remove(cabeceraDiagnostico));
     }
 
     private void execute(Consumer<EntityManager> action) throws RuntimeException {
