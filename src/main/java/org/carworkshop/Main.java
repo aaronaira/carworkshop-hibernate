@@ -1,7 +1,9 @@
 package org.carworkshop;
 
 import org.carworkshop.daos.CitaDao;
-import org.carworkshop.entities.Cita;
+import org.carworkshop.daos.LineaDiagnosticoDao;
+import org.carworkshop.entities.LineaDiagnostico;
+import org.carworkshop.entities.LineaDiagnosticoPK;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -10,7 +12,7 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 
@@ -105,6 +107,9 @@ public class Main {
 //        for(int i = day; i <= today; i++) {
 //            System.out.printf("%-4d", i);
 //        }
+        LineaDiagnosticoDao lineaDiagnosticoDao = new LineaDiagnosticoDao();
+        Optional<LineaDiagnostico> lineaDiagnostico = lineaDiagnosticoDao.get(new LineaDiagnosticoPK(1,1));
+        System.out.println(lineaDiagnostico.get().getDescripcion());
 
 
     }
