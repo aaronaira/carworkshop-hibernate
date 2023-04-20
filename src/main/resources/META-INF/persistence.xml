@@ -19,6 +19,8 @@
         <class>org.carworkshop.entities.TipoVehiculo</class>
         <class>org.carworkshop.entities.Vehiculo</class>
         <class>org.carworkshop.entities.Sesion</class>
+        <class>org.carworkshop.entities.Recepcion</class>
+
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
