@@ -1,21 +1,18 @@
 package org.carworkshop;
 
-import org.carworkshop.daos.*;
-import org.carworkshop.entities.CabeceraDiagnostico;
+import org.carworkshop.daos.CitaDao;
 import org.carworkshop.entities.Cita;
-import org.carworkshop.entities.Cliente;
-import org.carworkshop.entities.Vehiculo;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -70,32 +67,30 @@ public class Main {
 //        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
 
 
-        LocalDate start = LocalDate.now();
-        LocalDate end = LocalDate.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth());
+        LocalDateTime start = LocalDateTime.now();
+        LocalDateTime end = LocalDateTime.now().plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
 
-        List<LocalDate> dates = Stream.iterate(start, date -> date.plusDays(1))
+        List<LocalDateTime> dates = Stream.iterate(start, date -> date.plusDays(1))
                 .limit(ChronoUnit.DAYS.between(start, end))
                 .toList();
 
-        String daysOfWeek = "Lun Mar Mie Jue Vie Sab Dom\n";
-        System.out.print(daysOfWeek);
-        int day = 3;
-        int today = 7;
+        CitaDao citaDao = new CitaDao();
+        List<String> citas = citaDao.getAll().stream().map(cita -> new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cita.getFechaHora())).toList();
 
-        for (LocalDate date : dates) {
-            System.out.println(date.getDayOfWeek().name());
-            for (int i = 0; i < date.getDayOfMonth(); i++) {
-                int dayOfMonth = date.getDayOfMonth();
-                for (int j = 1; j <= date.getDayOfWeek().getValue(); j++) {
-                    System.out.printf("%-4s", "");
 
-                    for (int k = dayOfMonth; k <= date.lengthOfMonth(); k++) {
-                        System.out.printf("%-4d", k);
+        List<String> horasLibres = new ArrayList<>();
 
-                }
-            }
+        for(LocalDateTime date: dates) {
+            String nextDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Timestamp.valueOf(date));
+
+            if(!citas.contains(nextDate)) horasLibres.add(nextDate);
+
         }
-    }
+
+
+//        System.out.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(timestamp));
+
+
 
 //        for (int i = 1; i < day; i++) {
 //            System.out.printf("%-4s", "");
@@ -107,4 +102,5 @@ public class Main {
 
 
     }
+
 }
