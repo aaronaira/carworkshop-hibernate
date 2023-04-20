@@ -1,7 +1,11 @@
 package org.carworkshop;
 
+import org.carworkshop.daos.CabeceraDiagnosticoDao;
 import org.carworkshop.daos.CitaDao;
+import org.carworkshop.daos.EmpleadoDao;
 import org.carworkshop.daos.LineaDiagnosticoDao;
+import org.carworkshop.entities.CabeceraDiagnostico;
+import org.carworkshop.entities.Empleado;
 import org.carworkshop.entities.LineaDiagnostico;
 import org.carworkshop.entities.LineaDiagnosticoPK;
 
@@ -107,9 +111,20 @@ public class Main {
 //        for(int i = day; i <= today; i++) {
 //            System.out.printf("%-4d", i);
 //        }
-        LineaDiagnosticoDao lineaDiagnosticoDao = new LineaDiagnosticoDao();
-        Optional<LineaDiagnostico> lineaDiagnostico = lineaDiagnosticoDao.get(new LineaDiagnosticoPK(1,1));
-        System.out.println(lineaDiagnostico.get().getDescripcion());
+//        LineaDiagnosticoDao lineaDiagnosticoDao = new LineaDiagnosticoDao();
+//        CabeceraDiagnosticoDao cabeceraDiagnosticoDao = new CabeceraDiagnosticoDao();
+//        Optional<CabeceraDiagnostico> cabeceraDiagnostico = cabeceraDiagnosticoDao.get(1);
+//        Optional<LineaDiagnostico> lineaDiagnostico = lineaDiagnosticoDao.get(new LineaDiagnosticoPK(1,1));
+//
+//        System.out.println(lineaDiagnostico.get().getDescripcion());
+//
+//
+//        EmpleadoDao empleadoDao = new EmpleadoDao();
+//        Optional<Empleado> empleado = new EmpleadoDao().get(1);
+//        System.out.println(empleado.get().getNombre());
+//        System.out.println(empleado.get().getPuesto());
+//        System.out.println(empleado.get().getDepartamento());
+
 
 
     }
