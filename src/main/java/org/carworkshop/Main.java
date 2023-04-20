@@ -85,9 +85,7 @@ public class Main {
             String nextDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Timestamp.valueOf(date));
             String getHour = new SimpleDateFormat("H").format(Timestamp.valueOf(date));
 
-            System.out.println(getHour);
-
-            if( Integer.parseInt(getHour) > 20 || Integer.parseInt(getHour) < 8) {
+            if( Integer.parseInt(getHour) < 20 && Integer.parseInt(getHour) > 8) {
                 if(!citas.contains(nextDate)) horasLibres.add(nextDate);
             }
         }

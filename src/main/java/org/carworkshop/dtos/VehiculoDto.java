@@ -6,12 +6,12 @@ public class VehiculoDto {
     private String matricula;
     private String marca;
     private String modelo;
-    private String v_year;
-    private ClienteDto cliente;
-    private String tipo_vehiculo;
+    private int v_year;
+    private int cliente;
+    private int tipo_vehiculo;
     private String bastidor;
 
-    public VehiculoDto(Integer id, String matricula, String marca, String modelo, String v_year, ClienteDto cliente, String tipo_vehiculo, String bastidor) {
+    public VehiculoDto(Integer id, String matricula, String marca, String modelo, int v_year, int cliente, int tipo_vehiculo, String bastidor) {
         this.id = id;
         this.matricula = matricula;
         this.marca = marca;
@@ -54,27 +54,27 @@ public class VehiculoDto {
         this.modelo = modelo;
     }
 
-    public String getV_year() {
+    public int getV_year() {
         return v_year;
     }
 
-    public void setV_year(String v_year) {
+    public void setV_year(int v_year) {
         this.v_year = v_year;
     }
 
-    public ClienteDto getCliente() {
+    public int getCliente() {
         return cliente;
     }
 
-    public void setCliente(ClienteDto cliente) {
+    public void setCliente(int cliente) {
         this.cliente = cliente;
     }
 
-    public String getTipo_vehiculo() {
+    public int getTipo_vehiculo() {
         return tipo_vehiculo;
     }
 
-    public void setTipo_vehiculo(String tipo_vehiculo) {
+    public void setTipo_vehiculo(int tipo_vehiculo) {
         this.tipo_vehiculo = tipo_vehiculo;
     }
 

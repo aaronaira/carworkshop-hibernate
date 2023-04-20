@@ -51,7 +51,6 @@ public class LoginController {
 
     public static boolean checkIfUserIsLogged(HttpServletRequest request) {
         return request.getServletContext().getAttribute("cliente") instanceof ClienteDto;
-
     }
 
     private static ClienteDto parseToClienteDto(Login login) {
