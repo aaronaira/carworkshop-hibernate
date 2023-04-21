@@ -15,28 +15,36 @@ public class NuevaCita extends HttpServlet {
             <!DOCTYPE html>
                     <html>
                     <head>
-                    <script>
-                    .calendar {
-                        display: flex;
-                        width: 300px;
-                    }
-                    ul {
-                        display:flex;
-                        flex: wrap;
-                    }
-                    li {
-                        list-style: none;
-                    }
-                    </script>
+                    <style>
+                         div {
+                             display: flex;
+                             width: 300px;
+                         }
+                         ul {
+                             display: flex;
+                             padding: 0;
+                             flex-wrap: wrap;
+                         }
+                         li {
+                             width: calc(300px / 7);
+                             list-style: none;
+                         }
+                    </style>
                     </head>
                     <body>""";
     private static final String HtmlClose = """
                 </body>
                 </html>""";
     private static final String calendarForm = """
-
-            <div class="calendar">
+                <div class="calendar">
                 <ul>
+                    <li>LUN</li>
+                    <li>MAR</li>
+                    <li>MIE</li>
+                    <li>JUE</li>
+                    <li>VIE</li>
+                    <li>SAB</li>
+                    <li>DOM</li>
                     <li>1</li>
                     <li>2</li>
                     <li>3</li>
@@ -57,9 +65,18 @@ public class NuevaCita extends HttpServlet {
                     <li>18</li>
                     <li>19</li>
                     <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
                 </ul>
-            </div>
-            """;
+                </div>            """;
     private static final String vehiculoForm = """
                     <h1>Menu</h1>
                     <a href="/panel">Inicio</a>
@@ -82,7 +99,7 @@ public class NuevaCita extends HttpServlet {
         if(LoginController.checkIfUserIsLogged(request)) {
             out.println(HtmlOpen);
             out.printf(vehiculoForm, NuevaCitaController.getAllVehiculos(request));
-            out.println(calendarForm);
+            out.println(NuevaCitaController.makeCalendar());
             out.println(HtmlClose);
         } else {
             response.sendRedirect("/login");
