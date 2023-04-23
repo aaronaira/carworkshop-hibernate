@@ -1,0 +1,26 @@
+
+O
+java:S1854L"9Remove this useless assignment to local variable "dates".(ÛÆ°³
+V	java:S125"<This block of commented-out lines of code should be removed.(ïå—Þÿÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ðÄÕçúÿÿÿÿ
+Q	java:S125*"<This block of commented-out lines of code should be removed.(»û›Ç
+@
+java:S1481L"*Remove this unused "dates" local variable.(ÛÆ°³
+Q	java:S125P"<This block of commented-out lines of code should be removed.(¼˜„©
+V	java:S125d"<This block of commented-out lines of code should be removed.(é–¼°ùÿÿÿÿ
+U
+java:S1128"9Remove this unused import 'org.carworkshop.daos.CitaDao'.(íÝûw8†½¤Ðú0
+W
+java:S1128":Remove this unused import 'org.carworkshop.entities.Cita'.(ÑÀ«‰8‡½¤Ðú0
+L
+java:S1128"*Remove this unused import 'java.sql.Time'.(Üå»‰þÿÿÿÿ8Œ½¤Ðú0
+K
+java:S1128"/Remove this unused import 'java.sql.Timestamp'.(èò½+8½¤Ðú0
+T
+java:S1128	"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8½¤Ðú0
+\
+java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª8½¤Ðú0
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8–½¤Ðú0
+Z
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8–½¤Ðú0

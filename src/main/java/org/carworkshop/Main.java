@@ -1,19 +1,10 @@
 package org.carworkshop;
 
 import org.carworkshop.controllers.NuevaCitaController;
-import org.carworkshop.daos.CitaDao;
-import org.carworkshop.entities.Cita;
-
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -36,7 +27,6 @@ public class Main {
 //        cliente.setDni("123213123A");
 //        cliente.setEmail(login);
 //        loginDao.save(login);
-//        Login loginBorrar = loginDao.get(login.getId());
 //        loginDao.delete(loginBorrar);
 
         //Login login = loginDao.get("email56@email.com");
