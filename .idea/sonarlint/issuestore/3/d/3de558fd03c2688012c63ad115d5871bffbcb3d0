@@ -1,0 +1,10 @@
+
+W
+java:S1118":Add a private constructor to hide the implicit public one.(íªßÁ8¶ŞóĞú0
+N
+java:S1602",Remove useless curly braces around statement(“Ë›•şÿÿÿÿ8ÁŞóĞú0
+A
+java:S1168&"$Return an empty map instead of null.(¥¹ï8ĞŞóĞú0
+]	java:S125K"<This block of commented-out lines of code should be removed.(«Ê÷Õıÿÿÿÿ8„ÖØßú0
+@
+java:S6396Q"#Remove this unnecessary quantifier.(àë×8úŞóĞú0

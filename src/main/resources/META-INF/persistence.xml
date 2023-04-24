@@ -6,12 +6,10 @@
 
     <persistence-unit name="org.carworkshop">
 
-        <class>org.carworkshop.entities.LineaDiagnostico</class>
         <class>org.carworkshop.entities.CabeceraDiagnostico</class>
         <class>org.carworkshop.entities.Cita</class>
         <class>org.carworkshop.entities.Cliente</class>
-        <class>org.carworkshop.entities.Empleado</class>
-        <class>org.carworkshop.entities.LineaDiagnosticoPK</class>
+        <class>org.carworkshop.entities.LineaDiagnosticoId</class>
         <class>org.carworkshop.entities.Login</class>
         <class>org.carworkshop.entities.PrefCliente</class>
         <class>org.carworkshop.entities.PrefClienteId</class>
@@ -19,8 +17,6 @@
         <class>org.carworkshop.entities.TipoVehiculo</class>
         <class>org.carworkshop.entities.Vehiculo</class>
         <class>org.carworkshop.entities.Sesion</class>
-        <class>org.carworkshop.entities.Recepcion</class>
-
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
@@ -30,7 +26,7 @@
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/carworkshop"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="Omarafvg74"/>
+            <property name="jakarta.persistence.jdbc.password" value="*Omarafvg74#"/>
             <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.formate_sql" value="false"/>
         </properties>

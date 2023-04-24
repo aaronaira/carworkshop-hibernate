@@ -1,22 +1,25 @@
 package org.carworkshop;
 
-import org.carworkshop.daos.CabeceraDiagnosticoDao;
+import org.carworkshop.controllers.NuevaCitaController;
 import org.carworkshop.daos.CitaDao;
-import org.carworkshop.daos.EmpleadoDao;
-import org.carworkshop.daos.LineaDiagnosticoDao;
-import org.carworkshop.entities.CabeceraDiagnostico;
-import org.carworkshop.entities.Empleado;
-import org.carworkshop.entities.LineaDiagnostico;
-import org.carworkshop.entities.LineaDiagnosticoPK;
+import org.carworkshop.entities.Cita;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Locale;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -72,35 +75,42 @@ public class Main {
 //
 //        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
 
-
-        LocalDateTime start = LocalDateTime.now();
-        LocalDateTime end = LocalDateTime.now().plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+//
+        LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).truncatedTo(ChronoUnit.MINUTES);
+        LocalDateTime end = start.plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 
         List<LocalDateTime> dates = Stream.iterate(start, date -> date.plusMinutes(45))
-                .limit(ChronoUnit.DAYS.between(start, end))
+                .filter(date_ -> date_.isBefore(end))
+                .limit(ChronoUnit.HOURS.between(start, end))
                 .toList();
 
-        CitaDao citaDao = new CitaDao();
-        List<String> citas = citaDao.getAll().stream()
-                .map(cita -> new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cita.getFechaHora())).toList();
+        List<LocalDateTime> dates_ = new ArrayList<>();
 
-
-        List<String> horasLibres = new ArrayList<>();
-
-        for(LocalDateTime date: dates) {
-            String nextDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Timestamp.valueOf(date));
-            String getHour = new SimpleDateFormat("H").format(Timestamp.valueOf(date));
-
-            System.out.println(getHour);
-
-            if( Integer.parseInt(getHour) > 20 || Integer.parseInt(getHour) < 8) {
-                if(!citas.contains(nextDate)) horasLibres.add(nextDate);
-            }
+        for(LocalDateTime date_s = start; date_s.isBefore(end); date_s = date_s.plusMinutes(45)) {
+            dates_.add(date_s);
         }
 
-        System.out.println(horasLibres);
+        System.out.println(NuevaCitaController.makeCalendar());
 
-//        System.out.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(timestamp));
+
+//
+//        CitaDao citaDao = new CitaDao();
+//        List<String> citas = citaDao.getAll().stream()
+//                .map(cita -> new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cita.getFechaHora())).toList();
+//
+//
+//        List<String> horasLibres = new ArrayList<>();
+//
+//        for(LocalDateTime date: dates) {
+//            String nextDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Timestamp.valueOf(date));
+//            String getHour = new SimpleDateFormat("H").format(Timestamp.valueOf(date));
+//
+//            if( Integer.parseInt(getHour) < 20 && Integer.parseInt(getHour) > 8) {
+//                if(!citas.contains(nextDate)) horasLibres.add(nextDate);
+//            }
+//        }
+
+
 
 
 
@@ -111,20 +121,6 @@ public class Main {
 //        for(int i = day; i <= today; i++) {
 //            System.out.printf("%-4d", i);
 //        }
-//        LineaDiagnosticoDao lineaDiagnosticoDao = new LineaDiagnosticoDao();
-//        CabeceraDiagnosticoDao cabeceraDiagnosticoDao = new CabeceraDiagnosticoDao();
-//        Optional<CabeceraDiagnostico> cabeceraDiagnostico = cabeceraDiagnosticoDao.get(1);
-//        Optional<LineaDiagnostico> lineaDiagnostico = lineaDiagnosticoDao.get(new LineaDiagnosticoPK(1,1));
-//
-//        System.out.println(lineaDiagnostico.get().getDescripcion());
-//
-//
-//        EmpleadoDao empleadoDao = new EmpleadoDao();
-//        Optional<Empleado> empleado = new EmpleadoDao().get(1);
-//        System.out.println(empleado.get().getNombre());
-//        System.out.println(empleado.get().getPuesto());
-//        System.out.println(empleado.get().getDepartamento());
-
 
 
     }

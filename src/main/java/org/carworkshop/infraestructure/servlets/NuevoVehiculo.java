@@ -51,6 +51,7 @@ public class NuevoVehiculo extends HttpServlet {
 
                 if(LoginController.checkIfUserIsLogged(request)) {
                         out.println(vehiculoForm);
+                        if(request.getServletContext().getAttribute("coche") != null) out.println(request.getServletContext().getAttribute("coche"));
                 } else {
                         response.sendRedirect("/login");
                 }
@@ -62,9 +63,12 @@ public class NuevoVehiculo extends HttpServlet {
         public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //String matricula = request.getParameter("matricula");
 
-                VehiculoController.checkVehiculoFields(request);
+                if(VehiculoController.checkVehiculoFields(request)) {
+                        response.sendRedirect("/panel");
+                } else {
+                        response.sendRedirect("/panel/nuevovehiculo");
+                };
 
         }
 }

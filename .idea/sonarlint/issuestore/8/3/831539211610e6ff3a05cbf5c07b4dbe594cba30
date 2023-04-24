@@ -1,0 +1,15 @@
+
+r	java:S1274"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ê¸ßŠşÿÿÿÿ
+7
+java:S1643"Use a StringBuilder instead.(ôŞ•¸úÿÿÿÿ
+€
+java:S1488P"eImmediately return this expression instead of assigning it to the temporary variable "dateFormatted".(¤¬›üüÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(š¡´ı
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(³åú
+c
+java:S3986"HMake sure that week Year "YYYY" is expected here instead of Year "yyyy".(¹¸Š¡üÿÿÿÿ
+U
+java:S1994%"?Move the update of "dayOfMonth" into this loop's update clause.(«ş¼Ô
+Q	java:S125L"<This block of commented-out lines of code should be removed.(Â…‚â
