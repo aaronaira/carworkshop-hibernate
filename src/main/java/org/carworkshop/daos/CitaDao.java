@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.carworkshop.entities.Cita;
+import org.carworkshop.entities.Vehiculo;
 import org.carworkshop.interfaces.Dao;
 
 import java.util.List;
@@ -32,13 +33,20 @@ public class CitaDao implements Dao<Cita> {
         return null;
     }
 
+    public Optional<Cita> get(Vehiculo idVehiculo) {
+
+        return Optional.ofNullable(entityManager.createQuery("from Cita c where c.idVehiculo = :idVehiculo", Cita.class)
+                .setParameter("idVehiculo", idVehiculo)
+                .getResultStream()
+                .findFirst().orElse(null));
+    }
+
 
     @Override
     public List<Cita> getAll() {
         List<Cita> allAppointments;
         allAppointments = entityManager.createQuery("from Cita", Cita.class).getResultList();
         return allAppointments;
-
     }
 
     @Override

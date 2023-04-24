@@ -1,18 +1,30 @@
 package org.carworkshop.controllers;
 
-import org.carworkshop.classes.*;
-import org.carworkshop.daos.*;
-import org.carworkshop.dtos.*;
-import org.carworkshop.entities.*;
+import org.carworkshop.classes.LeerMatricula;
+import org.carworkshop.daos.CitaDao;
+import org.carworkshop.daos.EmpleadoDao;
+import org.carworkshop.daos.RecepcionDao;
+import org.carworkshop.daos.VehiculoDao;
+import org.carworkshop.entities.Cita;
+import org.carworkshop.entities.Empleado;
+import org.carworkshop.entities.Recepcion;
+import org.carworkshop.entities.Vehiculo;
 
-import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 public class RecepcionController {
 
 
-
+    //RECOGE TODAS LAS MATRICULAS EN UN ARRAY DE STRINGS QUE TIENEN CITAS
     private static List<String> getAllMatriculasCitas() {
         List<String> allMatriculasCitas = new ArrayList<>();
         CitaDao citaDao = new CitaDao();
@@ -24,71 +36,81 @@ public class RecepcionController {
         return allMatriculasCitas;
     }
 
-    public static boolean checkIfCarExists() {
-        String matricula = "";
-        matricula = LeerMatricula.leerMatricula();
+    //COMPRUEBA QUE LA MATRICULA DE LA FOTO SE ENCUENTRA ENTRE LAS MASTRICULAS DE LOS COCHES CON CITAS, DEVUELVE UN TRUE PARA SEGUIR CON LA CREACION DE LA RECEPCION
+    public static boolean checkIfCarExists(String matricula) {
         List <String> matriculascita = getAllMatriculasCitas();
         return matriculascita.contains(matricula);
     }
 
+    //RECOGE TODAS LAS HORAS DE LAS CITAS Y COMPRUEBA SI EN LA HORA ACTUAL HAY ALGUNA CITA, DEVUELVE TRUE PARA SEGUIR CON LA CREACION DE LA RECEPCION
+    public static boolean checkIfCitaExists() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
+        CitaDao citaDao = new CitaDao();
+        List<Cita> listaCitas = citaDao.getAll();
+        List<String> listaHorasCitas = new ArrayList<>();
+        //CONVERSION A STRING
+        String horaactual = LocalDateTime.now()
+                .format(formatter)
+                .toString()
+                .substring(0, 13);
+        //RECORRER ARRAY DE CITAS
+        for (Cita cita : listaCitas) {
+            String horacita = cita.getFechaHora()
+                    .toString()
+                    .substring(0, 13);
+            //AÑADIR LAS FECHAS EN STRING A UN ARRAY DE STRINGS
+            listaHorasCitas.add(horacita);
+        }
+        return listaHorasCitas.contains(horaactual);
+    }
 
-    public static Optional<Vehiculo> getVehiculoCita() {
-
+    //RECOGE EL VEHICULO DE LA CITA SEGUN LA MATRICULA DE A FOTO Y LO DEVUELVE
+    public static Optional<Vehiculo> getVehiculoCita(String matricula) {
         VehiculoDao vehiculoDao = new VehiculoDao();
 
-        return vehiculoDao.get(LeerMatricula.leerMatricula());
+        return vehiculoDao.get(matricula);
     }
 
-
-    public static Optional<Cita> getCitaMatricula() {
-
+    //RECOGE LA CITA DE LA MATRICULA DE LA FOTO Y LA DEVUELVE
+    public static Optional<Cita> getCitaMatricula(String matricula) {
         CitaDao citaDao = new CitaDao();
-
-        return citaDao.get(getVehiculoCita().get());
+        return citaDao.get(getVehiculoCita(matricula).get());
     }
 
-    public static Optional<Empleado> getEmpleadoRecepcion() {
-
+    //RECOGE EL EMPLEADO DE RECEPCION, COMO ESTA PLANTEADO SOLO DEBE DE HABER UN EMPLEADO EN RECEPCION EN TODA LA BASE DE DATOS
+    public static Optional <Empleado> getEmpleadoRecepcion() {
         EmpleadoDao empleadoDao = new EmpleadoDao();
         List <Empleado> listaempleados = empleadoDao.getAll();
-        Empleado empleadorecepcion = new Empleado();
-
-
 
         for (Empleado empleado : listaempleados) {
 
-           String recepcion = empleado.getDepartamento();
-
-
-
-           if (recepcion == "Recepcion") {
-
-               System.out.println(empleado.getNombre());
-           } else {
-               System.out.println(empleado.getNombre());
-               return null;
+           if (empleado.getDepartamento().equals("Recepcion")) {
+               return Optional.of(empleado);
            }
-
         }
 
-
-        return Optional.of(empleadorecepcion);
+        return Optional.ofNullable(null);
     }
 
-    public static void registerRecepcion() {
 
-        if (checkIfCarExists()) {
+    //REGISTRA LA RECEPCION DEL VEHICULO
+    public static void registerRecepcion() {
+        String matricula = "";
+        matricula = LeerMatricula.leerMatricula();
+
+        if (checkIfCarExists(matricula) || checkIfCitaExists()) {
+
             RecepcionDao recepcionDao = new RecepcionDao();
             Recepcion recepcion = new Recepcion();
 
-            recepcion.setFoto(LeerMatricula.leerMatricula());
-            recepcion.setFechaHora(LocalDateTime.now());
-            recepcion.setIdVehiculo(getVehiculoCita().get());
-         //   recepcion.setIdEmpleadoRecepcion();
-            recepcion.setIdDiagnosticoInicial(getCitaMatricula().get().getIdDiagnostico());
-            recepcion.setIdDiagnosticoRecepcion(null);
+            recepcion.setFoto(matricula);
+            recepcion.setFechaHora(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
+            recepcion.setIdVehiculo(getVehiculoCita(matricula).get());
+            recepcion.setIdEmpleadoRecepcion(getEmpleadoRecepcion().get());
+            recepcion.setIdDiagnosticoInicial(getCitaMatricula(matricula).get().getIdDiagnostico());
+            recepcion.setIdDiagnosticoRecepcion(getCitaMatricula(matricula).get().getIdDiagnostico());
 
-
+            recepcionDao.save(recepcion);
 
 
         }
