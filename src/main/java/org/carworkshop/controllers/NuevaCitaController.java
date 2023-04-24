@@ -15,15 +15,14 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class NuevaCitaController {
+
+    static Locale loc = new Locale("es", "ES");
     private static final List<String> getAllCitas = new ArrayList<>();
     private static final Map<LocalDate, List<String>> mapDaysHours = new LinkedHashMap<>();
 
@@ -74,7 +73,8 @@ public class NuevaCitaController {
                     : "<li>" + item.getKey().getDayOfMonth() + "</li>";
 
             String firstYearOfMonth = item.getKey().getDayOfMonth() == 1
-                    ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>").replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
+                    ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>")
+                    .replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
                     : null;
 
             String checkDate = firstYearOfMonth != null ? firstYearOfMonth : evaluateDayOfMonth;
@@ -96,7 +96,7 @@ public class NuevaCitaController {
         for(LocalDateTime date: generateDatesAndHours()) {
             String nextDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Timestamp.valueOf(date));
             String getHour = new SimpleDateFormat("H").format(Timestamp.valueOf(date));
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm",loc);
 
             if( Integer.parseInt(getHour) < 20 && Integer.parseInt(getHour) >= 8) {
                 if(!getAllCitas.contains(nextDate)) {
@@ -111,9 +111,6 @@ public class NuevaCitaController {
                             mapDaysHours.get(proposalDay).add(proposalTime);
                         }
                     }
-
-
-
                 }
             }
         }
