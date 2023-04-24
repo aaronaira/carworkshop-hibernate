@@ -7,12 +7,18 @@ import org.carworkshop.entities.Cita;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -70,12 +76,23 @@ public class Main {
 //        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
 
 //
-        LocalDateTime start = LocalDateTime.now();
-        LocalDateTime end = LocalDateTime.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth());
+        LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).truncatedTo(ChronoUnit.MINUTES);
+        LocalDateTime end = start.plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 
         List<LocalDateTime> dates = Stream.iterate(start, date -> date.plusMinutes(45))
+                .filter(date_ -> date_.isBefore(end))
                 .limit(ChronoUnit.HOURS.between(start, end))
                 .toList();
+
+        List<LocalDateTime> dates_ = new ArrayList<>();
+
+        for(LocalDateTime date_s = start; date_s.isBefore(end); date_s = date_s.plusMinutes(45)) {
+            dates_.add(date_s);
+        }
+
+        System.out.println(NuevaCitaController.makeCalendar());
+
+
 //
 //        CitaDao citaDao = new CitaDao();
 //        List<String> citas = citaDao.getAll().stream()
@@ -93,7 +110,7 @@ public class Main {
 //            }
 //        }
 
-        System.out.println(NuevaCitaController.getAllAvaliableDates());
+
 
 
 

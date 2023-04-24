@@ -16,18 +16,28 @@ public class NuevaCita extends HttpServlet {
                     <html>
                     <head>
                     <style>
-                         div {
-                             display: flex;
-                             width: 300px;
-                         }
-                         ul {
-                             display: flex;
-                             padding: 0;
-                             flex-wrap: wrap;
-                         }
-                         li {
-                             width: calc(300px / 7);
-                             list-style: none;
+                        div {
+                            width: 300px;
+                        }
+                        li {
+                            list-style: none;
+                            width: 14%;
+                            flex-grow: 0;
+                            text-align: right;
+                        }
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            padding: 0;
+                        }
+                        .first-day {
+                            display: flex;
+                            justify-content: end;
+                            align-items: flex-end;
+                        }
+                         .cross-day {
+                               color: #eee;
+                             text-decoration: line-through;
                          }
                     </style>
                     </head>

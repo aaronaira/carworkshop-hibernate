@@ -11,13 +11,13 @@ import org.carworkshop.entities.Vehiculo;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -27,12 +27,21 @@ public class NuevaCitaController {
     private static final List<String> getAllCitas = new ArrayList<>();
     private static final Map<LocalDate, List<String>> mapDaysHours = new LinkedHashMap<>();
 
+
     private static final String calendarForm = """
                     <div class="calendar">
+                    <h2> %f </h2>
                         <ul>
+                        <li>LUN</li>
+                        <li>MAR</li>
+                        <li>MIE</li>
+                        <li>JUE</li>
+                        <li>VIE</li>
+                        <li>SAB</li>
+                        <li>DOM</li>
                             %s
                         </ul>
-                    </div>     
+                    </div>
             """;
 
     public static String getAllVehiculos(HttpServletRequest request) {
@@ -48,18 +57,40 @@ public class NuevaCitaController {
     }
 
     public static String makeCalendar() {
-        return calendarForm.replace("%s", getCalendar());
+       return getCalendar().entrySet().stream().map(item -> {
+           return calendarForm.replace("%f", item.getKey()).replace("%s", String.join("", item.getValue()));
+       }).collect(Collectors.joining());
     }
 
-    public static String getCalendar() {
+    public static Map<String, List<String>> getCalendar() {
+        LinkedHashMap<String, List<String>> calendarFormatedHours = new LinkedHashMap<>();
 
-        return getAllAvaliableDates().entrySet().stream().map((item) -> {
-            return "<li>" + item.getKey().getDayOfMonth() + "</li>";
-        }).collect(Collectors.joining());
+        for(Map.Entry<LocalDate, List<String>> item: getAllAvaliableDates().entrySet()) {
+            String evaluateDayOfMonth =
+                    item.getKey().getDayOfWeek().name().equals("SATURDAY")
+                    || item.getKey().getDayOfWeek().name().equals("SUNDAY")
+                    //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
+                    ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
+                    : "<li>" + item.getKey().getDayOfMonth() + "</li>";
+
+            String firstYearOfMonth = item.getKey().getDayOfMonth() == 1
+                    ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>").replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
+                    : null;
+
+            String checkDate = firstYearOfMonth != null ? firstYearOfMonth : evaluateDayOfMonth;
+
+            if (!calendarFormatedHours.containsKey(item.getKey().getMonth().name()))
+                calendarFormatedHours.put(item.getKey().getMonth().name(), new ArrayList<>());
+
+            if(!calendarFormatedHours.get(item.getKey().getMonth().name()).contains(checkDate))
+                calendarFormatedHours.get(item.getKey().getMonth().name()).add(checkDate);
+
+        }
+
+        return  calendarFormatedHours;
     }
 
     public static Map<LocalDate, List<String>> getAllAvaliableDates() {
-        List<LocalTime> horasLibres = new ArrayList<>();
         getDatesFromDB();
 
         for(LocalDateTime date: generateDatesAndHours()) {
@@ -73,12 +104,15 @@ public class NuevaCitaController {
                     LocalDate proposalDay = Timestamp.valueOf(nextDate).toLocalDateTime().toLocalDate();
                     String proposalTime = Timestamp.valueOf(nextDate).toLocalDateTime().toLocalTime().format(formatter);
 
-                    if(!mapDaysHours.containsKey(proposalDay)) mapDaysHours.put(proposalDay, new ArrayList<String>());
+                    if(!LocalDate.now().minusMonths(1).getMonth().name().equals(proposalDay.getMonth().name())) {
+                        if (!mapDaysHours.containsKey(proposalDay)) mapDaysHours.put(proposalDay, new ArrayList<>());
 
-                    if(!mapDaysHours.get(proposalDay).contains(proposalTime)) {
-                        mapDaysHours.get(proposalDay).add(proposalTime);
-
+                        if(!mapDaysHours.get(proposalDay).contains(proposalTime)) {
+                            mapDaysHours.get(proposalDay).add(proposalTime);
+                        }
                     }
+
+
 
                 }
             }
@@ -93,18 +127,19 @@ public class NuevaCitaController {
         AllCitas.stream()
                 .map(cita -> getAllCitas.add(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cita.getFechaHora())));
     }
-    private static Boolean queryFrom(TemporalAccessor temporal) {
-        return temporal.get(ChronoField.DAY_OF_WEEK) >= 5;
-    }
+
     private static List<LocalDateTime> generateDatesAndHours() {
-        LocalDateTime start = LocalDateTime.now();
-        LocalDateTime end = LocalDateTime.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth());
+        LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).with(DayOfWeek.MONDAY);
+        LocalDateTime end = LocalDateTime.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 
 
-        return Stream.iterate(start, date -> date.plusMinutes(45))
-                .limit(ChronoUnit.HOURS.between(start, end))
-                .filter(date -> !date.getDayOfWeek().name().equals("SATURDAY") || !date.getDayOfWeek().name().equals("MONDAY"))
-                .toList();
+        List<LocalDateTime> dates = new ArrayList<>();
+
+        for(LocalDateTime date_s = start; date_s.isBefore(end); date_s = date_s.plusMinutes(45)) {
+            dates.add(date_s);
+        }
+
+        return dates;
     }
 
     private static String parseDataVehiculosToHtmlForm(List<VehiculoDto> vehiculos) {
