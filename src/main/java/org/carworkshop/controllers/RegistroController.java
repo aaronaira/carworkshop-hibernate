@@ -70,7 +70,7 @@ public class RegistroController {
 
     private static void filterPassword(String password, String passwordConfirm) {
         if(!Objects.equals(password, passwordConfirm)) errorList.put(ErroresRegistro.PASSWORD1.getErrorCode(), ErroresRegistro.PASSWORD1.getErrorMessage());
-        Pattern pattern = Pattern.compile("(?=.*[a-z])(?=.*[A-Z])(?=.*)(?=.*[@$!%*?&])[A-Za-z@$!%*?&]{8,}$");
+        Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}");
 
         //Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}");
         Matcher matcher = pattern.matcher(password);
