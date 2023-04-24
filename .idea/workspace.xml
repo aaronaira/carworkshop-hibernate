@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="Created abstract class Persona and mofified ClienteDao.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/SesionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/SesionDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JPASupport-project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bcb78df009e5a787af61f77ea14cc88a979509bd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bcb78df009e5a787af61f77ea14cc88a979509bd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/Enums/ErroresLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/enums/ErroresLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/Enums/ErroresRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/enums/ErroresRegistro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,7 @@
         <option name="title" value="Current Branch" />
       </GitPushTagMode>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -57,21 +60,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/Users/Lenovo/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zenlaboratory/Proyectos/carworkshop-hibernate&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\java\org\carworkshop\daos" />
@@ -81,22 +85,35 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" nameIsGenerated="true">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="carworkshop-hibernate" type="com.poratu.idea.plugins.tomcat">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
       <predefined_log_file enabled="true" id="Tomcat Access Log" />
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
       <option name="contextPath" value="/" />
-      <option name="docBase" value="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----" />
+      <option name="docBase" value="$PROJECT_DIR$" />
+      <option name="extraClassPath" value="" />
       <option name="tomcatInfo">
         <TomcatInfo>
-          <option name="name" value="Apache Tomcat/9.0.73" />
-          <option name="path" value="$USER_HOME$/Downloads/apache-tomcat-9.0.73" />
-          <option name="version" value="9.0.73.0" />
+          <option name="name" value="Apache Tomcat/9.0.74" />
+          <option name="path" value="$USER_HOME$/Descargas/apache-tomcat-9.0.74" />
+          <option name="version" value="9.0.74.0" />
         </TomcatInfo>
       </option>
       <option name="vmOptions" value="" />
+      <module name="carworkshop-hibernate" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

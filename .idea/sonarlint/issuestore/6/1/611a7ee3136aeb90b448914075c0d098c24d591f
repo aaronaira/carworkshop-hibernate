@@ -1,0 +1,26 @@
+
+o
+java:S2293L"YReplace the type specification in this constructor call with the diamond operator ("<>").(‹÷Ô‰
+J
+java:S1066G"/Merge this if statement with the enclosing one.(¿‘Íëþÿÿÿÿ
+d
+java:S3655,"NCall "cliente.isPresent()" or "!cliente.isEmpty()" before accessing the value.(›™Ùâ
+^
+java:S3824L"HReplace this "Map.containsKey()" with a call to "Map.computeIfAbsent()".(‹÷Ô‰
+H
+java:S3958]"2Refactor the code so this stream pipeline is used.(ïŸŸÃ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(þ¯»æ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(äËô
+H
+java:S16118"2Remove the parentheses around the "item" parameter(©ÃˆÄ
+i
+java:S16028"SRemove useless curly braces around statement and then remove useless return keyword(©ÃˆÄ
+Z
+java:S1854>"?Remove this useless assignment to local variable "horasLibres".(»•ðæÿÿÿÿÿ
+K
+java:S1481>"0Remove this unused "horasLibres" local variable.(»•ðæÿÿÿÿÿ
+Q
+java:S1611o"6Remove the parentheses around the "vehiculo" parameter(åé¤´üÿÿÿÿ
+D
+java:S1144`".Remove this unused private "queryFrom" method.(“ªž×

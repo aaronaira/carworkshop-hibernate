@@ -1,0 +1,17 @@
+
+`	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ø§ÕÂıÿÿÿÿ
+P
+java:S1161'":Add the "@Override" annotation above this method signature(°¥¸û
+k
+java:S1989*"PHandle the following exception that could be thrown by "getWriter": IOException.(ïô†úÿÿÿÿ
+n
+java:S1989."SHandle the following exception that could be thrown by "sendRedirect": IOException.(££¦Öúÿÿÿÿ
+P
+java:S11616":Add the "@Override" annotation above this method signature(à»¢ü
+k
+java:S19899"PHandle the following exception that could be thrown by "getWriter": IOException.(ïô†úÿÿÿÿ
+\
+java:S1989?"AHandle the "RuntimeException" thrown here in a "try/catch" block.(Ò‚Òéüÿÿÿÿ
+G
+java:S1602E",Remove useless curly braces around statement(àÑâºùÿÿÿÿ

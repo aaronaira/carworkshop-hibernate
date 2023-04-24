@@ -25,12 +25,13 @@ public class VehiculoController {
 
             registerVehiculo(carFields, request);
             return true;
+        } else {
+            request.getServletContext().setAttribute("coche", "El coche ya existe en nuestra base de datos.");
         }
         return false;
 
 
     }
-
     private static boolean checkIfCarExists(String matricula) {
 
         VehiculoDao vehiculoDao = new VehiculoDao();

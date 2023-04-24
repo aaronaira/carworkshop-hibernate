@@ -1,6 +1,6 @@
 package org.carworkshop.controllers;
 
-import org.carworkshop.Enums.ErroresLogin;
+import org.carworkshop.enums.ErroresLogin;
 import org.carworkshop.daos.LoginDao;
 import org.carworkshop.dtos.ClienteDto;
 import org.carworkshop.entities.Login;
@@ -51,7 +51,6 @@ public class LoginController {
 
     public static boolean checkIfUserIsLogged(HttpServletRequest request) {
         return request.getServletContext().getAttribute("cliente") instanceof ClienteDto;
-
     }
 
     private static ClienteDto parseToClienteDto(Login login) {
