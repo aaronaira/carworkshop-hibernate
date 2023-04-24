@@ -1,4 +1,4 @@
-package org.carworkshop.Enums;
+package org.carworkshop.enums;
 
 public enum ErroresRegistro {
     NAME("El campo de nombre, los apellidos y direccion, " +

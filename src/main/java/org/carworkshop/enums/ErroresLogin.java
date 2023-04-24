@@ -1,5 +1,4 @@
-package org.carworkshop.Enums;
-
+package org.carworkshop.enums;
 public enum ErroresLogin {
     EMAIL_NOT_FOUND("EMAIL_NOT_FOUND", "No hemos podido encontrar ninguna cuenta con ese nombre de cliente o contraseña."),
     PASSWORD_WRONG("PASSWORD_WRONG", "Su cuenta o contraseña es incorrecta.");
