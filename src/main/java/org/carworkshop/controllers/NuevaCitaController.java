@@ -52,6 +52,7 @@ public class NuevaCitaController {
 
         List<VehiculoDto> allVehiculos = parseToVehiculoDto(cliente.get().getVehiculos());
 
+        request.getServletContext().setAttribute("fechas", mapDaysHours);
         return parseDataVehiculosToHtmlForm(allVehiculos);
 
     }
@@ -69,12 +70,15 @@ public class NuevaCitaController {
             String evaluateDayOfMonth =
                     item.getKey().getDayOfWeek().name().equals("SATURDAY")
                     || item.getKey().getDayOfWeek().name().equals("SUNDAY")
+                            || item.getKey().isBefore(LocalDate.now())
                     //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
                     ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
-                    : "<li>" + item.getKey().getDayOfMonth() + "</li>";
+                    : String.format("<li><a href='/panel/reservacita?fecha=%s'>" + item.getKey().getDayOfMonth() + "</a></li>", String.valueOf(item.getKey()));
 
             String firstYearOfMonth = item.getKey().getDayOfMonth() == 1
-                    ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>").replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
+                    ? ("<li class='first-day' style='width: calc(14% * %f );'><a href='/panel/reservacita?fecha=%s'>"+ item.getKey().getDayOfMonth() + "</a></li>")
+                    .replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
+                    .replaceAll("%s", String.valueOf(item.getKey()))
                     : null;
 
             String checkDate = firstYearOfMonth != null ? firstYearOfMonth : evaluateDayOfMonth;
@@ -117,6 +121,7 @@ public class NuevaCitaController {
                 }
             }
         }
+
         return mapDaysHours;
     }
 
@@ -130,7 +135,7 @@ public class NuevaCitaController {
 
     private static List<LocalDateTime> generateDatesAndHours() {
         LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).with(DayOfWeek.MONDAY);
-        LocalDateTime end = LocalDateTime.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
+        LocalDateTime end = LocalDateTime.now().plusMonths(3).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 
 
         List<LocalDateTime> dates = new ArrayList<>();
@@ -147,7 +152,7 @@ public class NuevaCitaController {
             boolean isSelected = vehiculo.getId().equals(1);
             String selected = isSelected ? "selected" : "";
 
-            return "<option " + selected + " value="+ vehiculo.getId() +">"
+            return "<option " + selected + " value="+ vehiculo.getMatricula() +">"
                     + vehiculo.getMarca() + " "
                     + vehiculo.getModelo() + " "
                     + vehiculo.getMatricula() + " "
