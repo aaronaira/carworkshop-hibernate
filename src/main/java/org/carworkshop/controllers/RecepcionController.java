@@ -64,7 +64,7 @@ public class RecepcionController {
         return listaHorasCitas.contains(horaactual);
     }
 
-    //RECOGE EL VEHICULO DE LA CITA SEGUN LA MATRICULA DE A FOTO Y LO DEVUELVE
+    //RECOGE EL VEHICULO DE LA CITA SEGUN LA MATRICULA DE LA FOTO Y LO DEVUELVE
     public static Optional<Vehiculo> getVehiculoCita(String matricula) {
         VehiculoDao vehiculoDao = new VehiculoDao();
 
@@ -104,7 +104,7 @@ public class RecepcionController {
             Recepcion recepcion = new Recepcion();
 
             recepcion.setFoto(matricula);
-            recepcion.setFechaHora(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
+            recepcion.setFechaHora(new Timestamp(new Date().getTime()));
             recepcion.setIdVehiculo(getVehiculoCita(matricula).get());
             recepcion.setIdEmpleadoRecepcion(getEmpleadoRecepcion().get());
             recepcion.setIdDiagnosticoInicial(getCitaMatricula(matricula).get().getIdDiagnostico());

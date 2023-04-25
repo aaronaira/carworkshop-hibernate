@@ -56,9 +56,9 @@ public class NuevaCitaController {
     }
 
     public static String makeCalendar() {
-       return getCalendar().entrySet().stream().map(item -> {
-           return calendarForm.replace("%f", item.getKey()).replace("%s", String.join("", item.getValue()));
-       }).collect(Collectors.joining());
+        return getCalendar().entrySet().stream().map(item -> {
+            return calendarForm.replace("%f", item.getKey()).replace("%s", String.join("", item.getValue()));
+        }).collect(Collectors.joining());
     }
 
     public static Map<String, List<String>> getCalendar() {
@@ -67,17 +67,17 @@ public class NuevaCitaController {
         for(Map.Entry<LocalDate, List<String>> item: getAllAvaliableDates().entrySet()) {
             String evaluateDayOfMonth =
                     item.getKey().getDayOfWeek().name().equals("SATURDAY")
-                    || item.getKey().getDayOfWeek().name().equals("SUNDAY")
-                    //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
-                    ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
-                    : "<li>" + item.getKey().getDayOfMonth() + "</li>";
+                            || item.getKey().getDayOfWeek().name().equals("SUNDAY")
+                            //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
+                            ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
+                            : "<li>" + item.getKey().getDayOfMonth() + "</li>";
 
-            String firstYearOfMonth = item.getKey().getDayOfMonth() == 1
+            String firstDayOfMonth = item.getKey().getDayOfMonth() == 1
                     ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>")
                     .replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
                     : null;
 
-            String checkDate = firstYearOfMonth != null ? firstYearOfMonth : evaluateDayOfMonth;
+            String checkDate = firstDayOfMonth != null ? firstDayOfMonth : evaluateDayOfMonth;
 
             if (!calendarFormatedHours.containsKey(item.getKey().getMonth().name()))
                 calendarFormatedHours.put(item.getKey().getMonth().name(), new ArrayList<>());
