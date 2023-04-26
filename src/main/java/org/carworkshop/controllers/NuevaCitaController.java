@@ -20,7 +20,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class NuevaCitaController {
+public class NuevaCitaController{
 
     static Locale loc = new Locale("es", "ES");
     private static final List<String> getAllCitas = new ArrayList<>();
@@ -64,31 +64,31 @@ public class NuevaCitaController {
     public static Map<String, List<String>> getCalendar() {
         LinkedHashMap<String, List<String>> calendarFormatedHours = new LinkedHashMap<>();
 
-        for(Map.Entry<LocalDate, List<String>> item: getAllAvaliableDates().entrySet()) {
-            String evaluateDayOfMonth =
-                    item.getKey().getDayOfWeek().name().equals("SATURDAY")
-                            || item.getKey().getDayOfWeek().name().equals("SUNDAY")
-                            //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
-                            ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
-                            : "<li>" + item.getKey().getDayOfMonth() + "</li>";
-
-            String firstDayOfMonth = item.getKey().getDayOfMonth() == 1
-                    ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>")
-                    .replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
-                    : null;
-
-            String checkDate = firstDayOfMonth != null ? firstDayOfMonth : evaluateDayOfMonth;
+        for (Map.Entry<LocalDate, List<String>> item : getAllAvaliableDates().entrySet()) {
+//            String evaluateDayOfMonth =
+//                    item.getKey().getDayOfWeek().name().equals("SATURDAY")
+//                            || item.getKey().getDayOfWeek().name().equals("SUNDAY")
+//                            //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
+//                            ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
+//                            : "<li>" + item.getKey().getDayOfMonth() + "</li>";
+//
+//            String firstDayOfMonth = item.getKey().getDayOfMonth() == 1
+//                    ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>")
+//                    .replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
+//                    : null;
+//
+//            String checkDate = firstDayOfMonth != null ? firstDayOfMonth : evaluateDayOfMonth;
 
             if (!calendarFormatedHours.containsKey(item.getKey().getMonth().name()))
                 calendarFormatedHours.put(item.getKey().getMonth().name(), new ArrayList<>());
 
-            if(!calendarFormatedHours.get(item.getKey().getMonth().name()).contains(checkDate))
-                calendarFormatedHours.get(item.getKey().getMonth().name()).add(checkDate);
-
+            if(!calendarFormatedHours.get(item.getKey().getMonth().name()).contains(isFirstDayAndWeekend(item.getKey())))
+                calendarFormatedHours.get(item.getKey().getMonth().name()).add(isFirstDayAndWeekend(item.getKey()));
         }
 
-        return  calendarFormatedHours;
-    }
+            return calendarFormatedHours;
+
+        }
 
     public static Map<LocalDate, List<String>> getAllAvaliableDates() {
         getDatesFromDB();
@@ -127,7 +127,7 @@ public class NuevaCitaController {
 
     private static List<LocalDateTime> generateDatesAndHours() {
         LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).with(DayOfWeek.MONDAY);
-        LocalDateTime end = LocalDateTime.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
+        LocalDateTime end = LocalDateTime.now().plusMonths(10).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 
 
         List<LocalDateTime> dates = new ArrayList<>();
@@ -160,4 +160,36 @@ public class NuevaCitaController {
                         vehiculo.getModelo(), vehiculo.getVYear(), vehiculo.getCliente().getId(),
                         vehiculo.getTipoVehiculo(), vehiculo.getBastidor())).toList();
     }
+
+    public static String isFirstDayAndWeekend(LocalDate day) {
+
+        if (day.getDayOfMonth() == 1 && day.getDayOfWeek().name().equals("SATURDAY")
+                || day.getDayOfMonth() == 1 && day.getDayOfWeek().name().equals("SUNDAY")) {
+
+            System.out.println("Es first-day & cross_day");
+            return ("<li class='first-day cross-day' style = 'width : calc(14% * %dayofweek)'>"
+                    + day.getDayOfMonth() + "</li>").replace("%dayofweek", String.valueOf(day.getDayOfWeek().getValue()));
+
+        } else if (day.getDayOfWeek().name().equals("SATURDAY")
+                || day.getDayOfWeek().name().equals("SUNDAY")) {
+
+            System.out.println("Es cross-day");
+            return "<li class='cross-day'>" + day.getDayOfMonth() + "</li>";
+
+        } else if (day.getDayOfMonth() == 1) {
+
+            System.out.println("Es first-day");
+            return ("<li class='first-day' style = 'width : calc(14% * %dayofweek)'><a href=/panel/reservacita?fecha="
+                    + day +">"+ day.getDayOfMonth() + "</a></li>")
+                    .replace("%dayofweek", String.valueOf(day.getDayOfWeek().getValue()));
+
+        } else if (day.isBefore(LocalDate.now())) {
+
+            return "<li class='cross-day'>" + day.getDayOfMonth() + "</li>";
+
+        }
+        return "<li><a href=/panel/reservacita?fecha=" + day +">"+ day.getDayOfMonth() + "</a></li>";
+    }
+
 }
+//panel/reservacita?fecha=day
