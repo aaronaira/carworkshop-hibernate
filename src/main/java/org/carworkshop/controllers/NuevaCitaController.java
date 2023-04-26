@@ -20,13 +20,13 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class NuevaCitaController {
     private static final List<String> getAllCitas = new ArrayList<>();
     private static final Map<LocalDate, List<String>> mapDaysHours = new LinkedHashMap<>();
-
 
     private static final String calendarForm = """
                     <div class="calendar">
@@ -44,23 +44,15 @@ public class NuevaCitaController {
                     </div>
             """;
 
-    public static String getAllVehiculos(HttpServletRequest request) {
-        ClienteDto clienteDto = (ClienteDto) request.getServletContext().getAttribute("cliente");
-        ClienteDao clienteDao = new ClienteDao();
 
-        Optional<Cliente> cliente = clienteDao.get(clienteDto.getId());
 
-        List<VehiculoDto> allVehiculos = parseToVehiculoDto(cliente.get().getVehiculos());
+    public static String makeCalendar(HttpServletRequest request) {
+       request.getServletContext().setAttribute("fechas", mapDaysHours);
 
-        request.getServletContext().setAttribute("fechas", mapDaysHours);
-        return parseDataVehiculosToHtmlForm(allVehiculos);
-
-    }
-
-    public static String makeCalendar() {
-       return getCalendar().entrySet().stream().map(item -> {
+        return getCalendar().entrySet().stream().map(item -> {
            return calendarForm.replace("%f", item.getKey()).replace("%s", String.join("", item.getValue()));
        }).collect(Collectors.joining());
+
     }
 
     public static Map<String, List<String>> getCalendar() {
@@ -70,16 +62,18 @@ public class NuevaCitaController {
             String evaluateDayOfMonth =
                     item.getKey().getDayOfWeek().name().equals("SATURDAY")
                     || item.getKey().getDayOfWeek().name().equals("SUNDAY")
-                            || item.getKey().isBefore(LocalDate.now())
+                  || item.getKey().isBefore(LocalDate.now())
                     //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
                     ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
                     : String.format("<li><a href='/panel/reservacita?fecha=%s'>" + item.getKey().getDayOfMonth() + "</a></li>", String.valueOf(item.getKey()));
 
             String firstYearOfMonth = item.getKey().getDayOfMonth() == 1
-                    ? ("<li class='first-day' style='width: calc(14% * %f );'><a href='/panel/reservacita?fecha=%s'>"+ item.getKey().getDayOfMonth() + "</a></li>")
+                    ? ("<li class='first-day' style='width: calc(14% * %f );'><a href='/panel/reservacita?fecha=%s&vehiculo=%b'>"+ item.getKey().getDayOfMonth() + "</a></li>")
                     .replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
                     .replaceAll("%s", String.valueOf(item.getKey()))
+                    //.replaceAll("%b", vehiculo)
                     : null;
+
 
             String checkDate = firstYearOfMonth != null ? firstYearOfMonth : evaluateDayOfMonth;
 
@@ -116,12 +110,9 @@ public class NuevaCitaController {
                         }
                     }
 
-
-
                 }
             }
         }
-
         return mapDaysHours;
     }
 
@@ -137,7 +128,6 @@ public class NuevaCitaController {
         LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).with(DayOfWeek.MONDAY);
         LocalDateTime end = LocalDateTime.now().plusMonths(3).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 
-
         List<LocalDateTime> dates = new ArrayList<>();
 
         for(LocalDateTime date_s = start; date_s.isBefore(end); date_s = date_s.plusMinutes(45)) {
@@ -147,25 +137,7 @@ public class NuevaCitaController {
         return dates;
     }
 
-    private static String parseDataVehiculosToHtmlForm(List<VehiculoDto> vehiculos) {
-        return vehiculos.stream().map((vehiculo) -> {
-            boolean isSelected = vehiculo.getId().equals(1);
-            String selected = isSelected ? "selected" : "";
 
-            return "<option " + selected + " value="+ vehiculo.getMatricula() +">"
-                    + vehiculo.getMarca() + " "
-                    + vehiculo.getModelo() + " "
-                    + vehiculo.getMatricula() + " "
-                    + vehiculo.getBastidor()
-                    +"</option>";
-        }).collect(Collectors.joining());
-    }
 
-    private static List<VehiculoDto> parseToVehiculoDto(List<Vehiculo> vehiculos) {
 
-        return vehiculos.stream().map(vehiculo ->
-                new VehiculoDto(vehiculo.getId(), vehiculo.getMatricula(), vehiculo.getMarca(),
-                        vehiculo.getModelo(), vehiculo.getVYear(), vehiculo.getCliente().getId(),
-                        vehiculo.getTipoVehiculo(), vehiculo.getBastidor())).toList();
-    }
 }
