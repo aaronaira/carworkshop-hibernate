@@ -19,6 +19,7 @@ import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -76,24 +77,32 @@ public class Main {
 //        System.out.println(citaDao.get(1).get().getIdDiagnostico().getIdVehiculo());
 
 //
-        LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).truncatedTo(ChronoUnit.MINUTES);
-        LocalDateTime end = start.plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
-
-        List<LocalDateTime> dates = Stream.iterate(start, date -> date.plusMinutes(45))
-                .filter(date_ -> date_.isBefore(end))
-                .limit(ChronoUnit.HOURS.between(start, end))
-                .toList();
-
-        List<LocalDateTime> dates_ = new ArrayList<>();
-
-        for(LocalDateTime date_s = start; date_s.isBefore(end); date_s = date_s.plusMinutes(45)) {
-            dates_.add(date_s);
-        }
-
-        System.out.println(NuevaCitaController.makeCalendar());
-
-
+//        LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).truncatedTo(ChronoUnit.MINUTES);
+//        LocalDateTime end = start.plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 //
+//        List<LocalDateTime> dates = Stream.iterate(start, date -> date.plusMinutes(45))
+//                .filter(date_ -> date_.isBefore(end))
+//                .limit(ChronoUnit.HOURS.between(start, end))
+//                .toList();
+//
+//        List<LocalDateTime> dates_ = new ArrayList<>();
+//
+//        for(LocalDateTime date_s = start; date_s.isBefore(end); date_s = date_s.plusMinutes(45)) {
+//            dates_.add(date_s);
+//        }
+//        AtomicInteger index = new AtomicInteger();
+//
+//        for (int i = 0; i < 10 ; i++) {
+//            System.out.println(index.incrementAndGet());
+//        }
+        //System.out.println(NuevaCitaController.makeCalendar());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String date = "2023-04-26 16:48";
+
+        System.out.println(LocalDateTime.parse(date, formatter));
+
+// new Timestamp(new Date().getTime())
 //        CitaDao citaDao = new CitaDao();
 //        List<String> citas = citaDao.getAll().stream()
 //                .map(cita -> new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cita.getFechaHora())).toList();

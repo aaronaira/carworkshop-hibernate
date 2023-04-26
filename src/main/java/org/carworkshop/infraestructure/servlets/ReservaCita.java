@@ -16,35 +16,30 @@ import java.util.Map;
 
 public class ReservaCita extends HttpServlet {
 
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<h1>Finaliza tu reserva de cita</h1>");
 
-        out.println("<form method=\"post\" action=\"/panel/reservacita\">");
-        Map<LocalDate, List<String>> fechas = (Map<LocalDate, List<String>>) request.getServletContext().getAttribute("fechas");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate dia = LocalDate.parse(request.getParameter("fecha"), formatter);
+        String fecha = request.getParameter("fecha");
 
-        List<String> horasDisponibles = fechas.get(dia);
-        out.println("<p>Día de reserva: " + request.getParameter("fecha") + "</p>");
-        out.println("<label id='selectDate'>Selecciona una hora: <select name=\"selectHour\" id=\"selectDate\">");
-        horasDisponibles.forEach(hora -> out.println("<option value='%s'>%s".replace("%s", hora)));
-        out.println("</select><label><br><br>");
-
-        out.println("<label id='diagnostico'>Introduce un breve diagnostico:<br>");
-        out.println("<textarea id=\"diagnostico\" name=\"diagnostico_cliente\" rows=\"10\" cols=\"50\">Introduce una breve descripción del diagnóstico de tu vehículo. Por ejemplo: hace un ruido al frenar</textarea>");
-        out.println("<br><button>Enviar</button></form>");
+        out.println(ReservaCitaController.makeReservaCitaForm(request, fecha));
 
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String fecha = request.getParameter("fecha");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        String fecha = request.getParameter("date");
+        String vehiculo = request.getParameter("vehiculo");
         String selectDate = request.getParameter("selectHour");
         String diagnostico = request.getParameter("diagnostico_cliente");
 
-        ReservaCitaController.saveDiagnostico(request);
+        if(ReservaCitaController.makeReservaCita(request)) out.println("La reserva se realizó con éxito! ❤");
+
+        out.println("<h1>LA FECHA ES: " + fecha + "\nEL VEHICULO ES: " + vehiculo + "\nA LA HORA: " + selectDate + "\nY EL DIAGNOSTICO ES: " + diagnostico);
 
 
 
