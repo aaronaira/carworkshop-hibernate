@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 public class NuevaCitaController{
 
-    static Locale loc = new Locale("es", "ES");
+
     private static final List<String> getAllCitas = new ArrayList<>();
     private static final Map<LocalDate, List<String>> mapDaysHours = new LinkedHashMap<>();
 
@@ -57,7 +57,7 @@ public class NuevaCitaController{
 
     public static String makeCalendar() {
         return getCalendar().entrySet().stream().map(item -> {
-            return calendarForm.replace("%f", item.getKey()).replace("%s", String.join("", item.getValue()));
+            return calendarForm.replace("%f", englishMonthToSpanish(item.getKey())).replace("%s", String.join("", item.getValue()));
         }).collect(Collectors.joining());
     }
 
@@ -65,19 +65,6 @@ public class NuevaCitaController{
         LinkedHashMap<String, List<String>> calendarFormatedHours = new LinkedHashMap<>();
 
         for (Map.Entry<LocalDate, List<String>> item : getAllAvaliableDates().entrySet()) {
-//            String evaluateDayOfMonth =
-//                    item.getKey().getDayOfWeek().name().equals("SATURDAY")
-//                            || item.getKey().getDayOfWeek().name().equals("SUNDAY")
-//                            //|| LocalDate.now().isAfter(ChronoLocalDate.from(item.getKey().atStartOfDay().toLocalDate()))
-//                            ? "<li class='cross-day'>" + item.getKey().getDayOfMonth() + "</li>"
-//                            : "<li>" + item.getKey().getDayOfMonth() + "</li>";
-//
-//            String firstDayOfMonth = item.getKey().getDayOfMonth() == 1
-//                    ? ("<li class='first-day' style='width: calc(14% * %f );'>"+ item.getKey().getDayOfMonth() + "</li>")
-//                    .replaceAll("%f", String.valueOf(item.getKey().getDayOfWeek().getValue()))
-//                    : null;
-//
-//            String checkDate = firstDayOfMonth != null ? firstDayOfMonth : evaluateDayOfMonth;
 
             if (!calendarFormatedHours.containsKey(item.getKey().getMonth().name()))
                 calendarFormatedHours.put(item.getKey().getMonth().name(), new ArrayList<>());
@@ -96,7 +83,7 @@ public class NuevaCitaController{
         for(LocalDateTime date: generateDatesAndHours()) {
             String nextDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Timestamp.valueOf(date));
             String getHour = new SimpleDateFormat("H").format(Timestamp.valueOf(date));
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm",loc);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 
             if( Integer.parseInt(getHour) < 20 && Integer.parseInt(getHour) >= 8) {
                 if(!getAllCitas.contains(nextDate)) {
@@ -191,5 +178,25 @@ public class NuevaCitaController{
         return "<li><a href=/panel/reservacita?fecha=" + day +">"+ day.getDayOfMonth() + "</a></li>";
     }
 
+        public static String  englishMonthToSpanish(String month) {
+
+        LinkedHashMap<String, String> months = new LinkedHashMap<String, String>();
+
+        months.put("JANUARY", "ENERO");
+        months.put("FEBRUARY", "FEBRERO");
+        months.put("MARCH", "MARZO");
+        months.put("APRIL", "ABRIL");
+        months.put("MAY", "MAYO");
+        months.put("JUNE", "JUNIO");
+        months.put("JULY", "JULIO");
+        months.put("AUGUST", "AGOSTO");
+        months.put("SEPTEMBER", "SEPTIEMBRE");
+        months.put("OCTOBER", "OCTUBRE");
+        months.put("NOVEMBER", "NOVIEMBRE");
+        months.put("DECEMBER", "DICIEMBRE");
+
+        return months.get(month);
+
+    }
+
 }
-//panel/reservacita?fecha=day
