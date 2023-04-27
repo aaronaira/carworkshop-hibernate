@@ -68,13 +68,11 @@ public class NuevaCitaController{
     public static Map<LocalDate, List<LocalTime>> getAllAvaliableDates() {
         getDatesFromDB();
         DateTimeFormatter hoursFormatter = DateTimeFormatter.ofPattern("HH:mm");
-        System.out.println(generateDatesAndHours() + " >>>>>>> GENERATED");
-        System.out.println(getAllCitas + ">>>>>>>> DB CITAS");
         mapDaysHours.clear();
 
         for(LocalDateTime date: generateDatesAndHours()) {
 
-            if( date.getHour() < 20 && date.getHour() >= 8) {
+            if( date.getHour() < 20 && date.getHour() >= 8 && date.getHour() > LocalDateTime.now().getHour()) {
                 if(!getAllCitas.contains(date)) {
 
                     LocalDate proposalDay = date.toLocalDate();
