@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -67,6 +68,9 @@ public class NuevaCitaController{
     public static Map<LocalDate, List<LocalTime>> getAllAvaliableDates() {
         getDatesFromDB();
         DateTimeFormatter hoursFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        System.out.println(generateDatesAndHours() + " >>>>>>> GENERATED");
+        System.out.println(getAllCitas + ">>>>>>>> DB CITAS");
+        mapDaysHours.clear();
 
         for(LocalDateTime date: generateDatesAndHours()) {
 
@@ -94,12 +98,11 @@ public class NuevaCitaController{
         CitaDao citaDao = new CitaDao();
         List<Cita> AllCitas = citaDao.getAll();
 
-        AllCitas.stream()
-                .map(cita -> getAllCitas.add(cita.getFechaHora().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()));
+        AllCitas.forEach(cita -> getAllCitas.add(cita.getFechaHora().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().truncatedTo(ChronoUnit.MINUTES)));
     }
 
     private static List<LocalDateTime> generateDatesAndHours() {
-        LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).with(DayOfWeek.MONDAY);
+        LocalDateTime start = LocalDateTime.now().with(TemporalAdjusters.firstDayOfMonth()).with(DayOfWeek.MONDAY).with(LocalTime.of(8, 0)).truncatedTo(ChronoUnit.MINUTES);
         LocalDateTime end = LocalDateTime.now().plusMonths(2).with(TemporalAdjusters.lastDayOfMonth()).with(LocalTime.of(20, 0));
 
 
