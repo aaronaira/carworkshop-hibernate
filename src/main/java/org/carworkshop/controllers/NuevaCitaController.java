@@ -60,10 +60,13 @@ public class NuevaCitaController{
             if(!calendarFormatedDays.get(item.getKey().getMonth().name()).contains(isFirstDayAndWeekend(item.getKey())))
                 calendarFormatedDays.get(item.getKey().getMonth().name()).add(isFirstDayAndWeekend(item.getKey()));
         }
-
             return calendarFormatedDays;
+    }
 
-        }
+    private static void checkIfHourPassToday() {
+
+
+    }
 
     public static Map<LocalDate, List<LocalTime>> getAllAvaliableDates() {
         getDatesFromDB();
@@ -72,23 +75,23 @@ public class NuevaCitaController{
 
         for(LocalDateTime date: generateDatesAndHours()) {
 
-            if( date.getHour() < 20 && date.getHour() >= 8 && date.getHour() > LocalDateTime.now().getHour()) {
+            if(date.getHour() < 20 && date.getHour() >= 8) {
                 if(!getAllCitas.contains(date)) {
 
                     LocalDate proposalDay = date.toLocalDate();
                     LocalTime proposalTime = LocalTime.parse(date.toLocalTime().format(hoursFormatter));
 
                     if(!LocalDate.now().minusMonths(1).getMonth().name().equals(proposalDay.getMonth().name())) {
-                        if (!mapDaysHours.containsKey(proposalDay)) mapDaysHours.put(proposalDay, new ArrayList<>());
 
-                        if(!mapDaysHours.get(proposalDay).contains(proposalTime)) {
-                            mapDaysHours.get(proposalDay).add(proposalTime);
-                        }
+                        if(!mapDaysHours.containsKey(proposalDay)) mapDaysHours.put(proposalDay, new ArrayList<>());
+
+                        if(!mapDaysHours.get(proposalDay).contains(proposalTime)) mapDaysHours.get(proposalDay).add(proposalTime);
+
                     }
                 }
             }
         }
-
+        mapDaysHours.get(LocalDate.now()).removeIf(hour -> hour.isBefore(LocalTime.now().truncatedTo(ChronoUnit.MINUTES)));
         return mapDaysHours;
     }
 
@@ -127,17 +130,19 @@ public class NuevaCitaController{
 
             return "<li class='cross-day'>" + day.getDayOfMonth() + "</li>";
 
-        } else if (day.getDayOfMonth() == 1) {
 
+        } else if (day.getDayOfMonth() == 1) {
             return ("<li class='first-day' style = 'width : calc(14% * %dayofweek)'><a href=/panel/reservacita?fecha="
                     + day +">"+ day.getDayOfMonth() + "</a></li>")
                     .replace("%dayofweek", String.valueOf(day.getDayOfWeek().getValue()));
 
         } else if (day.isBefore(LocalDate.now())) {
-
             return "<li class='cross-day'>" + day.getDayOfMonth() + "</li>";
 
+        } else if (mapDaysHours.get(day).isEmpty()) {
+            return "<li class='cross-day'>" + day.getDayOfMonth() + "</li>";
         }
+
         return "<li><a href=/panel/reservacita?fecha=" + day +">"+ day.getDayOfMonth() + "</a></li>";
     }
 
