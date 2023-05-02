@@ -28,6 +28,18 @@
         <servlet-name>nuevovehiculo</servlet-name>
         <servlet-class>org.carworkshop.infraestructure.servlets.NuevoVehiculo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>nuevacita</servlet-name>
+        <servlet-class>org.carworkshop.infraestructure.servlets.NuevaCita</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>reservacita</servlet-name>
+        <servlet-class>org.carworkshop.infraestructure.servlets.ReservaCita</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>nuevacita</servlet-name>
+        <url-pattern>/panel/nuevacita</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>registro</servlet-name>
         <url-pattern>/registro</url-pattern>
@@ -35,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>nuevovehiculo</servlet-name>
         <url-pattern>/panel/nuevovehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>reservacita</servlet-name>
+        <url-pattern>/panel/reservacita</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -48,4 +64,10 @@
         <servlet-name>panel</servlet-name>
         <url-pattern>/panel</url-pattern>
     </servlet-mapping>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
 </web-app>

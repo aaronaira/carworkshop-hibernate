@@ -4,6 +4,10 @@ import lombok.SneakyThrows;
 import org.carworkshop.controllers.LoginController;
 import org.carworkshop.dtos.ClienteDto;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +36,7 @@ public class Login extends HttpServlet {
     public Login() throws IOException {
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 //        Cliente cliente = new Cliente();
 //        cliente.setNombre("Aaron");
@@ -73,7 +77,8 @@ public class Login extends HttpServlet {
         if(request.getServletContext().getAttribute("cliente") instanceof ClienteDto) {
             response.sendRedirect("/panel");
         } else {
-            out.println(logingForm + request.getServletContext().getAttribute("cliente"));
+            request.getRequestDispatcher("/WEB-INF/login.jsp")
+                    .forward(request, response);
         }
 
     }
