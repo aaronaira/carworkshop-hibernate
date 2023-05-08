@@ -1,14 +1,10 @@
 package org.carworkshop.daos;
 
-
-
-
 import jakarta.persistence.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import jakarta.transaction.Transactional;
 import org.carworkshop.entities.Login;
 import org.carworkshop.interfaces.Dao;
 
@@ -59,7 +55,6 @@ public class LoginDao implements Dao<Login>  {
     }
 
     @Override
-    @Transactional
     public void update(Login login) {
         execute(entityManager -> entityManager.merge(login));
 

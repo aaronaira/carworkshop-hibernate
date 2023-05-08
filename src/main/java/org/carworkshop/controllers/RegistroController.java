@@ -28,7 +28,12 @@ public class RegistroController {
 
         filterFirstNameSecondNameAddress(clientFields.get("fname"));
         filterFirstNameSecondNameAddress(clientFields.get("lname"));
-        filterFirstNameSecondNameAddress(clientFields.get("address"));
+        filterFirstNameSecondNameAddress(clientFields.get("address_street"));
+        filterFirstNameSecondNameAddress(clientFields.get("address_number"));
+        filterFirstNameSecondNameAddress(clientFields.get("address_city"));
+        filterFirstNameSecondNameAddress(clientFields.get("address_postalCode"));
+        filterFirstNameSecondNameAddress(clientFields.get("address_province"));
+
         filterPassword(clientFields.get("password"), clientFields.get("passwordConfirm"));
         filterDni(clientFields.get("dni"));
         filterEmail(clientFields.get("email"));
@@ -48,6 +53,12 @@ public class RegistroController {
         Cliente cliente = new Cliente();
         Login login = new Login();
 
+        String fullAddress = clientFields.get("address_street") + " "
+                + clientFields.get("address_number") + " "
+                + clientFields.get("address_city") + " "
+                + clientFields.get("address_postalCode") + " "
+                + clientFields.get("address_province");
+
         login.setEmail(clientFields.get("email"));
         login.setPassword(Hash.createHash(clientFields.get("password")));
         login.setCliente(cliente);
@@ -55,7 +66,7 @@ public class RegistroController {
         cliente.setNombre(clientFields.get("fname"));
         cliente.setApellidos(clientFields.get("lname"));
         cliente.setDni(clientFields.get("dni"));
-        cliente.setDireccion(clientFields.get("address"));
+        cliente.setDireccion(fullAddress);
 
         cliente.setEmail(login);
         loginDao.save(login);
@@ -64,9 +75,18 @@ public class RegistroController {
     }
 
     private static void filterFirstNameSecondNameAddress(String name) {
-        int nameLength = name.split("").length;
-        if(nameLength < 3 || nameLength > 50) errorList.put(ErroresRegistro.NAME.getErrorCode(), ErroresRegistro.NAME.getErrorMessage());
+        if(!name.equals(null)) {
+
+            int nameLength = name.split("").length;
+            if(nameLength < 3 || nameLength > 50 || name == null) errorList.put(ErroresRegistro.NAME.getErrorCode(), ErroresRegistro.NAME.getErrorMessage());
+
+        } else {
+
+            errorList.put(ErroresRegistro.NAME.getErrorCode(), ErroresRegistro.NAME.getErrorMessage());
+
+        }
     }
+
 
     private static void filterPassword(String password, String passwordConfirm) {
         if(!Objects.equals(password, passwordConfirm)) errorList.put(ErroresRegistro.PASSWORD1.getErrorCode(), ErroresRegistro.PASSWORD1.getErrorMessage());
