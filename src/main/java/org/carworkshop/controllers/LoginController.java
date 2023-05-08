@@ -28,8 +28,11 @@ public class LoginController {
         return matcherEmailFound && matcherPasswordFound;
     }
 
-    public static boolean checkIfUserExists(String email, String password, HttpServletRequest request) throws NoSuchAlgorithmException {
+    public static boolean checkIfUserExists(HttpServletRequest request) throws NoSuchAlgorithmException {
         LoginDao loginDao = new LoginDao();
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+
         String userPasswordInput = Hash.createHash(password);
 
         if(!checkUserFields(email, password)) {
@@ -50,7 +53,7 @@ public class LoginController {
     }
 
     public static boolean checkIfUserIsLogged(HttpServletRequest request) {
-        return request.getServletContext().getAttribute("cliente") instanceof ClienteDto;
+        return (ClienteDto) request.getServletContext().getAttribute("cliente") instanceof ClienteDto;
     }
 
     private static ClienteDto parseToClienteDto(Login login) {

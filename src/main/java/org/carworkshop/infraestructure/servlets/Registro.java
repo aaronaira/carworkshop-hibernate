@@ -3,6 +3,7 @@ package org.carworkshop.infraestructure.servlets;
 import org.carworkshop.controllers.RegistroController;
 import org.carworkshop.dtos.ClienteDto;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +37,7 @@ public class Registro extends HttpServlet {
                 </body>
                 </html>
                 """;
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -45,13 +46,13 @@ public class Registro extends HttpServlet {
         if(request.getServletContext().getAttribute("cliente") instanceof ClienteDto) {
             response.sendRedirect("/panel");
         } else {
-            out.println(registerForm);
+            request.getRequestDispatcher("/WEB-INF/pages/registro.jsp").forward(request, response);
         }
 
 
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -66,9 +67,8 @@ public class Registro extends HttpServlet {
         if(errorList == null) {
             out.println("<h1>Proceder con el registro</h1>");
         } else {
-            errorList.forEach((k, v) -> {
-                out.println("<p>ErrorCode: "+k +" ErrorMessage: "+v);
-            });
+            request.setAttribute("errorsRegistro", errorList);
+            request.getRequestDispatcher("/WEB-INF/pages/registro.jsp").forward(request, response);
         }
 
 

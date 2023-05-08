@@ -1,0 +1,111 @@
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    :root {
+        --blue-chill-bg: #49A19A;
+        --blue-chill-dark: #265656
+    }
+    header a {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    a:hover {
+        color: var(--blue-chill-dark);
+    }
+    header {
+        color: white;
+        font-weight: bold;
+        background-color: var(--blue-chill-bg);
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .header_container {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    }
+
+    .header_logo {
+        display: flex;
+        flex-grow: 1;
+    }
+    .btn-custom {
+        color: #fff;
+        background-color: var(--blue-chill-bg);
+        border-color: var(--blue-chill-bg);
+    }
+    .btn-custom:hover {
+        color: var(--blue-chill-dark);
+    }
+    footer {
+        padding: 15px 0;
+        background-color: var(--blue-chill-bg);
+        display: flex;
+
+    .footer_container {
+        display: flex;
+    }
+
+    }
+    footer ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+    }
+    footer h5 {
+        color: #fff;
+        font-size: 1.1rem;
+    }
+    footer a {
+         text-decoration: none;
+         color: #fff;
+         font-size: 14px;
+    }
+    .socials ul {
+        flex-direction: row;
+    }
+    .socials ul svg {
+        width: 25px;
+        height: 25px;
+    }
+    .register_error-messages {
+        flex-direction: column;
+        list-style: circle;
+        color: red;
+    }
+
+    .panel_menu {
+        background-color: var(--blue-chill-bg);
+        color: #fff;
+        padding-right: 0;
+        font-weight:600;
+        justify-content: start;
+    }
+
+    .panel_menu-nav ul {
+        flex-direction: column;
+
+    }
+
+    .panel_menu-nav li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .panel_menu-nav li svg {
+        margin-right: 10px;
+
+
+    }

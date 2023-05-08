@@ -1,5 +1,6 @@
 package org.carworkshop.infraestructure.servlets;
 
+import org.carworkshop.controllers.LoginController;
 import org.carworkshop.dtos.ClienteDto;
 
 import javax.servlet.http.HttpServlet;
@@ -11,10 +12,8 @@ public class Logout extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        if (request.getServletContext().getAttribute("cliente") instanceof ClienteDto) {
-            request.getServletContext().setAttribute("cliente", "");
-            response.sendRedirect("/login");
-        } else {
+        if (LoginController.checkIfUserIsLogged(request)) {
+            request.getServletContext().setAttribute("cliente", null);
             response.sendRedirect("/login");
         }
     }

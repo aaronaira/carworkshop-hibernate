@@ -1,7 +1,6 @@
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@include file="patrials/header.jsp" %>
+<%@include file="../patrials/header.jsp" %>
 <div class="container form_login">
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
         <div class="col-md-4">
             <form method="post" action="/login">
                 <div class="mb-3">
@@ -18,4 +17,4 @@
         </div>
         </div>
 </div>
-<%@include file="patrials/footer.jsp" %>
+<%@include file="../patrials/footer.jsp" %>

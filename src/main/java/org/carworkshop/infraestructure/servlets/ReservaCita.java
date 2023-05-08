@@ -37,9 +37,16 @@ public class ReservaCita extends HttpServlet {
         String selectDate = request.getParameter("selectHour");
         String diagnostico = request.getParameter("diagnostico_cliente");
 
-        if(ReservaCitaController.makeReservaCita(request)) out.println("La reserva se realizó con éxito! ❤");
+        if(ReservaCitaController.makeReservaCita(request)) {
+            out.println("La reserva se realizó con éxito! ❤");
+            try {
+                Thread.sleep(3000);
+                response.sendRedirect("/panel");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
-        out.println("<h1>LA FECHA ES: " + fecha + "\nEL VEHICULO ES: " + vehiculo + "\nA LA HORA: " + selectDate + "\nY EL DIAGNOSTICO ES: " + diagnostico);
 
 
 
