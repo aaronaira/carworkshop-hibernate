@@ -20,6 +20,7 @@ public class Panel extends HttpServlet {
         if(LoginController.checkIfUserIsLogged(request)) {
             ClienteDto clienteDto = (ClienteDto) request.getServletContext().getAttribute("cliente");
             request.setAttribute("clienteDto", clienteDto);
+
             request.getRequestDispatcher("/WEB-INF/pages/panel.jsp")
                     .forward(request, response);
         } else {

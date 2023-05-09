@@ -5,7 +5,8 @@
     }
     :root {
         --blue-chill-bg: #49A19A;
-        --blue-chill-dark: #265656
+        --blue-chill-dark: #265656;
+        --blue-chill-content: #d9e9e9;
     }
     header a {
         color: white;
@@ -94,18 +95,18 @@
 
     .panel_menu-nav ul {
         flex-direction: column;
-
     }
 
     .panel_menu-nav li {
         margin-bottom: 15px;
         display: flex;
         align-items: center;
-
     }
 
     .panel_menu-nav li svg {
         margin-right: 10px;
+    }
 
-
+    .panel_content {
+        background-color: var(--blue-chill-content);
     }

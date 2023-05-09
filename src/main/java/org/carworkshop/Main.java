@@ -97,11 +97,11 @@ public class Main {
 //        }
         //System.out.println(NuevaCitaController.makeCalendar());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String date = "2023-04-26 16:48";
-
-        System.out.println(LocalDateTime.parse(date, formatter));
-
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+//        String date = "2023-04-26 16:48";
+//
+//        System.out.println(LocalDateTime.parse(date, formatter));
+        System.out.println(NuevaCitaController.getCalendar());
 // new Timestamp(new Date().getTime())
 //        CitaDao citaDao = new CitaDao();
 //        List<String> citas = citaDao.getAll().stream()

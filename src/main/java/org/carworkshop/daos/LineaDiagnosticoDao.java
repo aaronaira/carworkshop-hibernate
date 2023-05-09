@@ -30,6 +30,7 @@ public class LineaDiagnosticoDao implements Dao<LineaDiagnostico> {
 //        return Optional.ofNullable(entityManager.find(LineaDiagnosticoPK.class, new LineaDiagnosticoPK(id, n_linea)));
 //    }
     public Optional<LineaDiagnostico> get(LineaDiagnosticoPK ldpk) {
+
     return Optional.ofNullable(entityManager.find(LineaDiagnostico.class, ldpk));
 }
     @Override

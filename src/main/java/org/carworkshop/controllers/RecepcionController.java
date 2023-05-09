@@ -78,7 +78,7 @@ public class RecepcionController {
     }
 
     //RECOGE EL EMPLEADO DE RECEPCION, COMO ESTA PLANTEADO SOLO DEBE DE HABER UN EMPLEADO EN RECEPCION EN TODA LA BASE DE DATOS
-    public static Optional <Empleado> getEmpleadoRecepcion() {
+    public static Optional<Empleado> getEmpleadoRecepcion() {
         EmpleadoDao empleadoDao = new EmpleadoDao();
         List <Empleado> listaempleados = empleadoDao.getAll();
 
