@@ -1,4 +1,5 @@
-<%@include file="../patrials/header.jsp" %>
+<%@include file="../../patrials/header.jsp" %>
+<%@include file="../../patrials/header-nav.jsp" %>
 <div class="container form_login">
     <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
         <div class="col-md-4">
@@ -17,4 +18,4 @@
         </div>
         </div>
 </div>
-<%@include file="../patrials/footer.jsp" %>
+<%@include file="../../patrials/footer.jsp" %>

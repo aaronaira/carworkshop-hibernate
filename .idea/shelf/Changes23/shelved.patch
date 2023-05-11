@@ -1,0 +1,15 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03__Changes_.xml	(revision a4c95b09fe69c9156cac75e3f88237edd295f4d8)
++++ /dev/null	(revision a4c95b09fe69c9156cac75e3f88237edd295f4d8)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_18_04_2023_17_03_[Changes]" date="1681830205605" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 18/04/2023 17:03 [Changes]" />
+-</changelist>
+\ No newline at end of file

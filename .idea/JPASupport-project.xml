@@ -58,7 +58,7 @@
   <component name="DatabaseSettingsState">
     <option name="database" value="carworkshop" />
     <option name="driverClass" value="com.mysql.jdbc.Driver" />
-    <option name="driverPath" value="C:\Users\Lenovo\Downloads\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31.jar" />
+    <option name="driverPath" value="C:\Users\Lenovo\Downloads\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31.jar" />
     <option name="url" value="jdbc:mysql://{host}:{port}/{database}?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
   </component>
 </project>

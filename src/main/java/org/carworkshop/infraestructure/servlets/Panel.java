@@ -21,7 +21,7 @@ public class Panel extends HttpServlet {
             ClienteDto clienteDto = (ClienteDto) request.getServletContext().getAttribute("cliente");
             request.setAttribute("clienteDto", clienteDto);
 
-            request.getRequestDispatcher("/WEB-INF/pages/panel.jsp")
+            request.getRequestDispatcher("/WEB-INF/pages/client/panel.jsp")
                     .forward(request, response);
         } else {
             response.sendRedirect("/login");

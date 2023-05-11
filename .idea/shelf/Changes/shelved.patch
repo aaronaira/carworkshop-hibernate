@@ -1,0 +1,233 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a0269ea1-b2fe-4c62-a359-23aacfa39685\" name=\"Changes\" comment=\"Created abstract class Persona and mofified ClienteDao.\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/SesionController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/SesionDto.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/JPASupport-project.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/JPASupport-project.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dbnavigator.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dbnavigator.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"com.haulmont.jpb.JpaEntity\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--follow-tags\" />\r\n        <option name=\"title\" value=\"Current Branch\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n  </component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"isToolWindowVisible\" value=\"false\" />\r\n  </component>\r\n  <component name=\"LogFilters\">\r\n    <option name=\"FILTER_ERRORS\" value=\"false\" />\r\n    <option name=\"FILTER_WARNINGS\" value=\"false\" />\r\n    <option name=\"FILTER_INFO\" value=\"true\" />\r\n    <option name=\"FILTER_DEBUG\" value=\"true\" />\r\n    <option name=\"CUSTOM_FILTER\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N4O1LXju3vrY88G3OjwPCPdt7x\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"dart.analysis.tool.window.visible\": \"false\",\r\n    \"git-widget-placeholder\": \"dev\",\r\n    \"last_opened_file_path\": \"C:/Users/Lenovo/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Aaron\\Desktop\\Aaron\\carworkshop-hibernate-----\\src\\main\\java\\org\\carworkshop\\daos\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"org.carworkshop.infraestructure.servlets\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Unnamed\" type=\"com.poratu.idea.plugins.tomcat\" nameIsGenerated=\"true\">\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat Localhost Log\" />\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat Access Log\" />\r\n      <predefined_log_file id=\"Tomcat Catalina Log\" />\r\n      <predefined_log_file id=\"Tomcat Manager Log\" />\r\n      <predefined_log_file id=\"Tomcat Host Manager Log\" />\r\n      <option name=\"contextPath\" value=\"/\" />\r\n      <option name=\"docBase\" value=\"C:\\Users\\Aaron\\Desktop\\Aaron\\carworkshop-hibernate-----\" />\r\n      <option name=\"tomcatInfo\">\r\n        <TomcatInfo>\r\n          <option name=\"name\" value=\"Apache Tomcat/9.0.73\" />\r\n          <option name=\"path\" value=\"$USER_HOME$/Downloads/apache-tomcat-9.0.73\" />\r\n          <option name=\"version\" value=\"9.0.73.0\" />\r\n        </TomcatInfo>\r\n      </option>\r\n      <option name=\"vmOptions\" value=\"\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a0269ea1-b2fe-4c62-a359-23aacfa39685\" name=\"Changes\" comment=\"\" />\r\n      <created>1678919672515</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678919672515</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand.\">\r\n      <created>1680709067632</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680709067632</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Created abstract class Persona and mofified ClienteDao.\">\r\n      <created>1680712049504</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680712049504</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"UnknownFeatures\">\r\n    <option featureType=\"dependencySupport\" implementationName=\"java:com.google.protobuf:protobuf-java\" />\r\n    <option featureType=\"dependencySupport\" implementationName=\"java:jakarta.persistence:jakarta.persistence-api\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand.\" />\r\n    <MESSAGE value=\"Created abstract class Persona and mofified ClienteDao.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Created abstract class Persona and mofified ClienteDao.\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2d4bd483358cb6d40d4654e97c9869f26f0078d9)
++++ b/.idea/workspace.xml	(date 1681151943816)
+@@ -4,14 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="Created abstract class Persona and mofified ClienteDao.">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/SesionController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/SesionDto.java" afterDir="false" />
++    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="Enum with errors for register failures">
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/helpers/Hash.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/JPASupport-project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,17 +26,16 @@
+       <list>
+         <option value="com.haulmont.jpb.JpaEntity" />
+         <option value="Interface" />
++        <option value="Enum" />
+         <option value="Class" />
+       </list>
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="PUSH_AUTO_UPDATE" value="true" />
+-    <option name="PUSH_TAGS">
+-      <GitPushTagMode>
+-        <option name="argument" value="--follow-tags" />
+-        <option name="title" value="Current Branch" />
+-      </GitPushTagMode>
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="aaron" />
++      </map>
+     </option>
+   </component>
+   <component name="JpbToolWindowState">
+@@ -48,6 +50,13 @@
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
++  </component>
++  <component name="MavenImportPreferences">
++    <option name="importingSettings">
++      <MavenImportingSettings>
++        <option name="workspaceImportEnabled" value="true" />
++      </MavenImportingSettings>
++    </option>
+   </component>
+   <component name="ProjectId" id="2N4O1LXju3vrY88G3OjwPCPdt7x" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+@@ -57,21 +66,18 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+-    "dart.analysis.tool.window.visible": "false",
+-    "git-widget-placeholder": "dev",
+-    "last_opened_file_path": "C:/Users/Lenovo/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.0",
+-    "settings.editor.selected.configurable": "preferences.pluginManager"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aaron/Desktop/Aaron/carworkshop-hibernate-----&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\java\org\carworkshop\daos" />
+@@ -111,19 +117,19 @@
+       <option name="presentableId" value="Default" />
+       <updated>1678919672515</updated>
+     </task>
+-    <task id="LOCAL-00001" summary="Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand.">
+-      <created>1680709067632</created>
++    <task id="LOCAL-00001" summary="Sesion entity refactorized and fiexed, SesionDao refactorized too">
++      <created>1680720120362</created>
+       <option name="number" value="00001" />
+       <option name="presentableId" value="LOCAL-00001" />
+       <option name="project" value="LOCAL" />
+-      <updated>1680709067632</updated>
++      <updated>1680720120362</updated>
+     </task>
+-    <task id="LOCAL-00002" summary="Created abstract class Persona and mofified ClienteDao.">
+-      <created>1680712049504</created>
++    <task id="LOCAL-00002" summary="Enum with errors for register failures">
++      <created>1681151932871</created>
+       <option name="number" value="00002" />
+       <option name="presentableId" value="LOCAL-00002" />
+       <option name="project" value="LOCAL" />
+-      <updated>1680712049504</updated>
++      <updated>1681151932871</updated>
+     </task>
+     <option name="localTasksCounter" value="3" />
+     <servers />
+@@ -144,9 +150,9 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand." />
+-    <MESSAGE value="Created abstract class Persona and mofified ClienteDao." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Created abstract class Persona and mofified ClienteDao." />
++    <MESSAGE value="Sesion entity refactorized and fiexed, SesionDao refactorized too" />
++    <MESSAGE value="Enum with errors for register failures" />
++    <option name="LAST_COMMIT_MESSAGE" value="Enum with errors for register failures" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: .idea/JPASupport-project.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoGeneratorSettingsState\">\r\n    <option name=\"addEntitySuffix\" value=\"Entity\" />\r\n    <option name=\"generateClassComment\" value=\"false\" />\r\n    <option name=\"generateFieldComment\" value=\"false\" />\r\n    <option name=\"generateJpaAnnotation\" value=\"false\" />\r\n    <option name=\"generateMethodComment\" value=\"false\" />\r\n    <option name=\"ignoredFields\">\r\n      <set>\r\n        <option value=\"\" />\r\n      </set>\r\n    </option>\r\n    <option name=\"moduleName\" value=\"carworkshop-hibernate\" />\r\n    <option name=\"moduleNameToSettings\">\r\n      <map>\r\n        <entry key=\"carworkshop-hibernate\">\r\n          <value>\r\n            <ModuleSettings>\r\n              <option name=\"controllerPackageName\" value=\"org.carworkshop.controllers\" />\r\n              <option name=\"controllerParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"dtoPackageName\" value=\"org.carworkshop.dtos\" />\r\n              <option name=\"dtoParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"entityPackageName\" value=\"org.carworkshop.entities\" />\r\n              <option name=\"entityParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"generateController\" value=\"true\" />\r\n              <option name=\"generateDTO\" value=\"true\" />\r\n              <option name=\"generateEntity\" value=\"false\" />\r\n              <option name=\"generateRepository\" value=\"false\" />\r\n              <option name=\"mapperXmlParentDirectory\" value=\"C:\\Users\\Lenovo\\IdeaProjects\\carworkshop-hibernate\\src\\main\\resources\" />\r\n              <option name=\"repositoryParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"serviceParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"voParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n            </ModuleSettings>\r\n          </value>\r\n        </entry>\r\n        <entry key=\"carworkshop-hibernate-----\">\r\n          <value>\r\n            <ModuleSettings>\r\n              <option name=\"controllerParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"dtoPackageName\" value=\"org.carworkshop.dtos\" />\r\n              <option name=\"dtoParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"entityPackageName\" value=\"org.carworkshop.entities\" />\r\n              <option name=\"entityParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"generateRepository\" value=\"false\" />\r\n              <option name=\"mapperXmlParentDirectory\" value=\"C:\\Users\\darkonte\\Desktop\\Java\\carworkshop-hibernate-----\\src\\main\\resources\" />\r\n              <option name=\"repositoryParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"serviceParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n              <option name=\"voParentDirectory\" value=\"$PROJECT_DIR$/src/main/java\" />\r\n            </ModuleSettings>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"serializable\" value=\"false\" />\r\n    <option name=\"useLombok\" value=\"false\" />\r\n  </component>\r\n  <component name=\"DatabaseSettingsState\">\r\n    <option name=\"database\" value=\"carworkshop\" />\r\n    <option name=\"driverClass\" value=\"com.mysql.jdbc.Driver\" />\r\n    <option name=\"driverPath\" value=\"C:\\Users\\Lenovo\\Downloads\\mysql-connector-j-8.0.31\\mysql-connector-j-8.0.31\\mysql-connector-j-8.0.31.jar\" />\r\n    <option name=\"url\" value=\"jdbc:mysql://{host}:{port}/{database}?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/JPASupport-project.xml b/.idea/JPASupport-project.xml
+--- a/.idea/JPASupport-project.xml	(revision 2d4bd483358cb6d40d4654e97c9869f26f0078d9)
++++ b/.idea/JPASupport-project.xml	(date 1681134763818)
+@@ -2,38 +2,14 @@
+ <project version="4">
+   <component name="AutoGeneratorSettingsState">
+     <option name="addEntitySuffix" value="Entity" />
+-    <option name="generateClassComment" value="false" />
+-    <option name="generateFieldComment" value="false" />
+-    <option name="generateJpaAnnotation" value="false" />
+-    <option name="generateMethodComment" value="false" />
+     <option name="ignoredFields">
+       <set>
+         <option value="" />
+       </set>
+     </option>
+-    <option name="moduleName" value="carworkshop-hibernate" />
++    <option name="moduleName" value="carworkshop-hibernate-----" />
+     <option name="moduleNameToSettings">
+       <map>
+-        <entry key="carworkshop-hibernate">
+-          <value>
+-            <ModuleSettings>
+-              <option name="controllerPackageName" value="org.carworkshop.controllers" />
+-              <option name="controllerParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+-              <option name="dtoPackageName" value="org.carworkshop.dtos" />
+-              <option name="dtoParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+-              <option name="entityPackageName" value="org.carworkshop.entities" />
+-              <option name="entityParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+-              <option name="generateController" value="true" />
+-              <option name="generateDTO" value="true" />
+-              <option name="generateEntity" value="false" />
+-              <option name="generateRepository" value="false" />
+-              <option name="mapperXmlParentDirectory" value="C:\Users\Lenovo\IdeaProjects\carworkshop-hibernate\src\main\resources" />
+-              <option name="repositoryParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+-              <option name="serviceParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+-              <option name="voParentDirectory" value="$PROJECT_DIR$/src/main/java" />
+-            </ModuleSettings>
+-          </value>
+-        </entry>
+         <entry key="carworkshop-hibernate-----">
+           <value>
+             <ModuleSettings>
+@@ -52,13 +28,13 @@
+         </entry>
+       </map>
+     </option>
+-    <option name="serializable" value="false" />
+     <option name="useLombok" value="false" />
+   </component>
+   <component name="DatabaseSettingsState">
+     <option name="database" value="carworkshop" />
+     <option name="driverClass" value="com.mysql.jdbc.Driver" />
+-    <option name="driverPath" value="C:\Users\Lenovo\Downloads\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31.jar" />
++    <option name="driverPath" value="C:\Users\darkonte\Downloads\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31.jar" />
++    <option name="language" value="es-ES" />
+     <option name="url" value="jdbc:mysql://{host}:{port}/{database}?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.carworkshop</groupId>\r\n    <artifactId>carworkshop-hibernate</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>17</maven.compiler.source>\r\n        <maven.compiler.target>17</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n    <dependencies>\r\n        <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->\r\n        <dependency>\r\n            <groupId>org.hibernate.orm</groupId>\r\n            <artifactId>hibernate-core</artifactId>\r\n            <version>6.1.7.Final</version>\r\n        </dependency>\r\n\r\n        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->\r\n        <dependency>\r\n            <groupId>com.mysql</groupId>\r\n            <artifactId>mysql-connector-j</artifactId>\r\n            <version>8.0.32</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.projectlombok</groupId>\r\n            <artifactId>lombok</artifactId>\r\n            <version>RELEASE</version>\r\n            <scope>compile</scope>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->\r\n        <dependency>\r\n            <groupId>javax.servlet</groupId>\r\n            <artifactId>javax.servlet-api</artifactId>\r\n            <version>4.0.1</version>\r\n            <scope>provided</scope>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/com.konghq/unirest-objectmapper-jackson -->\r\n        <dependency>\r\n            <groupId>com.konghq</groupId>\r\n            <artifactId>unirest-objectmapper-jackson</artifactId>\r\n            <version>4.0.0-RC7</version>\r\n        </dependency>\r\n\r\n\r\n\r\n    </dependencies>\r\n\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 2d4bd483358cb6d40d4654e97c9869f26f0078d9)
++++ b/pom.xml	(date 1681134996356)
+@@ -47,6 +47,12 @@
+             <version>4.0.0-RC7</version>
+         </dependency>
+ 
++        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
++        <dependency>
++            <groupId>commons-io</groupId>
++            <artifactId>commons-io</artifactId>
++            <version>2.11.0</version>
++        </dependency>
+ 
+ 
+     </dependencies>

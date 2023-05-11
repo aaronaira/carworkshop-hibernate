@@ -1,0 +1,214 @@
+Index: src/main/java/org/carworkshop/entities/Cita.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.carworkshop.entities;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.ToString;\r\nimport org.hibernate.annotations.OnDelete;\r\nimport org.hibernate.annotations.OnDeleteAction;\r\n\r\nimport java.time.Instant;\r\n\r\n@ToString\r\n@Entity\r\n@Table(name = \"cita\", schema = \"carworkshop\", indexes = {\r\n        @Index(name = \"id_cliente\", columnList = \"id_cliente\"),\r\n        @Index(name = \"id_diagnostico\", columnList = \"id_diagnostico\"),\r\n        @Index(name = \"id_vehiculo\", columnList = \"id_vehiculo\")\r\n})\r\npublic class Cita {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    @Column(name = \"id\", nullable = false)\r\n    private Integer id;\r\n\r\n    @Column(name = \"fecha_hora\", nullable = false)\r\n    private Instant fechaHora;\r\n\r\n    @ManyToOne(fetch = FetchType.LAZY, optional = false)\r\n    @OnDelete(action = OnDeleteAction.CASCADE)\r\n    @JoinColumn(name = \"id_vehiculo\", nullable = false)\r\n    private Vehiculo idVehiculo;\r\n\r\n    @ManyToOne(fetch = FetchType.LAZY, optional = false)\r\n    @OnDelete(action = OnDeleteAction.CASCADE)\r\n    @JoinColumn(name = \"id_cliente\", nullable = false)\r\n    private Cliente idCliente;\r\n\r\n    @ManyToOne(fetch = FetchType.LAZY, optional = false)\r\n    @OnDelete(action = OnDeleteAction.CASCADE)\r\n    @JoinColumn(name = \"id_diagnostico\", nullable = false)\r\n    private CabeceraDiagnostico idDiagnostico;\r\n\r\n    public Integer getId() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(Integer id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public Instant getFechaHora() {\r\n        return fechaHora;\r\n    }\r\n\r\n    public void setFechaHora(Instant fechaHora) {\r\n        this.fechaHora = fechaHora;\r\n    }\r\n\r\n    public Vehiculo getIdVehiculo() {\r\n        return idVehiculo;\r\n    }\r\n\r\n    public void setIdVehiculo(Vehiculo idVehiculo) {\r\n        this.idVehiculo = idVehiculo;\r\n    }\r\n\r\n    public Cliente getIdCliente() {\r\n        return idCliente;\r\n    }\r\n\r\n    public void setIdCliente(Cliente idCliente) {\r\n        this.idCliente = idCliente;\r\n    }\r\n\r\n    public CabeceraDiagnostico getIdDiagnostico() {\r\n        return idDiagnostico;\r\n    }\r\n\r\n    public void setIdDiagnostico(CabeceraDiagnostico idDiagnostico) {\r\n        this.idDiagnostico = idDiagnostico;\r\n    }\r\n\r\n}
+===================================================================
+diff --git a/src/main/java/org/carworkshop/entities/Cita.java b/src/main/java/org/carworkshop/entities/Cita.java
+--- a/src/main/java/org/carworkshop/entities/Cita.java	
++++ b/src/main/java/org/carworkshop/entities/Cita.java	
+@@ -1,81 +1,79 @@
+ package org.carworkshop.entities;
+ 
+-import jakarta.persistence.*;
+-import lombok.ToString;
+-import org.hibernate.annotations.OnDelete;
+-import org.hibernate.annotations.OnDeleteAction;
++import javax.persistence.*;
++import java.util.Date;
+ 
+-import java.time.Instant;
+ 
+-@ToString
++/**
++ * The persistent class for the cita database table.
++ * 
++ */
+ @Entity
+-@Table(name = "cita", schema = "carworkshop", indexes = {
+-        @Index(name = "id_cliente", columnList = "id_cliente"),
+-        @Index(name = "id_diagnostico", columnList = "id_diagnostico"),
+-        @Index(name = "id_vehiculo", columnList = "id_vehiculo")
+-})
+-public class Cita {
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    @Column(name = "id", nullable = false)
+-    private Integer id;
++@Table(name="cita")
++@NamedQuery(name="Cita.findAll", query="SELECT c FROM Cita c")
++public class Cita  {
++	private static final long serialVersionUID = 1L;
++
++	@Id
++	@Column(unique=true, nullable=false)
++	private int id;
+ 
+-    @Column(name = "fecha_hora", nullable = false)
+-    private Instant fechaHora;
++	@Temporal(TemporalType.TIMESTAMP)
++	@Column(name="fecha_hora", nullable=false)
++	private Date fechaHora;
++
++	@Column(name="id_cliente", nullable=false)
++	private int idCliente;
+ 
+-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+-    @OnDelete(action = OnDeleteAction.CASCADE)
+-    @JoinColumn(name = "id_vehiculo", nullable = false)
+-    private Vehiculo idVehiculo;
+-
+-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+-    @OnDelete(action = OnDeleteAction.CASCADE)
+-    @JoinColumn(name = "id_cliente", nullable = false)
+-    private Cliente idCliente;
++	@Column(name="id_diagnostico", nullable=false)
++	private int idDiagnostico;
++
++	//bi-directional many-to-one association to Vehiculo
++	@ManyToOne
++	@JoinColumn(name="id_vehiculo", nullable=false)
++	private Vehiculo vehiculo;
+ 
+-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+-    @OnDelete(action = OnDeleteAction.CASCADE)
+-    @JoinColumn(name = "id_diagnostico", nullable = false)
+-    private CabeceraDiagnostico idDiagnostico;
++	public Cita() {
++	}
+ 
+-    public Integer getId() {
+-        return id;
+-    }
++	public int getId() {
++		return this.id;
++	}
+ 
+-    public void setId(Integer id) {
+-        this.id = id;
+-    }
++	public void setId(int id) {
++		this.id = id;
++	}
+ 
+-    public Instant getFechaHora() {
+-        return fechaHora;
+-    }
++	public Date getFechaHora() {
++		return this.fechaHora;
++	}
+ 
+-    public void setFechaHora(Instant fechaHora) {
+-        this.fechaHora = fechaHora;
+-    }
++	public void setFechaHora(Date fechaHora) {
++		this.fechaHora = fechaHora;
++	}
+ 
+-    public Vehiculo getIdVehiculo() {
+-        return idVehiculo;
+-    }
+-
+-    public void setIdVehiculo(Vehiculo idVehiculo) {
+-        this.idVehiculo = idVehiculo;
+-    }
+-
+-    public Cliente getIdCliente() {
+-        return idCliente;
+-    }
++	public int getIdCliente() {
++		return this.idCliente;
++	}
+ 
+-    public void setIdCliente(Cliente idCliente) {
+-        this.idCliente = idCliente;
+-    }
++	public void setIdCliente(int idCliente) {
++		this.idCliente = idCliente;
++	}
+ 
+-    public CabeceraDiagnostico getIdDiagnostico() {
+-        return idDiagnostico;
+-    }
++	public int getIdDiagnostico() {
++		return this.idDiagnostico;
++	}
+ 
+-    public void setIdDiagnostico(CabeceraDiagnostico idDiagnostico) {
+-        this.idDiagnostico = idDiagnostico;
+-    }
++	public void setIdDiagnostico(int idDiagnostico) {
++		this.idDiagnostico = idDiagnostico;
++	}
+ 
++	public Vehiculo getVehiculo() {
++		return this.vehiculo;
++	}
++
++	public void setVehiculo(Vehiculo vehiculo) {
++		this.vehiculo = vehiculo;
++	}
++
+ }
+\ No newline at end of file
+Index: src/main/java/org/carworkshop/daos/CitaDao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.carworkshop.daos;\r\n\r\nimport jakarta.persistence.EntityManager;\r\nimport jakarta.persistence.EntityManagerFactory;\r\nimport jakarta.persistence.EntityTransaction;\r\nimport jakarta.persistence.Persistence;\r\nimport org.carworkshop.entities.Cita;\r\nimport org.carworkshop.entities.Cliente;\r\nimport org.carworkshop.interfaces.Dao;\r\n\r\nimport java.util.List;\r\nimport java.util.Optional;\r\nimport java.util.function.Consumer;\r\n\r\npublic class CitaDao implements Dao<Cita> {\r\n    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(\"org.carworkshop\");\r\n    private final EntityManager entityManager = entityManagerFactory.createEntityManager();\r\n    public CitaDao() {\r\n\r\n    }\r\n    @Override\r\n    public Optional<Cita> get(int id) {\r\n\r\n        return Optional.ofNullable(entityManager.find(Cita.class, id));\r\n    }\r\n\r\n    @Override\r\n    public Optional<Cita> get(String email){\r\n\r\n        return null;\r\n\r\n    }\r\n\r\n    @Override\r\n    public List<Cita> getAll() {\r\n\r\n        List<Cita> allAppointments;\r\n        allAppointments = entityManager.createQuery(\"from Cita\", Cita.class).getResultList();\r\n        return allAppointments;\r\n\r\n    }\r\n    @Override\r\n    public List<Cita> getAll(int id) {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public void save(Cita cita) {\r\n        execute(entityManager -> entityManager.persist(cita));\r\n\r\n    }\r\n\r\n    @Override\r\n    public void update(Cita cita) {\r\n        execute(entityManager -> entityManager.merge(cita));\r\n\r\n    }\r\n\r\n    @Override\r\n    public void delete(Cita cita) {\r\n        execute(entityManager -> entityManager.remove(cita));\r\n    }\r\n\r\n    public Optional<Cita> getAllAppointments(int id_cliente) {\r\n        return Optional.ofNullable(entityManager.createQuery(\"select c from Cita c where c.id_cliente = :idc\", Cita.class)\r\n                .setParameter(\"idc\", id_cliente)\r\n                .getResultStream().findAny().orElse(null));\r\n    }\r\n    private void execute(Consumer<EntityManager> action) throws RuntimeException {\r\n        EntityTransaction tx = entityManager.getTransaction();\r\n        tx.begin();\r\n        action.accept(entityManager);\r\n        tx.commit();\r\n    }\r\n}\r\n\r\n
+===================================================================
+diff --git a/src/main/java/org/carworkshop/daos/CitaDao.java b/src/main/java/org/carworkshop/daos/CitaDao.java
+--- a/src/main/java/org/carworkshop/daos/CitaDao.java	
++++ b/src/main/java/org/carworkshop/daos/CitaDao.java	
+@@ -5,7 +5,6 @@
+ import jakarta.persistence.EntityTransaction;
+ import jakarta.persistence.Persistence;
+ import org.carworkshop.entities.Cita;
+-import org.carworkshop.entities.Cliente;
+ import org.carworkshop.interfaces.Dao;
+ 
+ import java.util.List;
+@@ -15,30 +14,28 @@
+ public class CitaDao implements Dao<Cita> {
+     private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.carworkshop");
+     private final EntityManager entityManager = entityManagerFactory.createEntityManager();
++
+     public CitaDao() {
+ 
+     }
+     @Override
+     public Optional<Cita> get(int id) {
+-
+         return Optional.ofNullable(entityManager.find(Cita.class, id));
+     }
+ 
+     @Override
+     public Optional<Cita> get(String email){
+-
+         return null;
+-
+     }
+ 
+     @Override
+     public List<Cita> getAll() {
+-
+         List<Cita> allAppointments;
+         allAppointments = entityManager.createQuery("from Cita", Cita.class).getResultList();
+         return allAppointments;
+ 
+     }
++
+     @Override
+     public List<Cita> getAll(int id) {
+         return null;
+@@ -61,11 +58,7 @@
+         execute(entityManager -> entityManager.remove(cita));
+     }
+ 
+-    public Optional<Cita> getAllAppointments(int id_cliente) {
+-        return Optional.ofNullable(entityManager.createQuery("select c from Cita c where c.id_cliente = :idc", Cita.class)
+-                .setParameter("idc", id_cliente)
+-                .getResultStream().findAny().orElse(null));
+-    }
++
+     private void execute(Consumer<EntityManager> action) throws RuntimeException {
+         EntityTransaction tx = entityManager.getTransaction();
+         tx.begin();

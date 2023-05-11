@@ -9,6 +9,10 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     <servlet>
+        <servlet-name>entradavehiculo</servlet-name>
+        <servlet-class>org.carworkshop.infraestructure.servlets.EntradaVehiculo</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>registro</servlet-name>
         <servlet-class>org.carworkshop.infraestructure.servlets.Registro</servlet-class>
     </servlet>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>registro</servlet-name>
         <url-pattern>/registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>entradavehiculo</servlet-name>
+        <url-pattern>/entradavehiculo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>nuevovehiculo</servlet-name>

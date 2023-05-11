@@ -1,6 +1,7 @@
-<%@include file="../patrials/header.jsp" %>
+<%@include file="../../patrials/header.jsp" %>
+<%@include file="../../patrials/header-nav.jsp" %>
 <div class="container">
-    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
+    <div class="my-5 d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
         <c:choose>
             <c:when test="${errorsRegistro.size() > 0}">
                 <div class="mt-3 mb-3 col-md-5">
@@ -29,19 +30,19 @@
                 <div class="mb-3">
                     <label><h5>Dirección</h5>
                     <div class="row mb-2">
-                        <div class="col-sm-9">
+                        <div class="col-sm-6">
                             <label for="address_street" class="form-label">Calle</label>
                             <input type="text" name="address_street" class="form-control" id="address_street">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <label for="address_street" class="form-label">Nº</label>
                             <input type="text" name="address_number" class="form-control" id="address_number">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <label for="address_floor" class="form-label">Piso</label>
                             <input type="text" name="address_floor" class="form-control" id="address_floor">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <label for="address_block" class="form-label">Bloque</label>
                             <input type="text" name="address_block" class="form-control" id="address_block">
                         </div>
@@ -80,4 +81,4 @@
         </div>
     </div>
 </div>
-<%@include file="../patrials/footer.jsp" %>
+<%@include file="../../patrials/footer.jsp" %>

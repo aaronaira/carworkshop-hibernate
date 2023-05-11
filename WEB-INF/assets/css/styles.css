@@ -52,12 +52,12 @@
         padding: 15px 0;
         background-color: var(--blue-chill-bg);
         display: flex;
+    }
 
     .footer_container {
         display: flex;
     }
 
-    }
     footer ul {
         display: flex;
         flex-direction: column;

@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="Created abstract class Persona and mofified ClienteDao.">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bcb78df009e5a787af61f77ea14cc88a979509bd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bcb78df009e5a787af61f77ea14cc88a979509bd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="updated styles and more things">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/EntradaVehiculo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/JPASupport-project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/Enums/ErroresLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/enums/ErroresLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/Enums/ErroresRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/enums/ErroresRegistro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/assets/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/pages/client/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/pages/client/panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/pages/client/registro.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,16 +78,17 @@
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zenlaboratory/Proyectos/carworkshop-hibernate&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aaron/Desktop/Aaron/carworkshop-hibernate-----&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\WEB-INF\pages\client" />
       <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\java\org\carworkshop\daos" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -103,17 +114,15 @@
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
       <option name="contextPath" value="/" />
-      <option name="docBase" value="$PROJECT_DIR$" />
-      <option name="extraClassPath" value="" />
+      <option name="docBase" value="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----" />
       <option name="tomcatInfo">
         <TomcatInfo>
-          <option name="name" value="Apache Tomcat/9.0.74" />
-          <option name="path" value="$USER_HOME$/Descargas/apache-tomcat-9.0.74" />
-          <option name="version" value="9.0.74.0" />
+          <option name="name" value="Apache Tomcat/9.0.73" />
+          <option name="path" value="$USER_HOME$/Downloads/apache-tomcat-9.0.73" />
+          <option name="version" value="9.0.73.0" />
         </TomcatInfo>
       </option>
       <option name="vmOptions" value="" />
-      <module name="carworkshop-hibernate" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,7 +151,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680712049504</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated styles and more things">
+      <created>1683642909761</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683642909761</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated styles and more things">
+      <created>1683643625158</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683643625158</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -163,7 +186,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modified db.sql file (DB MySQL). Changed Foreign Keys to update/delete on cascade on demand." />
     <MESSAGE value="Created abstract class Persona and mofified ClienteDao." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created abstract class Persona and mofified ClienteDao." />
+    <MESSAGE value="updated styles and more things" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated styles and more things" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

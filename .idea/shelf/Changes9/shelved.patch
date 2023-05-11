@@ -1,0 +1,91 @@
+Index: src/main/resources/assets/css/styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/assets/css/styles.css b/src/main/resources/assets/css/styles.css
+new file mode 100644
+--- /dev/null	(date 1683122239767)
++++ b/src/main/resources/assets/css/styles.css	(date 1683122239767)
+@@ -0,0 +1,80 @@
++* {
++        padding: 0;
++        margin: 0;
++        box-sizing: border-box;
++    }
++    :root {
++        --blue-chill-bg: #49A19A;
++        --blue-chill-dark: #265656
++    }
++    header a {
++        color: white;
++        text-decoration: none;
++        cursor: pointer;
++    }
++    a:hover {
++        color: var(--blue-chill-dark);
++    }
++    header {
++        color: white;
++        font-weight: bold;
++        background-color: var(--blue-chill-bg);
++    }
++    ul {
++        list-style: none;
++        display: flex;
++        justify-content: space-between;
++        margin: 0;
++        padding: 0;
++    }
++
++
++    .header_container {
++    display: flex;
++    align-items: center;
++    padding: 15px 0;
++    }
++
++    .header_logo {
++        display: flex;
++        flex-grow: 1;
++    }
++    .btn-custom {
++        color: #fff;
++        background-color: var(--blue-chill-bg);
++        border-color: var(--blue-chill-bg);
++    }
++    .btn-custom:hover {
++        color: var(--blue-chill-dark);
++    }
++    footer {
++        padding: 15px 0;
++        background-color: var(--blue-chill-bg);
++        display: flex;
++
++    .footer_container {
++        display: flex;
++    }
++
++    }
++    footer ul {
++        display: flex;
++        flex-direction: column;
++        list-style: none;
++    }
++    footer h5 {
++        color: #fff;
++        font-size: 1.1rem;
++    }
++    footer a {
++         text-decoration: none;
++         color: #fff;
++         font-size: 14px;
++    }
++    .socials ul {
++        flex-direction: row;
++    }
++    .socials ul svg {
++        width: 25px;
++        height: 25px;
++    }
+\ No newline at end of file

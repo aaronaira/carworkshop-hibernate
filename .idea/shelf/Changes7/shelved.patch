@@ -1,0 +1,287 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54_[Changes]1/shelved.patch	(revision 397593b4eeb7597e782e9e0bbc731278a8854e5a)
++++ /dev/null	(revision 397593b4eeb7597e782e9e0bbc731278a8854e5a)
+@@ -1,280 +0,0 @@
+-Index: src/main/java/org/carworkshop/daos/ClienteDao.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package org.carworkshop.daos;\r\n\r\n\r\nimport org.carworkshop.entities.Login;\r\nimport org.carworkshop.interfaces.Dao;\r\n\r\nimport jakarta.persistence.*;\r\nimport java.util.List;\r\nimport java.util.Objects;\r\nimport java.util.Optional;\r\nimport java.util.function.Consumer;\r\nimport org.carworkshop.entities.Cliente;\r\n\r\npublic class ClienteDao implements Dao<Cliente> {\r\n\r\n\r\n    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(\"org.carworkshop\");\r\n    private final EntityManager entityManager = entityManagerFactory.createEntityManager();\r\n\r\n    public ClienteDao() {\r\n\r\n    }\r\n\r\n\r\n    @Override\r\n    public Optional<Cliente> get(int id) {\r\n        return Optional.ofNullable(entityManager.find(Cliente.class, id));\r\n    }\r\n\r\n    @Override\r\n    public Optional<Cliente> get(String email){\r\n\r\n        return Optional.ofNullable(entityManager.createQuery(\"select c from Cliente c where c.email = :em\", Cliente.class)\r\n                        .setParameter(\"em\", email)\r\n                .getResultStream().findFirst().orElse(null));\r\n\r\n    }\r\n\r\n    @Override\r\n    public List<Cliente> getAll() {\r\n        List<Cliente> allUsers;\r\n        allUsers = entityManager.createQuery(\"from Cliente\", Cliente.class).getResultList();\r\n        return allUsers;\r\n\r\n    }\r\n\r\n    @Override\r\n    public List<Cliente> getAll(int id) {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public void save(Cliente cliente) {\r\n        execute(entityManager -> entityManager.persist(cliente));\r\n\r\n    }\r\n\r\n    @Override\r\n    public void update(Cliente cliente) {\r\n        execute(entityManager -> entityManager.merge(cliente));\r\n\r\n    }\r\n\r\n    @Override\r\n    public void delete(Cliente cliente) {\r\n        execute(entityManager -> entityManager.remove(cliente));\r\n    }\r\n\r\n    private void execute(Consumer<EntityManager> action) throws RuntimeException {\r\n        EntityTransaction tx = entityManager.getTransaction();\r\n        tx.begin();\r\n        action.accept(entityManager);\r\n        tx.commit();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/org/carworkshop/daos/ClienteDao.java b/src/main/java/org/carworkshop/daos/ClienteDao.java
+---- a/src/main/java/org/carworkshop/daos/ClienteDao.java	
+-+++ b/src/main/java/org/carworkshop/daos/ClienteDao.java	
+-@@ -66,10 +66,15 @@
+-         execute(entityManager -> entityManager.remove(cliente));
+-     }
+- 
+--    private void execute(Consumer<EntityManager> action) throws RuntimeException {
+-+    private void execute(Consumer<EntityManager> action) {
+-         EntityTransaction tx = entityManager.getTransaction();
+--        tx.begin();
+--        action.accept(entityManager);
+--        tx.commit();
+-+        try {
+-+            tx.begin();
+-+            action.accept(entityManager);
+-+            tx.commit();
+-+        } catch (RuntimeException e) {
+-+            tx.rollback();
+-+            throw  e;
+-+        }
+-     }
+- }
+-\ No newline at end of file
+-Index: src/main/java/org/carworkshop/entities/Cita.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/org/carworkshop/entities/Cita.java b/src/main/java/org/carworkshop/entities/Cita.java
+-new file mode 100644
+---- /dev/null	
+-+++ b/src/main/java/org/carworkshop/entities/Cita.java	
+-@@ -0,0 +1,81 @@
+-+package org.carworkshop.entities;
+-+
+-+import jakarta.persistence.*;
+-+import lombok.ToString;
+-+import org.hibernate.annotations.OnDelete;
+-+import org.hibernate.annotations.OnDeleteAction;
+-+
+-+import java.time.LocalDateTime;
+-+
+-+@ToString
+-+@Entity
+-+@Table(name = "cita", schema = "carworkshop", indexes = {
+-+        @Index(name = "id_cliente", columnList = "id_cliente"),
+-+        @Index(name = "id_diagnostico", columnList = "id_diagnostico"),
+-+        @Index(name = "id_vehiculo", columnList = "id_vehiculo")
+-+})
+-+public class Cita {
+-+    private Integer id;
+-+
+-+    private LocalDateTime fechaHora;
+-+
+-+    private Vehiculo idVehiculo;
+-+
+-+    private Cliente idCliente;
+-+
+-+    private String email;
+-+
+-+    private CabeceraDiagnostico idDiagnostico;
+-+
+-+    @Id
+-+    @Column(name = "id", nullable = false)
+-+    public Integer getId() {
+-+        return id;
+-+    }
+-+
+-+    public void setId(Integer id) {
+-+        this.id = id;
+-+    }
+-+
+-+    @Column(name = "fecha_hora", nullable = false)
+-+    public LocalDateTime getFechaHora() {
+-+        return fechaHora;
+-+    }
+-+
+-+    public void setFechaHora(LocalDateTime fechaHora) {
+-+        this.fechaHora = fechaHora;
+-+    }
+-+
+-+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+-+    @OnDelete(action = OnDeleteAction.CASCADE)
+-+    @JoinColumn(name = "id_vehiculo", nullable = false)
+-+    public Vehiculo getIdVehiculo() {
+-+        return idVehiculo;
+-+    }
+-+
+-+    public void setIdVehiculo(Vehiculo idVehiculo) {
+-+        this.idVehiculo = idVehiculo;
+-+    }
+-+
+-+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+-+    @OnDelete(action = OnDeleteAction.CASCADE)
+-+    @JoinColumn(name = "id_cliente", nullable = false)
+-+    public Cliente getIdCliente() {
+-+        return idCliente;
+-+    }
+-+
+-+    public void setIdCliente(Cliente idCliente) {
+-+        this.idCliente = idCliente;
+-+    }
+-+
+-+    @OneToMany(mappedBy = "cita", FetchType.LAZY)
+-+    @OnDelete(action = OnDeleteAction.CASCADE)
+-+    public CabeceraDiagnostico getIdDiagnostico(Integer id) {
+-+        return this.idDiagnostico;
+-+    }
+-+
+-+    public void setIdDiagnostico(CabeceraDiagnostico idDiagnostico) {
+-+        this.idDiagnostico = idDiagnostico;
+-+    }
+-+
+-+}
+-\ No newline at end of file
+-Index: src/main/java/org/carworkshop/daos/CabeceraDiagnosticoDao.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/org/carworkshop/daos/CabeceraDiagnosticoDao.java b/src/main/java/org/carworkshop/daos/CabeceraDiagnosticoDao.java
+-new file mode 100644
+---- /dev/null	
+-+++ b/src/main/java/org/carworkshop/daos/CabeceraDiagnosticoDao.java	
+-@@ -0,0 +1,81 @@
+-+package org.carworkshop.daos;
+-+
+-+import jakarta.persistence.EntityManager;
+-+import jakarta.persistence.EntityManagerFactory;
+-+import jakarta.persistence.EntityTransaction;
+-+import jakarta.persistence.Persistence;
+-+import org.carworkshop.entities.CabeceraDiagnostico;
+-+import org.carworkshop.interfaces.Dao;
+-+
+-+import java.util.List;
+-+import java.util.Optional;
+-+import java.util.function.Consumer;
+-+
+-+    public class CabeceraDiagnosticoDao implements Dao<CabeceraDiagnostico> {
+-+
+-+
+-+        private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("org.carworkshop");
+-+        private final EntityManager entityManager = entityManagerFactory.createEntityManager();
+-+
+-+        public CabeceraDiagnosticoDao() {
+-+
+-+        }
+-+
+-+
+-+        @Override
+-+        public Optional<CabeceraDiagnostico> get(int id) {
+-+            return Optional.ofNullable(entityManager.find(CabeceraDiagnostico.class, id));
+-+
+-+        }
+-+
+-+        @Override
+-+        public Optional<CabeceraDiagnostico> get(String email){
+-+
+-+            return null;
+-+
+-+        }
+-+
+-+        @Override
+-+        public List<CabeceraDiagnostico> getAll() {
+-+            List<CabeceraDiagnostico> allDiagnostics;
+-+            allDiagnostics =  entityManager.createQuery("from CabeceraDiagnostico c").getResultList();
+-+            return allDiagnostics;
+-+
+-+        }
+-+
+-+        @Override
+-+        public List<CabeceraDiagnostico> getAll(int id) {
+-+            return null;
+-+        }
+-+
+-+        @Override
+-+        public void save(CabeceraDiagnostico cabeceraDiagnostico) {
+-+            execute(entityManager -> entityManager.persist(cabeceraDiagnostico));
+-+
+-+        }
+-+
+-+
+-+        @Override
+-+        public void update(CabeceraDiagnostico cabeceraDiagnostico) {
+-+            execute(entityManager -> entityManager.merge(cabeceraDiagnostico));
+-+
+-+        }
+-+
+-+        @Override
+-+        public void delete(CabeceraDiagnostico cabeceraDiagnostico) {
+-+            execute(entityManager -> entityManager.remove(cabeceraDiagnostico));
+-+        }
+-+
+-+        private void execute(Consumer<EntityManager> action) {
+-+            EntityTransaction tx = entityManager.getTransaction();
+-+            try {
+-+                tx.begin();
+-+                action.accept(entityManager);
+-+                tx.commit();
+-+            } catch (RuntimeException e) {
+-+                tx.rollback();
+-+                throw  e;
+-+            }
+-+        }
+-+    }
+-+
+-Index: src/main/java/org/carworkshop/entities/CabeceraDiagnostico.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/org/carworkshop/entities/CabeceraDiagnostico.java b/src/main/java/org/carworkshop/entities/CabeceraDiagnostico.java
+-new file mode 100644
+---- /dev/null	
+-+++ b/src/main/java/org/carworkshop/entities/CabeceraDiagnostico.java	
+-@@ -0,0 +1,55 @@
+-+package org.carworkshop.entities;
+-+
+-+import jakarta.persistence.*;
+-+import lombok.ToString;
+-+import org.hibernate.annotations.OnDelete;
+-+import org.hibernate.annotations.OnDeleteAction;
+-+
+-+import java.time.Instant;
+-+
+-+//@ToString
+-+@Entity
+-+@Table(name = "cabecera_diagnostico", schema = "carworkshop", indexes = {
+-+        @Index(name = "id_vehiculo", columnList = "id_vehiculo")
+-+})
+-+public class CabeceraDiagnostico {
+-+    private Integer id;
+-+
+-+    private Instant fechaHora;
+-+
+-+    private Vehiculo idVehiculo;
+-+
+-+    @ManyToOne
+-+    @JoinColumn (name = "id_diagnostico")
+-+
+-+    @Id
+-+    @Column(name = "id", nullable = false)
+-+    public Integer getId() {
+-+        return id;
+-+    }
+-+
+-+    public void setId(Integer id) {
+-+        this.id = id;
+-+    }
+-+
+-+    @Column(name = "fecha_hora", nullable = false)
+-+    public Instant getFechaHora() {
+-+        return fechaHora;
+-+    }
+-+
+-+    public void setFechaHora(Instant fechaHora) {
+-+        this.fechaHora = fechaHora;
+-+    }
+-+
+-+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+-+    @OnDelete(action = OnDeleteAction.CASCADE)
+-+    @JoinColumn(name = "id_vehiculo", nullable = false)
+-+    public Vehiculo getIdVehiculo() {
+-+        return idVehiculo;
+-+    }
+-+
+-+    public void setIdVehiculo(Vehiculo idVehiculo) {
+-+        this.idVehiculo = idVehiculo;
+-+    }
+-+
+-+}
+-\ No newline at end of file

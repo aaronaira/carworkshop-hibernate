@@ -1,4 +1,4 @@
-<%@include file="../patrials/header.jsp" %>
+<%@include file="../../patrials/header.jsp" %>
 <div class="container-fluid">
     <div class="row vh-100">
         <div class="col-sm-2 justify-content-center d-flex  vh-80 panel_menu">
@@ -25,4 +25,4 @@
         </div>
     </div>
 </div>
-<%@include file="../patrials/footer.jsp" %>
+<%@include file="../../patrials/footer.jsp" %>

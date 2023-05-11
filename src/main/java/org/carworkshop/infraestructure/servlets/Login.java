@@ -20,16 +20,12 @@ public class Login extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
         if(LoginController.checkIfUserIsLogged(request)) {
-            request.getRequestDispatcher("/WEB-INF/pages/panel.jsp")
+            request.getRequestDispatcher("/WEB-INF/pages/client/panel.jsp")
                     .forward(request, response);
         } else {
-            request.getRequestDispatcher("/WEB-INF/pages/login.jsp")
+            request.getRequestDispatcher("/WEB-INF/pages/client/login.jsp")
                     .forward(request, response);
-
         }
 
     }
@@ -49,14 +45,6 @@ public class Login extends HttpServlet {
             response.sendRedirect("/login");
         }
 
-//
-//        if(LoginController.checkIfUserIsLogged(request)) {
-//            request.getRequestDispatcher("/WEB-INF/pages/panel.jsp")
-//                    .forward(request, response);
-//        } else {
-//            request.getRequestDispatcher("/WEB-INF/pages/login.jsp")
-//                    .forward(request, response);
-//        }
 
     }
 

@@ -1,0 +1,98 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a0269ea1-b2fe-4c62-a359-23aacfa39685\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/ClienteDto.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Logout.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/JPASupport-project.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/JPASupport-project.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dbnavigator.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dbnavigator.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/jpa-buddy.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/jpa-buddy.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.jpb/jpb-settings.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.jpb/jpb-settings.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/WEB-INF/web.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/WEB-INF/web.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"com.haulmont.jpb.JpaEntity\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"isToolWindowVisible\" value=\"false\" />\r\n  </component>\r\n  <component name=\"LogFilters\">\r\n    <option name=\"FILTER_ERRORS\" value=\"false\" />\r\n    <option name=\"FILTER_WARNINGS\" value=\"false\" />\r\n    <option name=\"FILTER_INFO\" value=\"true\" />\r\n    <option name=\"FILTER_DEBUG\" value=\"true\" />\r\n    <option name=\"CUSTOM_FILTER\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"importingSettings\">\r\n      <MavenImportingSettings>\r\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\r\n      </MavenImportingSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N4O1LXju3vrY88G3OjwPCPdt7x\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aaron/Desktop/Aaron/carworkshop-hibernate-----&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Aaron\\Desktop\\Aaron\\carworkshop-hibernate-----\\src\\main\\java\\org\\carworkshop\\daos\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"org.carworkshop.infraestructure.servlets\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Unnamed\" type=\"com.poratu.idea.plugins.tomcat\" nameIsGenerated=\"true\">\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat Localhost Log\" />\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat Access Log\" />\r\n      <predefined_log_file id=\"Tomcat Catalina Log\" />\r\n      <predefined_log_file id=\"Tomcat Manager Log\" />\r\n      <predefined_log_file id=\"Tomcat Host Manager Log\" />\r\n      <option name=\"contextPath\" value=\"/\" />\r\n      <option name=\"docBase\" value=\"C:\\Users\\Aaron\\Desktop\\Aaron\\carworkshop-hibernate-----\" />\r\n      <option name=\"tomcatInfo\">\r\n        <TomcatInfo>\r\n          <option name=\"name\" value=\"Apache Tomcat/9.0.73\" />\r\n          <option name=\"path\" value=\"$USER_HOME$/Downloads/apache-tomcat-9.0.73\" />\r\n          <option name=\"version\" value=\"9.0.73.0\" />\r\n        </TomcatInfo>\r\n      </option>\r\n      <option name=\"vmOptions\" value=\"\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a0269ea1-b2fe-4c62-a359-23aacfa39685\" name=\"Changes\" comment=\"\" />\r\n      <created>1678919672515</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678919672515</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"UnknownFeatures\">\r\n    <option featureType=\"dependencySupport\" implementationName=\"java:com.google.protobuf:protobuf-java\" />\r\n    <option featureType=\"dependencySupport\" implementationName=\"java:jakarta.persistence:jakarta.persistence-api\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,29 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/ClienteDto.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Logout.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/JPASupport-project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="Implemented Login for clients and logout.">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.jpb/jpb-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/web.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cliente.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Login.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Sesion.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -40,6 +20,13 @@
+         <option value="Interface" />
+         <option value="Class" />
+       </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
+     </option>
+   </component>
+   <component name="JpbToolWindowState">
+@@ -121,11 +108,41 @@
+       <option name="presentableId" value="Default" />
+       <updated>1678919672515</updated>
+     </task>
++    <task id="LOCAL-00001" summary="Implemented Login for clients and logout.">
++      <created>1680633432902</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1680633432902</updated>
++    </task>
++    <task id="LOCAL-00002" summary="Implemented Login for clients and logout.">
++      <created>1680633473228</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1680633473228</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="UnknownFeatures">
+     <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
+     <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Implemented Login for clients and logout." />
++    <option name="LAST_COMMIT_MESSAGE" value="Implemented Login for clients and logout." />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />

@@ -67,6 +67,7 @@ public class LoginDao implements Dao<Login>  {
 
     private void execute(Consumer<EntityManager> action) {
         EntityTransaction tx = entityManager.getTransaction();
+
         try {
             tx.begin();
             action.accept(entityManager);

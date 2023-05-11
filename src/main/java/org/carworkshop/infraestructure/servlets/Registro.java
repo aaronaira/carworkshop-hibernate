@@ -1,5 +1,6 @@
 package org.carworkshop.infraestructure.servlets;
 
+import org.carworkshop.controllers.LoginController;
 import org.carworkshop.controllers.RegistroController;
 import org.carworkshop.dtos.ClienteDto;
 
@@ -43,10 +44,10 @@ public class Registro extends HttpServlet {
         PrintWriter out = response.getWriter();
 
 
-        if(request.getServletContext().getAttribute("cliente") instanceof ClienteDto) {
+        if(LoginController.checkIfUserIsLogged(request)) {
             response.sendRedirect("/panel");
         } else {
-            request.getRequestDispatcher("/WEB-INF/pages/registro.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/client/registro.jsp").forward(request, response);
         }
 
 
@@ -68,7 +69,7 @@ public class Registro extends HttpServlet {
             out.println("<h1>Proceder con el registro</h1>");
         } else {
             request.setAttribute("errorsRegistro", errorList);
-            request.getRequestDispatcher("/WEB-INF/pages/registro.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/client/registro.jsp").forward(request, response);
         }
 
 
