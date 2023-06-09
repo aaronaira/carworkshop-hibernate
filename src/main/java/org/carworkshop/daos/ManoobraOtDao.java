@@ -26,11 +26,7 @@ public class ManoobraOtDao implements Dao<ManoobraOt> {
     }
 
 
-    @Override
-    public Optional<ManoobraOt> get(String email) {
 
-        return null;
-    }
 
     @Override
     public List<ManoobraOt> getAll() {
@@ -39,10 +35,7 @@ public class ManoobraOtDao implements Dao<ManoobraOt> {
         return allManoobraOt;
     }
 
-    @Override
-    public List<ManoobraOt> getAll(int id) {
-        return null;
-    }
+
 
     @Override
     public void save(ManoobraOt manoobraOt) {

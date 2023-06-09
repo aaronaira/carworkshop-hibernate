@@ -7,11 +7,7 @@ public interface Dao<T> {
 
     Optional<T> get(int id);
 
-    Optional<T> get(String email) throws Exception;
-
     List<T> getAll();
-
-    List<T> getAll(int id);
 
     void save(T t);
 

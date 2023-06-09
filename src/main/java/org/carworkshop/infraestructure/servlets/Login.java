@@ -18,6 +18,7 @@ public class Login extends HttpServlet {
     public Login() throws IOException {
     }
 
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         if(LoginController.checkIfUserIsLogged(request)) {
@@ -30,6 +31,7 @@ public class Login extends HttpServlet {
 
     }
 
+    @Override
     @SneakyThrows
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");

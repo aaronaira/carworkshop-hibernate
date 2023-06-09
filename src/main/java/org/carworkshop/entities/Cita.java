@@ -3,6 +3,7 @@ package org.carworkshop.entities;
 import jakarta.persistence.*;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -16,7 +17,7 @@ public class Cita {
     private Integer id;
 
     @Column(name = "fecha_hora", nullable = false)
-    private Date fechaHora;
+    private LocalDateTime fechaHora;
 
     @OneToOne
     @JoinColumn(name = "id_vehiculo", nullable = false)
@@ -38,11 +39,11 @@ public class Cita {
         return id;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
     }
 
-    public Date getFechaHora() {
+    public LocalDateTime getFechaHora() {
         return fechaHora;
     }
 

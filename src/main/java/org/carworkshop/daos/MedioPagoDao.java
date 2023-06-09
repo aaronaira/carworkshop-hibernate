@@ -36,10 +36,6 @@ public class MedioPagoDao implements Dao<MedioPago> {
                 .getResultStream().findFirst().orElse(null));
     }
 
-    @Override
-    public Optional<MedioPago> get(String email) throws Exception {
-        return Optional.empty();
-    }
 
     @Override
     public List<MedioPago> getAll() {
@@ -50,11 +46,7 @@ public class MedioPagoDao implements Dao<MedioPago> {
         return allMedioPagos;
     }
 
-    @Override
-    public List<MedioPago> getAll(int id) {
 
-        return null;
-    }
 
     @Override
     public void save(MedioPago medioPago) {

@@ -28,11 +28,7 @@ public class PiezaDao implements Dao<Pieza> {
         return Optional.ofNullable(entityManager.find(Pieza.class, id));
     }
 
-    @Override
-    public Optional<Pieza> get(String email){
-        return null;
 
-    }
 
     @Override
     public List<Pieza> getAll() {
@@ -42,11 +38,6 @@ public class PiezaDao implements Dao<Pieza> {
 
     }
 
-    @Override
-    public List<Pieza> getAll(int id) {
-
-        return null;
-    }
 
     @Override
     public void save(Pieza pieza) {

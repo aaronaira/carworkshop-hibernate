@@ -1,5 +1,6 @@
 package org.carworkshop.infraestructure.servlets;
 
+import org.carworkshop.controllers.CitaController;
 import org.carworkshop.controllers.LoginController;
 import org.carworkshop.dtos.ClienteDto;
 
@@ -18,18 +19,12 @@ public class Panel extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if(LoginController.checkIfUserIsLogged(request)) {
-            ClienteDto clienteDto = (ClienteDto) request.getServletContext().getAttribute("cliente");
-            request.setAttribute("clienteDto", clienteDto);
 
             request.getRequestDispatcher("/WEB-INF/pages/client/panel.jsp")
                     .forward(request, response);
         } else {
             response.sendRedirect("/login");
         }
-
-
-
-
 
     }
 

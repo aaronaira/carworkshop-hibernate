@@ -3,6 +3,8 @@ package org.carworkshop.dtos;
 import org.carworkshop.classes.Persona;
 import org.carworkshop.entities.Login;
 
+import java.util.List;
+
 public class ClienteDto extends Persona {
 
     private Integer id;
@@ -11,15 +13,17 @@ public class ClienteDto extends Persona {
     private String dni;
     private String direccion;
     private Login login;
+    private List<VehiculoDto> vehiculos;
 
 
-    public ClienteDto(int id, String nombre, String apellidos, String dni, String direccion, Login login) {
+    public ClienteDto(int id, String nombre, String apellidos, String dni, String direccion, Login login, List<VehiculoDto> vehiculos) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.direccion = direccion;
         this.login = login;
+        this.vehiculos = vehiculos;
     }
 
     public Integer getId() {
@@ -72,4 +76,11 @@ public class ClienteDto extends Persona {
 
     public Login getLogin() {return login;}
 
+    public List<VehiculoDto> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void setVehiculos(List<VehiculoDto> vehiculos) {
+        this.vehiculos = vehiculos;
+    }
 }

@@ -99,7 +99,7 @@ public class NuevaCitaController{
         CitaDao citaDao = new CitaDao();
         List<Cita> AllCitas = citaDao.getAll();
 
-        AllCitas.forEach(cita -> getAllCitas.add(cita.getFechaHora().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().truncatedTo(ChronoUnit.MINUTES)));
+        AllCitas.forEach(cita -> getAllCitas.add(cita.getFechaHora().truncatedTo(ChronoUnit.MINUTES)));
     }
 
     private static List<LocalDateTime> generateDatesAndHours() {
@@ -132,13 +132,16 @@ public class NuevaCitaController{
 
 
         } else if (day.getDayOfMonth() == 1) {
-            return ("<li class='first-day' style = 'width : calc(14% * %dayofweek)'><a href=/panel/reservacita?fecha="
-                    + day +">"+ day.getDayOfMonth() + "</a></li>")
-                    .replace("%dayofweek", String.valueOf(day.getDayOfWeek().getValue()));
-
+            if (day.isBefore(LocalDate.now())) {
+                return ("<li class='first-day cross-day' style = 'width : calc(14% * %dayofweek)'>" + day.getDayOfMonth() + "</li>")
+                        .replace("%dayofweek", String.valueOf(day.getDayOfWeek().getValue()));
+            } else {
+                return ("<li class='first-day' style = 'width : calc(14% * %dayofweek)'><a href=/panel/reservacita?fecha="
+                        + day +">"+ day.getDayOfMonth() + "</a></li>")
+                        .replace("%dayofweek", String.valueOf(day.getDayOfWeek().getValue()));
+            }
         } else if (day.isBefore(LocalDate.now())) {
             return "<li class='cross-day'>" + day.getDayOfMonth() + "</li>";
-
         } else if (mapDaysHours.get(day).isEmpty()) {
             return "<li class='cross-day'>" + day.getDayOfMonth() + "</li>";
         }

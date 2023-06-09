@@ -20,9 +20,9 @@
             <c:otherwise>
                 <nav class="col-md-4 header_nav">
                     <ul>
-                        <li><a href="#">INICIO</a></li>
-                        <li><a href="#">LOGIN</a></li>
-                        <li><a href="#">REGISTRO</a></li>
+                        <li><a href="/">INICIO</a></li>
+                        <li><a href="/login">LOGIN</a></li>
+                        <li><a href="/registro">REGISTRO</a></li>
                     </ul>
                 </nav>
             </c:otherwise>

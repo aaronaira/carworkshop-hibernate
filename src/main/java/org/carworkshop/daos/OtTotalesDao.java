@@ -26,11 +26,6 @@ public class OtTotalesDao implements Dao<OtTotales> {
     }
 
 
-    @Override
-    public Optional<OtTotales> get(String email) {
-
-        return null;
-    }
 
     @Override
     public List<OtTotales> getAll() {
@@ -39,10 +34,6 @@ public class OtTotalesDao implements Dao<OtTotales> {
         return allOtTotales;
     }
 
-    @Override
-    public List<OtTotales> getAll(int id) {
-        return null;
-    }
 
     @Override
     public void save(OtTotales otTotales) {

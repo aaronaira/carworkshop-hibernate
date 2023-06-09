@@ -27,10 +27,7 @@ public class TarifaDao implements Dao<Tarifa> {
         return Optional.ofNullable(entityManager.find(Tarifa.class, id));
     }
 
-    @Override
-    public Optional<Tarifa> get(String string) throws Exception {
-        return null;
-    }
+
 
     @Override
     public List<Tarifa> getAll() {
@@ -40,10 +37,7 @@ public class TarifaDao implements Dao<Tarifa> {
         return allTarifas;
     }
 
-    @Override
-    public List<Tarifa> getAll(int id) {
-        return null;
-    }
+
 
     @Override
     public void save(Tarifa tarifa) {

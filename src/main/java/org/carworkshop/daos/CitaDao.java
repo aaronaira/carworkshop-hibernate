@@ -11,6 +11,7 @@ import org.carworkshop.interfaces.Dao;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class CitaDao implements Dao<Cita> {
 
@@ -27,11 +28,6 @@ public class CitaDao implements Dao<Cita> {
     }
 
 
-    @Override
-    public Optional<Cita> get(String email) {
-
-        return null;
-    }
 
     public Optional<Cita> get(Vehiculo idVehiculo) {
 
@@ -49,9 +45,10 @@ public class CitaDao implements Dao<Cita> {
         return allAppointments;
     }
 
-    @Override
-    public List<Cita> getAll(int id) {
-        return null;
+    public Optional<List<Cita>> getAll(int idCliente) {
+        return Optional.ofNullable(entityManager.createQuery("from Cita c where c.idCliente = " + idCliente, Cita.class)
+                .getResultList());
+
     }
 
     @Override

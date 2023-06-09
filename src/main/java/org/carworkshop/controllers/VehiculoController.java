@@ -3,11 +3,13 @@ package org.carworkshop.controllers;
 import org.carworkshop.daos.ClienteDao;
 import org.carworkshop.daos.VehiculoDao;
 import org.carworkshop.dtos.ClienteDto;
+import org.carworkshop.dtos.VehiculoDto;
 import org.carworkshop.entities.Cliente;
 import org.carworkshop.entities.Vehiculo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -57,8 +59,17 @@ public class VehiculoController {
         vehiculo.setModelo(carFields.get("modelo"));
         vehiculo.setVYear(Integer.valueOf(carFields.get("vyear")));
 
+
         vehiculoDao.save(vehiculo);
 
+    }
+
+    public static List<VehiculoDto> parseToVehiculoDto(List<Vehiculo> vehiculos) {
+
+        return vehiculos.stream().map(vehiculo ->
+                new VehiculoDto(vehiculo.getId(), vehiculo.getMatricula(), vehiculo.getMarca(),
+                        vehiculo.getModelo(), vehiculo.getVYear(), vehiculo.getCliente().getId(),
+                        vehiculo.getTipoVehiculo(), vehiculo.getBastidor())).toList();
     }
 
 }

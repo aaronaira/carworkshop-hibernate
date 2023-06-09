@@ -36,7 +36,7 @@ public class NuevaCita extends HttpServlet {
                             align-items: flex-end;
                         }
                          .cross-day {
-                               color: #eee;
+                               color: #b7b7b7;
                              text-decoration: line-through;
                          }
                     </style>

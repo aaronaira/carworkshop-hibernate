@@ -25,7 +25,7 @@ public class LoginDao implements Dao<Login>  {
     }
 
 
-    @Override
+
     public Optional<Login> get(String email) {
 
         return Optional.ofNullable(entityManager
@@ -43,10 +43,7 @@ public class LoginDao implements Dao<Login>  {
 
     }
 
-    @Override
-    public List<Login> getAll(int id) {
-        return null;
-    }
+
 
     @Override
     public void save(Login login) {

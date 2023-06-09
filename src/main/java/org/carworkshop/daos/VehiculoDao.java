@@ -28,7 +28,7 @@ public class VehiculoDao implements Dao<Vehiculo> {
         return Optional.ofNullable(entityManager.find(Vehiculo.class, id));
     }
 
-    @Override
+
     public Optional<Vehiculo> get(String email){
         return Optional.ofNullable(entityManager.createQuery("Select c from Vehiculo c where c.matricula = :email", Vehiculo.class)
                 .setParameter("email", email)
@@ -45,10 +45,6 @@ public class VehiculoDao implements Dao<Vehiculo> {
 
     }
 
-    @Override
-    public List<Vehiculo> getAll(int id) {
-        return null;
-    }
 
     @Override
     public void save(Vehiculo vehiculo) {

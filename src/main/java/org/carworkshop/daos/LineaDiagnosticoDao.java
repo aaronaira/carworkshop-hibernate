@@ -33,14 +33,7 @@ public class LineaDiagnosticoDao implements Dao<LineaDiagnostico> {
 
     return Optional.ofNullable(entityManager.find(LineaDiagnostico.class, ldpk));
 }
-    @Override
-    public Optional<LineaDiagnostico> get(String email){
 
-//        return Optional.ofNullable(entityManager.createQuery("select c from LineaDiagnostico c where c.email = :em", LineaDiagnostico.class)
-//                .setParameter("em", email)
-//                .getResultStream().findFirst().orElse(null));
-        return null;
-    }
 
     public Optional<LineaDiagnosticoPK> get(int id, int n_linea){
 
@@ -58,10 +51,6 @@ public class LineaDiagnosticoDao implements Dao<LineaDiagnostico> {
 
     }
 
-    @Override
-    public List<LineaDiagnostico> getAll(int id) {
-        return null;
-    }
 
     @Override
     public void save(LineaDiagnostico lineaDiagnostico) {

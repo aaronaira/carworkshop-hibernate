@@ -29,11 +29,6 @@ public class OtCabeceraDao implements Dao<OtCabecera> {
     }
 
 
-    @Override
-    public Optional<OtCabecera> get(String email) {
-
-        return null;
-    }
 
     @Override
     public List<OtCabecera> getAll() {
@@ -42,10 +37,6 @@ public class OtCabeceraDao implements Dao<OtCabecera> {
         return allOtCabeceras;
     }
 
-    @Override
-    public List<OtCabecera> getAll(int id) {
-        return null;
-    }
 
     @Override
     public void save(OtCabecera otCabecera) {

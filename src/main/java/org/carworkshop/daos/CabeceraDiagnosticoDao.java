@@ -28,7 +28,7 @@ public class CabeceraDiagnosticoDao implements Dao<CabeceraDiagnostico> {
         return Optional.ofNullable(entityManager.find(CabeceraDiagnostico.class, id));
     }
 
-    @Override
+
     public Optional<CabeceraDiagnostico> get(String email){
 
         return Optional.ofNullable(entityManager.createQuery("select c from cabecera_diagnostico c where c.email = :em", CabeceraDiagnostico.class)
@@ -45,10 +45,7 @@ public class CabeceraDiagnosticoDao implements Dao<CabeceraDiagnostico> {
 
     }
 
-    @Override
-    public List<CabeceraDiagnostico> getAll(int id) {
-        return null;
-    }
+
 
     @Override
     public void save(CabeceraDiagnostico cabeceraDiagnostico) {

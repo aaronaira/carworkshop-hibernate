@@ -30,10 +30,7 @@ public class SesionDao implements Dao<Sesion>{
                 .getResultStream().findFirst();                                                                   //dt_iniciosesion
     }
 
-    @Override
-    public Optional<Sesion> get(String email) {
-        return Optional.empty();
-    }
+
 
     @Override
     public List<Sesion> getAll() {
@@ -41,7 +38,7 @@ public class SesionDao implements Dao<Sesion>{
     }
 
 
-    @Override
+
     public List<Sesion> getAll(int id) {
         List<Sesion> allClients;
         allClients = entityManager.createQuery("from Sesion s where id_cliente = " + id, Sesion.class).getResultList();

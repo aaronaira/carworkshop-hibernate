@@ -86,9 +86,8 @@ public class ReservaCitaController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(fecha + " " + hora, formatter);
 
-        Date convertedDatetime = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
 
-        cita.setFechaHora(new Timestamp(convertedDatetime.getTime()));
+        cita.setFechaHora(dateTime);
         cita.setIdVehiculo(vehiculo);
         cita.setIdCliente(vehiculo.getCliente());
         cita.setIdDiagnostico(diagnostico);
@@ -125,7 +124,7 @@ public class ReservaCitaController {
         ClienteDao clienteDao = new ClienteDao();
 
         Optional<Cliente> cliente = clienteDao.get(clienteDto.getId());
-        List<VehiculoDto> allVehiculos = parseToVehiculoDto(cliente.get().getVehiculos());
+        List<VehiculoDto> allVehiculos = VehiculoController.parseToVehiculoDto(cliente.get().getVehiculos());
 
         return parseDataVehiculosToHtmlForm(allVehiculos);
     }
@@ -162,11 +161,4 @@ public class ReservaCitaController {
         }).collect(Collectors.joining());
     }
 
-    private static List<VehiculoDto> parseToVehiculoDto(List<Vehiculo> vehiculos) {
-
-        return vehiculos.stream().map(vehiculo ->
-                new VehiculoDto(vehiculo.getId(), vehiculo.getMatricula(), vehiculo.getMarca(),
-                        vehiculo.getModelo(), vehiculo.getVYear(), vehiculo.getCliente().getId(),
-                        vehiculo.getTipoVehiculo(), vehiculo.getBastidor())).toList();
-    }
 }

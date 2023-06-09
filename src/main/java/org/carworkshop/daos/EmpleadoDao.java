@@ -29,7 +29,7 @@ public class EmpleadoDao implements Dao<Empleado> {
         return Optional.ofNullable(entityManager.find(Empleado.class, id));
     }
 
-    @Override
+
     public Optional<Empleado> get(String email){
 
         return Optional.ofNullable(entityManager.createQuery("select c from Empleado c where c.email = :em", Empleado.class)
@@ -46,10 +46,6 @@ public class EmpleadoDao implements Dao<Empleado> {
 
     }
 
-    @Override
-    public List<Empleado> getAll(int id) {
-        return null;
-    }
 
     @Override
     public void save(Empleado empleado) {

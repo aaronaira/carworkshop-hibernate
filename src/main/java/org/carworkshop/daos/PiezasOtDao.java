@@ -25,10 +25,7 @@ public class PiezasOtDao implements Dao<PiezasOt> {
         return Optional.ofNullable(entityManager.find(PiezasOt.class, id));
     }
 
-    @Override
-    public Optional<PiezasOt> get(String email){
-        return null;
-    }
+
 
     @Override
     public List<PiezasOt> getAll() {
@@ -38,11 +35,8 @@ public class PiezasOtDao implements Dao<PiezasOt> {
 
     }
 
-    @Override
-    public List<PiezasOt> getAll(int id) {
 
-        return null;
-    }
+
 
     @Override
     public void save(PiezasOt piezasOt) {

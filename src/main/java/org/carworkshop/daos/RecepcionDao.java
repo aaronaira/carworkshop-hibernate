@@ -29,11 +29,7 @@ public class RecepcionDao implements Dao<Recepcion> {
     }
 
 
-    @Override
-    public Optional<Recepcion> get(String email) {
 
-        return null;
-    }
 
 
     @Override
@@ -44,10 +40,6 @@ public class RecepcionDao implements Dao<Recepcion> {
 
     }
 
-    @Override
-    public List<Recepcion> getAll(int id) {
-        return null;
-    }
 
 
     @Override

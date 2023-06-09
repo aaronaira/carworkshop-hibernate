@@ -15,6 +15,8 @@ public class Logout extends HttpServlet {
         if (LoginController.checkIfUserIsLogged(request)) {
             request.getServletContext().setAttribute("cliente", null);
             response.sendRedirect("/login");
+        } else {
+            response.sendRedirect("/panel");
         }
     }
 }

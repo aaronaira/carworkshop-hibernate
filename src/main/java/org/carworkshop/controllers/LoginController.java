@@ -1,5 +1,6 @@
 package org.carworkshop.controllers;
 
+import org.carworkshop.dtos.VehiculoDto;
 import org.carworkshop.enums.ErroresLogin;
 import org.carworkshop.daos.LoginDao;
 import org.carworkshop.dtos.ClienteDto;
@@ -8,6 +9,7 @@ import org.carworkshop.helpers.Hash;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,6 +47,7 @@ public class LoginController {
 
         if (login.isPresent()) {
             request.getServletContext().setAttribute("cliente", parseToClienteDto(login.get()));
+            CitaController.getAllCitas(request);
             return true;
         } else {
             request.getServletContext().setAttribute("cliente", ErroresLogin.EMAIL_NOT_FOUND.getErrorMessage());
@@ -63,7 +66,7 @@ public class LoginController {
                 login.getCliente().getApellidos(),
                 login.getCliente().getDni(),
                 login.getCliente().getDireccion(),
-                login);
+                login, VehiculoController.parseToVehiculoDto(login.getCliente().getVehiculos()));
     }
 
 }

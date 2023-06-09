@@ -5,25 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0269ea1-b2fe-4c62-a359-23aacfa39685" name="Changes" comment="updated styles and more things">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/EntradaVehiculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JPASupport-project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_19_54__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_17_03__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/CitaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/CitaDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/mappers/CitaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/mappers/VehiculoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/assets/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/client/panel.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_05_2023_16_17_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_05_2023_16_17__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB-INF/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/assets/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/pages/client/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/pages/client/panel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/pages/client/registro.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/RegistroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/assets/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/client/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/client/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/client/panel.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/pages/client/registro.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/client/registro.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/patrials/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/patrials/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/patrials/header-nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/patrials/header-nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/patrials/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/patrials/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/classes/Calendario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/NuevaCitaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/NuevaCitaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/ReservaCitaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/ReservaCitaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/VehiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/controllers/VehiculoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/CabeceraDiagnosticoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/CabeceraDiagnosticoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/CitaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/CitaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ClienteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/EmpleadoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/EmpleadoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LineaDiagnosticoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LineaDiagnosticoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/LoginDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ManoobraOtDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/ManoobraOtDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/MedioPagoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/MedioPagoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/OtCabeceraDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/OtCabeceraDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/OtTotalesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/OtTotalesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/PiezaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/PiezaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/PiezasOtDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/PiezasOtDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/RecepcionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/RecepcionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/SesionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/TarifaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/TarifaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/VehiculoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/daos/VehiculoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/ClienteDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/ClienteDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/VehiculoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/dtos/VehiculoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/entities/Cita.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Logout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Logout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/NuevaCita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/NuevaCita.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/infraestructure/servlets/Registro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carworkshop/interfaces/Dao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,16 +109,25 @@
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aaron/Desktop/Aaron/carworkshop-hibernate-----&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aaron/Desktop/Aaron/carworkshop-hibernate-----/src/main/webapp&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\webapp" />
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----" />
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\assets\images" />
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\WEB-INF\assets\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\webapp" />
+      <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\resources\assets" />
       <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\WEB-INF\pages\client" />
       <recent name="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\java\org\carworkshop\daos" />
     </key>
@@ -113,8 +153,8 @@
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="contextPath" value="/" />
-      <option name="docBase" value="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----" />
+      <option name="contextPath" value="" />
+      <option name="docBase" value="C:\Users\Aaron\Desktop\Aaron\carworkshop-hibernate-----\src\main\webapp" />
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/9.0.73" />

@@ -28,7 +28,7 @@ public class ClienteDao implements Dao<Cliente> {
         return Optional.ofNullable(entityManager.find(Cliente.class, id));
     }
 
-    @Override
+
     public Optional<Cliente> get(String email){
 
         return Optional.ofNullable(entityManager.createQuery("select c from Cliente c where c.email = :em", Cliente.class)
@@ -45,10 +45,7 @@ public class ClienteDao implements Dao<Cliente> {
 
     }
 
-    @Override
-    public List<Cliente> getAll(int id) {
-        return null;
-    }
+
 
     @Override
     public void save(Cliente cliente) {
